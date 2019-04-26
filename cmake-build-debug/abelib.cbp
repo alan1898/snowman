@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="abelib"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/alan/graduation_design/abelib/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/alan/graduation_design/abelib/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="abelib">
+				<Option output="/home/alan/graduation_design/abelib/cmake-build-debug/libabelib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alan/graduation_design/abelib/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 abelib"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="abelib/fast">
+				<Option output="/home/alan/graduation_design/abelib/cmake-build-debug/libabelib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alan/graduation_design/abelib/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 abelib/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/alan/graduation_design/abelib/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/alan/graduation_design/abelib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/alan/graduation_design/abelib/abe.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/basis.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/curves/curve_param.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/curves/curve_param.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/binary_tree.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/binary_tree.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/data_structure.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/element_t_matrix.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/element_t_matrix.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/element_t_vector.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/element_t_vector.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/multiway_tree.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/multiway_tree.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/num_vector.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/num_vector.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/engineering_application_interface/decryptor.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/engineering_application_interface/decryptor.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/engineering_application_interface/encryptor.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/engineering_application_interface/encryptor.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/engineering_application_interface/engineering_application_interface.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/engineering_application_interface/kgc.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/engineering_application_interface/kgc.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/extend_math_operation/extend_math_operation.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/extend_math_operation/extend_math_operation.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/library.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/library.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/main.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/message_serialization/element_bytes.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/message_serialization/element_bytes.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/message_serialization/format_string_bytes.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/message_serialization/format_string_bytes.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/message_serialization/message_serialization.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/message_serialization/message_serialization.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/policy_generation/policy_generation.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/policy_generation/policy_generation.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/policy_resolution/policy_resolution.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/policy_resolution/policy_resolution.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Ciphertext.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Ciphertext.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Key.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Key.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/abe_ciphertext.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/abe_ciphertext.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/abe_key.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/abe_key.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/sar_kgc.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/sar_kgc.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/sar_tree.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/sar_tree.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/scheme_structure.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/BSW07.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/BSW07.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/CLASSIC_ABE.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/CLASSIC_ABE.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/RW13.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/RW13.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/SAR.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/SAR.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/SR01.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/SR01.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/SR02.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/SR02.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/schemes.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/utils/utils.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/utils/utils.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
