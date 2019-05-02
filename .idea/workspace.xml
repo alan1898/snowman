@@ -13,9 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d4feccd8-971e-40d6-afba-4a15fd88543b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abe_binary_object/main" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abe_binary_object/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abe_binary_object/multiway_tree.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/multiway_tree.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_structure/multiway_tree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure/multiway_tree.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libabe.a" beforeDir="false" afterPath="$PROJECT_DIR$/libabe.a" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +26,17 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data_structure/multiway_tree.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="91" selection-start-line="91" selection-end-line="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,7 +44,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/data_structure/data_structure.h" />
         <option value="$PROJECT_DIR$/extend_math_operation/extend_math_operation.cpp" />
         <option value="$PROJECT_DIR$/policy_resolution/policy_resolution.h" />
         <option value="$PROJECT_DIR$/basis.h" />
@@ -85,10 +94,11 @@
         <option value="$PROJECT_DIR$/abe.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/schemes/RW13.h" />
+        <option value="$PROJECT_DIR$/data_structure/multiway_tree.cpp" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="121" />
     <option name="y" value="95" />
     <option name="width" value="1213" />
@@ -106,6 +116,16 @@
             <path>
               <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
               <item name="abelib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="abelib" type="462c0819:PsiDirectoryNode" />
+              <item name="abe_binary_object" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="abelib" type="462c0819:PsiDirectoryNode" />
+              <item name="data_structure" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -150,18 +170,19 @@
       <updated>1556245804431</updated>
       <workItem from="1556245806332" duration="8805000" />
       <workItem from="1556264006767" duration="202000" />
-      <workItem from="1556286963049" duration="350000" />
+      <workItem from="1556286963049" duration="884000" />
+      <workItem from="1556790531568" duration="1385000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9357000" />
+    <option name="totallyTimeSpent" value="11276000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2556724" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2589928" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -186,16 +207,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/extend_math_operation/extend_math_operation.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="100" selection-start-line="13" selection-start-column="100" selection-end-line="13" selection-end-column="100" />
-          <folding>
-            <element signature="e#117#138#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/extend_math_operation/extend_math_operation.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -581,10 +592,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
+    <entry file="file://$PROJECT_DIR$/main.cpp" />
+    <entry file="file://$PROJECT_DIR$/data_structure/multiway_tree.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+        <state relative-caret-position="226">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
         </state>
       </provider>
     </entry>

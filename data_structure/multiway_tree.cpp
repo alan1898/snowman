@@ -121,8 +121,10 @@ void multiway_tree::levelTraversal() {
             }
         }
         if (q.front() == last) {
-            cout << endl;
+            cout << "|" << endl;
             last = nlast;
+        } else if (q.front()->getNextSibling() == NULL){
+            cout << "| ";
         } else {
             cout << "  ";
         }
