@@ -4,6 +4,30 @@
 
 #include "utils.h"
 
+element_s* utils::stringToElementT(string str, string group, pairing_t *pairing) {
+    element_t *res = new element_t[1];
+    if (group == "G1") {
+        element_init_G1(*res, *pairing);
+    } else if (group == "G2") {
+        element_init_G2(*res, *pairing);
+    } else if (group == "GT") {
+        element_init_GT(*res, *pairing);
+    } else if (group == "ZR") {
+        element_init_Zr(*res, *pairing);
+    } else {
+        return NULL;
+    }
+
+    unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, str.c_str(), str.size());
+    SHA256_Final(hash_str_byte, &sha256);
+    element_from_hash(*res, hash_str_byte, SHA256_DIGEST_LENGTH);
+
+    return *res;
+}
+
 map<signed long int, signed long int>* utils::attributesMatching(vector<string> *attributes,
                                                                  map<signed long int, string> *rho) {
     map<signed long int, signed long int> *res = new map<signed long int, signed long int>;

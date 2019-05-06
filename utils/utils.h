@@ -11,6 +11,8 @@
 
 class utils {
 public:
+    element_s* stringToElementT(string str, string group, pairing_t *pairing);
+
     map<signed long int, signed long int>* attributesMatching(vector<string> *attributes, map<signed long int, string> *rho);
 
     element_t_matrix* getAttributesMatrix(element_t_matrix *M, map<signed long int, signed long int> *rho);
