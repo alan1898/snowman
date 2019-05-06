@@ -147,6 +147,26 @@ void SR02::pubKG(abe_key *public_key, abe_key *master_key, string user_id, abe_k
     selected_node->setUserId(user_id);
     kgc->insertIdToUserTreeNode(user_id, selected_node);
 
+    // compute F1_Ai
+    Key attribute_key;
+    for (signed long int i = 0; i < attributes->size(); ++i) {
+        // compute Ai
+        element_t Ai;
+        element_init_Zr(Ai, pairing);
+        unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
+        SHA256_CTX sha256;
+        SHA256_Init(&sha256);
+        SHA256_Update(&sha256, (*attributes)[i].c_str(), (*attributes)[i].size());
+        SHA256_Final(hash_str_byte, &sha256);
+        element_from_hash(Ai, hash_str_byte, SHA256_DIGEST_LENGTH);
+        // compute F1_Ai
+        element_t F1_Ai;
+        element_init_G1(F1_Ai, pairing);
+        element_F(F1_Ai, u, h, Ai);
+        // store
+        attribute_key.insertComponent((*attributes)[i], "G1", F1_Ai);
+    }
+
     // compute Px1, Px2, Px3 and Px4
     sar_tree_node *p = selected_node;
     while ((NULL != p) && (!(p->isRevoked()))) {
@@ -203,19 +223,10 @@ void SR02::pubKG(abe_key *public_key, abe_key *master_key, string user_id, abe_k
             element_init_Zr(rxi, pairing);
             element_random(rxi);
 
-            // compute Ai
-            element_t Ai;
-            element_init_Zr(Ai, pairing);
-            unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
-            SHA256_CTX sha256;
-            SHA256_Init(&sha256);
-            SHA256_Update(&sha256, (*attributes)[i].c_str(), (*attributes)[i].size());
-            SHA256_Final(hash_str_byte, &sha256);
-            element_from_hash(Ai, hash_str_byte, SHA256_DIGEST_LENGTH);
-            // compute F1_Ai
+            // get F1_Ai
             element_t F1_Ai;
             element_init_G1(F1_Ai, pairing);
-            element_F(F1_Ai, u, h, Ai);
+            element_set(F1_Ai, attribute_key.getComponent(attributes->at(i), "G1"));
             // compute F1_Ai_rxi
             element_t F1_Ai_rxi;
             element_init_G1(F1_Ai_rxi, pairing);
