@@ -239,6 +239,7 @@ Key* BSW07::delegate(Key *public_key, Key *secret_key, vector<string> *attribute
 Ciphertext* BSW07::encrypt(element_s *m, string policy, Key *public_key) {
     policy_resolution pr;
     policy_generation pg;
+    utils util;
 
     element_t sample_element;
     element_init_Zr(sample_element, pairing);
@@ -304,12 +305,7 @@ Ciphertext* BSW07::encrypt(element_s *m, string policy, Key *public_key) {
             // compute Hatty
             element_t Hatty;
             element_init_G1(Hatty, pairing);
-            unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
-            SHA256_CTX sha256;
-            SHA256_Init(&sha256);
-            SHA256_Update(&sha256, atty.c_str(), atty.size());
-            SHA256_Final(hash_str_byte, &sha256);
-            element_from_hash(Hatty, hash_str_byte, SHA256_DIGEST_LENGTH);
+            element_set(Hatty, util.stringToElementT(atty, "G1", &pairing));
 
             // compute Cy
             element_t Cy;

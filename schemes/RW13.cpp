@@ -150,6 +150,7 @@ Ciphertext* RW13::encrypt(element_s *m, string policy, Key *public_key) {
 
     policy_resolution pr;
     policy_generation pg;
+    utils util;
     vector<string>* postfix_expression = pr.infixToPostfix(policy);
     binary_tree* binary_tree_expression = pr.postfixToBinaryTree(postfix_expression, sample_element);
     pg.generatePolicyInMatrixForm(binary_tree_expression);
@@ -173,8 +174,6 @@ Ciphertext* RW13::encrypt(element_s *m, string policy, Key *public_key) {
     element_t s;
     element_init_Zr(s, pairing);
     element_random(s);
-//    cout << "secret is" << endl;
-//    element_printf("%B\n", s);
 
     // generate vector y
     element_t_vector *y = new element_t_vector(M->col(), sample_element);
@@ -186,8 +185,6 @@ Ciphertext* RW13::encrypt(element_s *m, string policy, Key *public_key) {
     // compute shares
     extend_math_operation emo;
     element_t_vector *shares = emo.multiply(M, y);
-//    cout << "shares are" << endl;
-//    shares->printVector();
 
     // compute C
     element_t e_gg_alpha;
@@ -219,12 +216,7 @@ Ciphertext* RW13::encrypt(element_s *m, string policy, Key *public_key) {
         element_init_Zr(rhotau, pairing);
         map<signed long int, string>::iterator it = rho->find(i);
         string attr = it->second;
-        unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
-        SHA256_CTX sha256;
-        SHA256_Init(&sha256);
-        SHA256_Update(&sha256, attr.c_str(), attr.size());
-        SHA256_Final(hash_str_byte, &sha256);
-        element_from_hash(rhotau, hash_str_byte, SHA256_DIGEST_LENGTH);
+        element_set(rhotau, util.stringToElementT(attr, "ZR", &pairing));
 
         // compute Ctau1, Ctau2, Ctau3
         element_t Ctau1, Ctau2, Ctau3;
@@ -276,34 +268,16 @@ element_s* RW13::decrypt(Ciphertext *ciphertext, Key *secret_key, vector<string>
     // compute wi
     utils util;
     map<signed long int, signed long int>* matchedAttributes = util.attributesMatching(attributes, rho);
-//    cout << "matched attributes is" << endl;
-//    map<signed long int, signed long int>::iterator iterator1;
-//    for (iterator1 = matchedAttributes->begin(); iterator1 != matchedAttributes->end(); ++iterator1) {
-//        cout << "key: " << iterator1->first << ", value: " << iterator1->second << endl;
-//    }
     element_t_matrix* attributesMatrix = util.getAttributesMatrix(M, matchedAttributes);
-//    cout << "attributes matrix is" << endl;
-//    attributesMatrix->printMatrix();
     map<signed long int, signed long int>* x_to_attributes = util.xToAttributes(M, matchedAttributes);
-//    cout << "x to attributes is" << endl;
-//    map<signed long int, signed long int>::iterator iterator2;
-//    for (iterator2 = x_to_attributes->begin(); iterator2 != x_to_attributes->end(); ++iterator2) {
-//        cout << "key: " << iterator2->first << ", value: " << iterator2->second << endl;
-//    }
     element_t_matrix* inverse_M = util.inverse(attributesMatrix);
-//    cout << "inverse attributes matrix is" << endl;
-//    inverse_M->printMatrix();
     element_t_vector* unit = util.getCoordinateAxisUnitVector(inverse_M);
-//    cout << "unit vector is" << endl;
-//    unit->printVector();
     element_t_vector* x= new element_t_vector(inverse_M->col(), inverse_M->getElement(0, 0));
     extend_math_operation emo;
     signed long int type = emo.gaussElimination(x, inverse_M, unit);
     if (-1 == type) {
         return NULL;
     }
-//    cout << "wi vector is" << endl;
-//    x->printVector();
 
     element_t denominator;
     element_init_GT(denominator, pairing);
@@ -349,8 +323,6 @@ element_s* RW13::decrypt(Ciphertext *ciphertext, Key *secret_key, vector<string>
         map<signed long int, signed long int>::iterator itt = x_to_attributes->find(attribute_index);
         signed long int x_index = itt->second;
         element_pow_zn(factor_denominator, e_e_e, x->getElement(x_index));
-//        cout << "attribute is " << secret_key->getAttribute(it->second) << endl;
-//        element_printf("wi is %B\n", x->getElement(x_index));
 
         if (it == matchedAttributes->begin()) {
             element_set(denominator, factor_denominator);

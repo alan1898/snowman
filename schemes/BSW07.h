@@ -9,6 +9,7 @@
 #include "../data_structure/data_structure.h"
 #include "../scheme_structure/scheme_structure.h"
 #include "../curves/curve_param.h"
+#include "../utils/utils.h"
 #include "CLASSIC_ABE.h"
 
 class BSW07 : public CLASSIC_ABE {

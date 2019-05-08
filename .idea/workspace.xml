@@ -13,8 +13,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d4feccd8-971e-40d6-afba-4a15fd88543b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abe_binary_object/BSW07.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/BSW07.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abe_binary_object/RW13.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/RW13.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libabe.a" beforeDir="false" afterPath="$PROJECT_DIR$/libabe.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemes/BSW07.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/BSW07.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemes/BSW07.h" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/BSW07.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemes/RW13.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/RW13.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,67 +30,25 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/schemes/SR02.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
-              <folding>
-                <element signature="e#83#104#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/schemes/SR02.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3390">
-              <caret line="226" column="12" selection-start-line="226" selection-start-column="12" selection-end-line="228" selection-end-column="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scheme_structure/Key.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scheme_structure/Key.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/schemes/SAR.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/utils.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
-              <folding>
-                <element signature="e#85#106#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/schemes/BSW07.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="408" column="26" selection-start-line="408" selection-start-column="26" selection-end-line="408" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/schemes/BSW07.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/utils.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
@@ -98,13 +60,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/schemes/RW13.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="370" column="38" lean-forward="true" selection-start-line="370" selection-start-column="4" selection-end-line="370" selection-end-column="38" />
+            <state relative-caret-position="1411">
+              <caret line="324" column="74" selection-start-line="324" selection-start-column="74" selection-end-line="324" selection-end-column="74" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>element_from_hash</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -133,9 +100,6 @@
         <option value="$PROJECT_DIR$/scheme_structure/scheme_structure.h" />
         <option value="$PROJECT_DIR$/schemes/CLASSIC_ABE.h" />
         <option value="$PROJECT_DIR$/schemes/CLASSIC_ABE.cpp" />
-        <option value="$PROJECT_DIR$/schemes/RW13.cpp" />
-        <option value="$PROJECT_DIR$/schemes/BSW07.h" />
-        <option value="$PROJECT_DIR$/schemes/BSW07.cpp" />
         <option value="$PROJECT_DIR$/schemes/SAR.h" />
         <option value="$PROJECT_DIR$/schemes/SR01.h" />
         <option value="$PROJECT_DIR$/schemes/SR01.cpp" />
@@ -163,6 +127,9 @@
         <option value="$PROJECT_DIR$/schemes/SAR.cpp" />
         <option value="$PROJECT_DIR$/utils/utils.h" />
         <option value="$PROJECT_DIR$/utils/utils.cpp" />
+        <option value="$PROJECT_DIR$/schemes/BSW07.h" />
+        <option value="$PROJECT_DIR$/schemes/BSW07.cpp" />
+        <option value="$PROJECT_DIR$/schemes/RW13.cpp" />
       </list>
     </option>
   </component>
@@ -178,7 +145,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -205,11 +171,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SAR_test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -248,18 +215,20 @@
       <workItem from="1556790531568" duration="1385000" />
       <workItem from="1556938174407" duration="2966000" />
       <workItem from="1557111191995" duration="222000" />
-      <workItem from="1557112965694" duration="522000" />
+      <workItem from="1557112965694" duration="983000" />
+      <workItem from="1557239790930" duration="625000" />
+      <workItem from="1557309070127" duration="1930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14986000" />
+    <option name="totallyTimeSpent" value="18002000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26895407" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27559492" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -432,23 +401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/BSW07.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="2" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
-          <folding>
-            <element signature="e#85#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/BSW07.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="474" column="19" lean-forward="true" selection-start-line="474" selection-start-column="19" selection-end-line="474" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/schemes/SR01.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -615,44 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/SR02.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
-          <folding>
-            <element signature="e#83#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/SR02.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3390">
-          <caret line="226" column="12" selection-start-line="226" selection-start-column="12" selection-end-line="228" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scheme_structure/Key.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scheme_structure/Key.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/SAR.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/utils.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -663,10 +577,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/RW13.cpp">
+    <entry file="file://$PROJECT_DIR$/schemes/SAR.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="370" column="38" lean-forward="true" selection-start-line="370" selection-start-column="4" selection-end-line="370" selection-end-column="38" />
+        <state relative-caret-position="450">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scheme_structure/Key.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scheme_structure/Key.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="871">
+          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/SR02.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="871">
+          <caret line="226" column="12" selection-start-line="226" selection-start-column="12" selection-end-line="228" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/SR02.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
+          <folding>
+            <element signature="e#83#104#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -674,6 +619,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/BSW07.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/RW13.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="324" column="74" selection-start-line="324" selection-start-column="74" selection-end-line="324" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/BSW07.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="408" column="26" selection-start-line="408" selection-start-column="26" selection-end-line="408" selection-end-column="26" />
         </state>
       </provider>
     </entry>
