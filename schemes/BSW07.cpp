@@ -452,6 +452,9 @@ element_s* BSW07::decrypt(Ciphertext *ciphertext, Key *secret_key, vector<string
 //    element_mul(rs, r, s);
 //    element_pow_zn(A_, e_gg, rs);
 //    element_printf("A_ is \n%B\n", A_);
+    if (A == NULL) {
+        return NULL;
+    }
 
     // get C_tilde
     element_t C_tilde;

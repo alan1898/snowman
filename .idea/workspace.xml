@@ -13,10 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4feccd8-971e-40d6-afba-4a15fd88543b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abe_binary_object/policy_generation.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/policy_generation.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libabe.a" beforeDir="false" afterPath="$PROJECT_DIR$/libabe.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/policy_generation/policy_generation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/policy_generation/policy_generation.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/policy_generation/policy_generation.h" beforeDir="false" afterPath="$PROJECT_DIR$/policy_generation/policy_generation.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemes/BSW07.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/BSW07.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +25,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/policy_generation/policy_generation.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="826">
-              <caret line="315" column="15" selection-start-line="315" selection-start-column="15" selection-end-line="315" selection-end-column="15" />
+            <state relative-caret-position="496">
+              <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/schemes/BSW07.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="455" column="20" selection-start-line="455" selection-start-column="20" selection-end-line="455" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -40,7 +46,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scheme_structure/Key.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
+            <state relative-caret-position="960">
               <caret line="64" column="46" selection-start-line="62" selection-start-column="4" selection-end-line="64" selection-end-column="46" />
             </state>
           </provider>
@@ -61,7 +67,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_structure/multiway_tree.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
+            <state relative-caret-position="885">
               <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
             </state>
           </provider>
@@ -70,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_structure/multiway_tree.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
+            <state relative-caret-position="1650">
               <caret line="110" column="17" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="17" />
             </state>
           </provider>
@@ -136,10 +142,10 @@
         <option value="$PROJECT_DIR$/utils/utils.h" />
         <option value="$PROJECT_DIR$/utils/utils.cpp" />
         <option value="$PROJECT_DIR$/schemes/BSW07.h" />
-        <option value="$PROJECT_DIR$/schemes/BSW07.cpp" />
         <option value="$PROJECT_DIR$/schemes/RW13.cpp" />
         <option value="$PROJECT_DIR$/policy_generation/policy_generation.h" />
         <option value="$PROJECT_DIR$/policy_generation/policy_generation.cpp" />
+        <option value="$PROJECT_DIR$/schemes/BSW07.cpp" />
       </list>
     </option>
   </component>
@@ -155,7 +161,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,10 +188,16 @@
               <item name="abelib" type="462c0819:PsiDirectoryNode" />
               <item name="scheme_structure" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="abelib" type="462c0819:PsiDirectoryNode" />
+              <item name="schemes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -233,19 +244,20 @@
       <workItem from="1557112965694" duration="983000" />
       <workItem from="1557239790930" duration="625000" />
       <workItem from="1557309070127" duration="1930000" />
+      <workItem from="1557484831646" duration="4098000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20627000" />
+    <option name="totallyTimeSpent" value="24728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2888766" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29219702" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -258,6 +270,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" />
+      <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -613,17 +626,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/BSW07.cpp">
+    <entry file="file://$PROJECT_DIR$/policy_generation/policy_generation.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="408" column="26" selection-start-line="408" selection-start-column="26" selection-end-line="408" selection-end-column="26" />
+        <state relative-caret-position="496">
+          <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_structure/multiway_tree.h">
+    <entry file="file://$PROJECT_DIR$/scheme_structure/Key.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+        <state relative-caret-position="960">
+          <caret line="64" column="46" selection-start-line="62" selection-start-column="4" selection-end-line="64" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -637,24 +650,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data_structure/multiway_tree.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data_structure/multiway_tree.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
+        <state relative-caret-position="1650">
           <caret line="110" column="17" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scheme_structure/Key.cpp">
+    <entry file="file://$PROJECT_DIR$/schemes/BSW07.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="64" column="46" selection-start-line="62" selection-start-column="4" selection-end-line="64" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/policy_generation/policy_generation.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="826">
-          <caret line="315" column="15" selection-start-line="315" selection-start-column="15" selection-end-line="315" selection-end-column="15" />
+        <state relative-caret-position="496">
+          <caret line="455" column="20" selection-start-line="455" selection-start-column="20" selection-end-line="455" selection-end-column="20" />
         </state>
       </provider>
     </entry>
