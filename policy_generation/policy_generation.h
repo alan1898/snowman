@@ -25,6 +25,7 @@ public:
     element_t_vector* getPolicyInBinaryTreeFormFromTree(binary_tree *tree);
 
     void generatePolicyInMultiwayTreeForm(multiway_tree *tree, element_s *root_secret);
+    map<string, element_s*>* getSharesFromTree(multiway_tree *tree);
 };
 
 

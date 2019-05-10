@@ -288,3 +288,30 @@ void policy_generation::generatePolicyInMultiwayTreeForm(multiway_tree *tree, el
         q.pop();
     }
 }
+
+map<string, element_s*>* policy_generation::getSharesFromTree(multiway_tree *tree) {
+    map<string, element_s*> *res = new map<string, element_s*>();
+
+    queue<multiway_tree_node*> q;
+
+    q.push(tree->getRoot());
+
+    while (!q.empty()) {
+        if (q.front()->getType() == multiway_tree_node::LEAF) {
+            element_t *insert_component = new element_t[1];
+            element_init_same_as(*insert_component, q.front()->getValue());
+            element_set(*insert_component, q.front()->getValue());
+            res->insert(pair<string, element_s*>(q.front()->getName(), *insert_component));
+        }
+        if (q.front()->getFirstChild() != NULL) {
+            multiway_tree_node* child = q.front()->getFirstChild();
+            while (NULL != child) {
+                q.push(child);
+                child = child->getNextSibling();
+            }
+        }
+        q.pop();
+    }
+
+    return res;
+}
