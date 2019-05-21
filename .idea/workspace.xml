@@ -13,7 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d4feccd8-971e-40d6-afba-4a15fd88543b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemes/BSW07.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/BSW07.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abe_binary_object/SAR.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/SAR.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libabe.a" beforeDir="false" afterPath="$PROJECT_DIR$/libabe.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemes/SAR.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/SAR.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,59 +27,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/policy_generation/policy_generation.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/schemes/BSW07.cpp">
+        <entry file="file://$PROJECT_DIR$/schemes/SAR.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="455" column="20" selection-start-line="455" selection-start-column="20" selection-end-line="455" selection-end-column="20" />
+            <state relative-caret-position="540">
+              <caret line="265" column="42" selection-start-line="265" selection-start-column="42" selection-end-line="265" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scheme_structure/Key.cpp">
+        <entry file="file://$PROJECT_DIR$/schemes/SR02.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="64" column="46" selection-start-line="62" selection-start-column="4" selection-end-line="64" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/policy_generation/policy_generation.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-              <folding>
-                <element signature="e#109#130#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_structure/multiway_tree.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_structure/multiway_tree.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
-              <caret line="110" column="17" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="17" />
+            <state relative-caret-position="1575">
+              <caret line="105" column="10" selection-start-line="105" selection-start-column="10" selection-end-line="105" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -138,7 +101,6 @@
         <option value="$PROJECT_DIR$/schemes/RW13.h" />
         <option value="$PROJECT_DIR$/data_structure/multiway_tree.cpp" />
         <option value="$PROJECT_DIR$/schemes/SR02.cpp" />
-        <option value="$PROJECT_DIR$/schemes/SAR.cpp" />
         <option value="$PROJECT_DIR$/utils/utils.h" />
         <option value="$PROJECT_DIR$/utils/utils.cpp" />
         <option value="$PROJECT_DIR$/schemes/BSW07.h" />
@@ -146,6 +108,7 @@
         <option value="$PROJECT_DIR$/policy_generation/policy_generation.h" />
         <option value="$PROJECT_DIR$/policy_generation/policy_generation.cpp" />
         <option value="$PROJECT_DIR$/schemes/BSW07.cpp" />
+        <option value="$PROJECT_DIR$/schemes/SAR.cpp" />
       </list>
     </option>
   </component>
@@ -161,6 +124,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,38 +135,17 @@
             <path>
               <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
               <item name="abelib" type="462c0819:PsiDirectoryNode" />
-              <item name="data_structure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="abelib" type="462c0819:PsiDirectoryNode" />
-              <item name="engineering_application_interface" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="abelib" type="462c0819:PsiDirectoryNode" />
-              <item name="policy_generation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="abelib" type="462c0819:PsiDirectoryNode" />
-              <item name="scheme_structure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="abelib" type="462c0819:PsiDirectoryNode" />
               <item name="schemes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test/sr" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -244,18 +187,26 @@
       <workItem from="1557112965694" duration="983000" />
       <workItem from="1557239790930" duration="625000" />
       <workItem from="1557309070127" duration="1930000" />
-      <workItem from="1557484831646" duration="4098000" />
+      <workItem from="1557484831646" duration="6515000" />
+      <workItem from="1557549161165" duration="146000" />
+      <workItem from="1557551852926" duration="529000" />
+      <workItem from="1557563249931" duration="2036000" />
+      <workItem from="1557576926118" duration="1204000" />
+      <workItem from="1557583383053" duration="169000" />
+      <workItem from="1557590076565" duration="75000" />
+      <workItem from="1557763285649" duration="319000" />
+      <workItem from="1558428138758" duration="1020000" />
+      <workItem from="1558429458647" duration="686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24728000" />
+    <option name="totallyTimeSpent" value="33329000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29219702" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3270614" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -574,24 +525,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/SAR.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scheme_structure/Key.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/SR02.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="871">
-          <caret line="226" column="12" selection-start-line="226" selection-start-column="12" selection-end-line="228" selection-end-column="84" />
         </state>
       </provider>
     </entry>
@@ -626,6 +563,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/BSW07.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3646">
+          <caret line="455" column="20" selection-start-line="455" selection-start-column="20" selection-end-line="455" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/policy_generation/policy_generation.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="496">
@@ -635,8 +579,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scheme_structure/Key.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" column="46" selection-start-line="62" selection-start-column="4" selection-end-line="64" selection-end-column="46" />
+        <state relative-caret-position="211">
+          <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -652,22 +596,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data_structure/multiway_tree.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
+        <state relative-caret-position="736">
           <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data_structure/multiway_tree.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
+        <state relative-caret-position="481">
           <caret line="110" column="17" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/BSW07.cpp">
+    <entry file="file://$PROJECT_DIR$/schemes/SAR.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="455" column="20" selection-start-line="455" selection-start-column="20" selection-end-line="455" selection-end-column="20" />
+        <state relative-caret-position="540">
+          <caret line="265" column="42" selection-start-line="265" selection-start-column="42" selection-end-line="265" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/SR02.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="105" column="10" selection-start-line="105" selection-start-column="10" selection-end-line="105" selection-end-column="10" />
         </state>
       </provider>
     </entry>

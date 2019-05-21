@@ -245,26 +245,26 @@ void SAR::pubKG(abe_key *public_key, abe_key *master_key, string user_id, abe_ke
         selected_node_i->setUserId(user_id);
         selected_node->insertAttributeToNode((*attributes)[i], selected_node_i);
 
-        // randomly choose rxi
-        element_t rxi;
-        element_init_Zr(rxi, pairing);
-        element_random(rxi);
-
         // get F1_Ai
         element_t F1_Ai;
         element_init_G1(F1_Ai, pairing);
         element_set(F1_Ai, attribute_key.getComponent(attributes->at(i), "G1"));
 
-        element_t F1_Ai_rxi;
-        element_init_G1(F1_Ai_rxi, pairing);
-        element_pow_zn(F1_Ai_rxi, F1_Ai, rxi);
-        element_t g_rxi;
-        element_init_G1(g_rxi, pairing);
-        element_pow_zn(g_rxi, g, rxi);
-
         // compute Px3i, Px4i
         sar_tree_node *p_i = selected_node_i;
         while ((NULL != p_i) && (!(p_i->isRevoked()))) {
+            // randomly choose rxi
+            element_t rxi;
+            element_init_Zr(rxi, pairing);
+            element_random(rxi);
+
+            element_t F1_Ai_rxi;
+            element_init_G1(F1_Ai_rxi, pairing);
+            element_pow_zn(F1_Ai_rxi, F1_Ai, rxi);
+            element_t g_rxi;
+            element_init_G1(g_rxi, pairing);
+            element_pow_zn(g_rxi, g, rxi);
+
             // get muxi
             element_t muxi;
             element_init_G1(muxi, pairing);
