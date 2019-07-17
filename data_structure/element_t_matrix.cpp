@@ -125,3 +125,63 @@ void element_t_matrix::pushBack(element_t_vector *v) {
         value.push_back(vv);
     }
 }
+
+void element_t_matrix::pushBack(element_t_vector *v, signed long int insert_row) {
+    signed long int len = v->length();
+    if (0 == len) {
+        return;
+    }
+
+    element_s* sample_element = v->getElement(0);
+    signed long int r = row();
+
+    vector<element_s*> vv;
+
+    for (signed long int i = 0; i < len; ++i) {
+        element_t *initialization_element = new element_t[1];
+        element_init_same_as(*initialization_element, sample_element);
+        element_set(*initialization_element, v->getElement(i));
+        vv.push_back(*initialization_element);
+    }
+
+    if (0 == r) {
+        value.push_back(vv);
+        return;
+    }
+
+    signed long int c = col();
+
+    if (len == c) {
+        if (insert_row == r - 1) {
+            value.push_back(vv);
+        } else {
+            value.insert(value.begin() + insert_row + 1, vv);
+        }
+    } else if (len < c) {
+        for (signed long int i = 0; i < c - len; ++i) {
+            element_t *initialization_element = new element_t[1];
+            element_init_same_as(*initialization_element, sample_element);
+            element_set0(*initialization_element);
+            vv.push_back(*initialization_element);
+        }
+        if (insert_row == r - 1) {
+            value.push_back(vv);
+        } else {
+            value.insert(value.begin() + insert_row + 1, vv);
+        }
+    } else {
+        for (signed long int rr = 0; rr < r; ++rr) {
+            for (signed long int i = 0; i < len - c; ++i) {
+                element_t *initialization_element = new element_t[1];
+                element_init_same_as(*initialization_element, sample_element);
+                element_set0(*initialization_element);
+                value[rr].push_back(*initialization_element);
+            }
+        }
+        if (insert_row == r - 1) {
+            value.push_back(vv);
+        } else {
+            value.insert(value.begin() + insert_row + 1, vv);
+        }
+    }
+}

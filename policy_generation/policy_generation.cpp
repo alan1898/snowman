@@ -315,3 +315,114 @@ map<string, element_s*>* policy_generation::getSharesFromTree(multiway_tree *tre
 
     return res;
 }
+
+//element_t_matrix* policy_generation::generateLSSSMatrixFromThresholdExpression(string threshold_expression,
+//                                                                               element_s *sample_element) {
+//    element_t_matrix *res = new element_t_matrix(1, 1, sample_element);
+//    element_set1(res->getElement(0, 0));
+//    vector<string> L(1);
+//    L[1] = threshold_expression;
+//
+//    vector<string>::iterator iterator1;
+//    while (1) {
+//        for (iterator1 = L.begin(); iterator1 != L.end(); ++iterator1) {
+//            if ((*iterator1).at(0) == '(') {
+//                for (signed long int i = 1; i < (*iterator1).size() - 1; ++i) {
+//                    //
+//                }
+//                break;
+//            }
+//        }
+//        if (iterator1 == L.end()) {
+//            break;
+//        }
+//    }
+//    return res;
+//}
+
+element_t_matrix* policy_generation::generateLSSSMatrixFromMultiwayTree(multiway_tree *mt, element_s *sample_element) {
+    element_t_matrix *res = new element_t_matrix(1, 1, sample_element);
+    element_set1(res->getElement(0, 0));
+    vector<multiway_tree_node*> L(1);
+    L[0] = mt->getRoot();
+    signed long int pre_col = res->col();
+
+    signed long int i;
+    while (1) {
+        for (i = 0; i < L.size(); ++i) {
+            multiway_tree_node *split = L[i];
+            if (split->getType() == multiway_tree_node::GATE) {
+                signed long int threshold = split->getThreshold();
+                element_t_vector vv;
+                for (signed long int m = 0; m < res->col(); ++m) {
+                    element_t *initialization_element = new element_t[1];
+                    element_init_same_as(*initialization_element, sample_element);
+                    element_set(*initialization_element, res->getElement(i, m));
+                    vv.pushBack(*initialization_element);
+                }
+                for (signed long int m = 0; m < threshold - 1; ++m) {
+                    element_t *initialization_element = new element_t[1];
+                    element_init_same_as(*initialization_element, sample_element);
+                    element_set0(*initialization_element);
+                    vv.pushBack(*initialization_element);
+                }
+
+                L[i] = split->getFirstChild();
+                signed long int new_row = 0;
+                if (i == L.size() - 1) {
+                    multiway_tree_node *child = split->getFirstChild()->getNextSibling();
+                    while (child != NULL) {
+                        res->pushBack(&vv);
+                        ++new_row;
+
+                        multiway_tree_node **insert_child = new multiway_tree_node*[1];
+                        (*insert_child) = child;
+                        L.push_back(*insert_child);
+                        child = child->getNextSibling();
+                    }
+                } else {
+                    multiway_tree_node *child = split->getFirstChild()->getNextSibling();
+                    int j = 1;
+                    while (child != NULL) {
+                        res->pushBack(&vv, i);
+                        ++new_row;
+
+                        multiway_tree_node **insert_child = new multiway_tree_node*[1];
+                        (*insert_child) = child;
+                        L.insert(L.begin() + i + j, *insert_child);
+                        child = child->getNextSibling();
+                        ++j;
+                    }
+                }
+
+                for (signed long int n_c = 0; n_c < threshold - 1; ++n_c) {
+                    for (signed long int n_r = 0; n_r < new_row + 1; ++n_r) {
+                        element_t base;
+                        element_init_same_as(base, sample_element);
+                        element_set_si(base, n_r + 1);
+                        element_t pow;
+                        element_init_same_as(pow, sample_element);
+                        element_set_si(pow, n_c + 1);
+                        element_t base_pow;
+                        element_init_same_as(base_pow, sample_element);
+                        element_pow_zn(base_pow, base, pow);
+                        res->setElement(i + n_r, pre_col + n_c, base_pow);
+                    }
+                }
+                pre_col = res->col();
+
+                break;
+            }
+        }
+        if (i == L.size()) {
+            break;
+        }
+    }
+
+    for (signed long int m = 0; m < L.size(); ++m) {
+        cout << L[m]->getName() << " ";
+    }
+    cout << endl;
+
+    return res;
+}

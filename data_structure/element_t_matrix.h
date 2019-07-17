@@ -24,6 +24,7 @@ public:
     void setElement(signed long int r, signed long int c, element_s *elem);
 
     void pushBack(element_t_vector *v);
+    void pushBack(element_t_vector *v, signed long int r);
 };
 
 

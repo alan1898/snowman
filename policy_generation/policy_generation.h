@@ -26,6 +26,9 @@ public:
 
     void generatePolicyInMultiwayTreeForm(multiway_tree *tree, element_s *root_secret);
     map<string, element_s*>* getSharesFromTree(multiway_tree *tree);
+
+//    element_t_matrix* generateLSSSMatrixFromThresholdExpression(string threshold_expression, element_s *sample_element);
+    element_t_matrix* generateLSSSMatrixFromMultiwayTree(multiway_tree *mt, element_s *sample_element);
 };
 
 
