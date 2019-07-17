@@ -30,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/schemes/SAR.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="265" column="42" selection-start-line="265" selection-start-column="42" selection-end-line="265" selection-end-column="42" />
+            <state relative-caret-position="570">
+              <caret line="819" column="47" selection-start-line="819" selection-start-column="47" selection-end-line="819" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -197,16 +197,17 @@
       <workItem from="1557763285649" duration="319000" />
       <workItem from="1558428138758" duration="1020000" />
       <workItem from="1558429458647" duration="686000" />
+      <workItem from="1558504203320" duration="1852000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33329000" />
+    <option name="totallyTimeSpent" value="35181000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3270614" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33093524" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -610,8 +611,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/schemes/SAR.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="265" column="42" selection-start-line="265" selection-start-column="42" selection-end-line="265" selection-end-column="42" />
+        <state relative-caret-position="570">
+          <caret line="819" column="47" selection-start-line="819" selection-start-column="47" selection-end-line="819" selection-end-column="47" />
         </state>
       </provider>
     </entry>

@@ -809,17 +809,15 @@ abe_key* SAR::transform(abe_key *public_key, string user_id, vector<string> *att
         element_set(tk6i, tkid->getComponent("tk" + attr + "6i"));
 
         // compute pairings
-        element_t e_C2i_tk2, e_C3i_tk5i, e_C4i_tk4i, e_C6i_tk6i, e_C5_tk3;
+        element_t e_C2i_tk2, e_C3i_tk5i, e_C4i_tk4i, e_C6i_tk6i;
         element_init_GT(e_C2i_tk2, pairing);
         element_init_GT(e_C3i_tk5i, pairing);
         element_init_GT(e_C4i_tk4i, pairing);
         element_init_GT(e_C6i_tk6i, pairing);
-        element_init_GT(e_C5_tk3, pairing);
         element_pairing(e_C2i_tk2, C2i, tk2);
         element_pairing(e_C3i_tk5i, C3i, tk5i);
         element_pairing(e_C4i_tk4i, C4i, tk4i);
         element_pairing(e_C6i_tk6i, C6i, tk6i);
-        element_pairing(e_C5_tk3, C5, tk3);
 
         // compute molecular item
         element_t e_e, e_e_e, e_e_e_e, item_molecular;
