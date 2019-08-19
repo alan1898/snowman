@@ -28,7 +28,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/abelib.dir/engineering_application_interface/encryptor.cpp.o"
   "CMakeFiles/abelib.dir/engineering_application_interface/decryptor.cpp.o"
   "CMakeFiles/abelib.dir/engineering_application_interface/kgc.cpp.o"
-  "CMakeFiles/abelib.dir/main.cpp.o"
+  "CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.o"
+  "CMakeFiles/abelib.dir/scheme_structure/Text.cpp.o"
   "libabelib.pdb"
   "libabelib.a"
 )

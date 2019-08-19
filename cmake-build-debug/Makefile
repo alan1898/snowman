@@ -123,6 +123,33 @@ abelib/fast:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/build
 .PHONY : abelib/fast
 
+chameleon_hash/chamhash.o: chameleon_hash/chamhash.cpp.o
+
+.PHONY : chameleon_hash/chamhash.o
+
+# target to build an object file
+chameleon_hash/chamhash.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.o
+.PHONY : chameleon_hash/chamhash.cpp.o
+
+chameleon_hash/chamhash.i: chameleon_hash/chamhash.cpp.i
+
+.PHONY : chameleon_hash/chamhash.i
+
+# target to preprocess a source file
+chameleon_hash/chamhash.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.i
+.PHONY : chameleon_hash/chamhash.cpp.i
+
+chameleon_hash/chamhash.s: chameleon_hash/chamhash.cpp.s
+
+.PHONY : chameleon_hash/chamhash.s
+
+# target to generate assembly for a file
+chameleon_hash/chamhash.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.s
+.PHONY : chameleon_hash/chamhash.cpp.s
+
 curves/curve_param.o: curves/curve_param.cpp.o
 
 .PHONY : curves/curve_param.o
@@ -420,33 +447,6 @@ library.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/library.cpp.s
 .PHONY : library.cpp.s
 
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/main.cpp.s
-.PHONY : main.cpp.s
-
 message_serialization/element_bytes.o: message_serialization/element_bytes.cpp.o
 
 .PHONY : message_serialization/element_bytes.o
@@ -635,6 +635,33 @@ scheme_structure/Key.s: scheme_structure/Key.cpp.s
 scheme_structure/Key.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Key.cpp.s
 .PHONY : scheme_structure/Key.cpp.s
+
+scheme_structure/Text.o: scheme_structure/Text.cpp.o
+
+.PHONY : scheme_structure/Text.o
+
+# target to build an object file
+scheme_structure/Text.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Text.cpp.o
+.PHONY : scheme_structure/Text.cpp.o
+
+scheme_structure/Text.i: scheme_structure/Text.cpp.i
+
+.PHONY : scheme_structure/Text.i
+
+# target to preprocess a source file
+scheme_structure/Text.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Text.cpp.i
+.PHONY : scheme_structure/Text.cpp.i
+
+scheme_structure/Text.s: scheme_structure/Text.cpp.s
+
+.PHONY : scheme_structure/Text.s
+
+# target to generate assembly for a file
+scheme_structure/Text.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Text.cpp.s
+.PHONY : scheme_structure/Text.cpp.s
 
 scheme_structure/abe_ciphertext.o: scheme_structure/abe_ciphertext.cpp.o
 
@@ -942,6 +969,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... abelib"
 	@echo "... edit_cache"
+	@echo "... chameleon_hash/chamhash.o"
+	@echo "... chameleon_hash/chamhash.i"
+	@echo "... chameleon_hash/chamhash.s"
 	@echo "... curves/curve_param.o"
 	@echo "... curves/curve_param.i"
 	@echo "... curves/curve_param.s"
@@ -975,9 +1005,6 @@ help:
 	@echo "... library.o"
 	@echo "... library.i"
 	@echo "... library.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 	@echo "... message_serialization/element_bytes.o"
 	@echo "... message_serialization/element_bytes.i"
 	@echo "... message_serialization/element_bytes.s"
@@ -999,6 +1026,9 @@ help:
 	@echo "... scheme_structure/Key.o"
 	@echo "... scheme_structure/Key.i"
 	@echo "... scheme_structure/Key.s"
+	@echo "... scheme_structure/Text.o"
+	@echo "... scheme_structure/Text.i"
+	@echo "... scheme_structure/Text.s"
 	@echo "... scheme_structure/abe_ciphertext.o"
 	@echo "... scheme_structure/abe_ciphertext.i"
 	@echo "... scheme_structure/abe_ciphertext.s"

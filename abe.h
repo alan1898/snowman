@@ -16,5 +16,6 @@
 #include "schemes/schemes.h"
 #include "message_serialization/message_serialization.h"
 #include "engineering_application_interface/engineering_application_interface.h"
+#include "chameleon_hash/chamhash.h"
 
 #endif //ABELIB_ABE_H

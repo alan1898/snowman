@@ -90,6 +90,12 @@
 		<Unit filename="/home/alan/graduation_design/abelib/basis.h">
 			<Option target="abelib"/>
 		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/chameleon_hash/chamhash.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/chameleon_hash/chamhash.h">
+			<Option target="abelib"/>
+		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/curves/curve_param.cpp">
 			<Option target="abelib"/>
 		</Unit>
@@ -162,9 +168,6 @@
 		<Unit filename="/home/alan/graduation_design/abelib/library.h">
 			<Option target="abelib"/>
 		</Unit>
-		<Unit filename="/home/alan/graduation_design/abelib/main.cpp">
-			<Option target="abelib"/>
-		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/message_serialization/element_bytes.cpp">
 			<Option target="abelib"/>
 		</Unit>
@@ -205,6 +208,12 @@
 			<Option target="abelib"/>
 		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Key.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Text.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Text.h">
 			<Option target="abelib"/>
 		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/abe_ciphertext.cpp">
