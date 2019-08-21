@@ -243,6 +243,12 @@
 		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/scheme_structure.h">
 			<Option target="abelib"/>
 		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/BCET.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/BCET.h">
+			<Option target="abelib"/>
+		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/BSW07.cpp">
 			<Option target="abelib"/>
 		</Unit>

@@ -771,6 +771,33 @@ scheme_structure/sar_tree.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/sar_tree.cpp.s
 .PHONY : scheme_structure/sar_tree.cpp.s
 
+schemes/BCET.o: schemes/BCET.cpp.o
+
+.PHONY : schemes/BCET.o
+
+# target to build an object file
+schemes/BCET.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET.cpp.o
+.PHONY : schemes/BCET.cpp.o
+
+schemes/BCET.i: schemes/BCET.cpp.i
+
+.PHONY : schemes/BCET.i
+
+# target to preprocess a source file
+schemes/BCET.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET.cpp.i
+.PHONY : schemes/BCET.cpp.i
+
+schemes/BCET.s: schemes/BCET.cpp.s
+
+.PHONY : schemes/BCET.s
+
+# target to generate assembly for a file
+schemes/BCET.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET.cpp.s
+.PHONY : schemes/BCET.cpp.s
+
 schemes/BSW07.o: schemes/BSW07.cpp.o
 
 .PHONY : schemes/BSW07.o
@@ -1041,6 +1068,9 @@ help:
 	@echo "... scheme_structure/sar_tree.o"
 	@echo "... scheme_structure/sar_tree.i"
 	@echo "... scheme_structure/sar_tree.s"
+	@echo "... schemes/BCET.o"
+	@echo "... schemes/BCET.i"
+	@echo "... schemes/BCET.s"
 	@echo "... schemes/BSW07.o"
 	@echo "... schemes/BSW07.i"
 	@echo "... schemes/BSW07.s"
