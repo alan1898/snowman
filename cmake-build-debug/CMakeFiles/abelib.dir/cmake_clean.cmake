@@ -31,6 +31,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.o"
   "CMakeFiles/abelib.dir/scheme_structure/Text.cpp.o"
   "CMakeFiles/abelib.dir/schemes/BCET.cpp.o"
+  "CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.o"
+  "CMakeFiles/abelib.dir/schemes/HCET.cpp.o"
   "libabelib.pdb"
   "libabelib.a"
 )

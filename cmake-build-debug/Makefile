@@ -609,6 +609,33 @@ scheme_structure/Ciphertext.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext.cpp.s
 .PHONY : scheme_structure/Ciphertext.cpp.s
 
+scheme_structure/Ciphertext_CET.o: scheme_structure/Ciphertext_CET.cpp.o
+
+.PHONY : scheme_structure/Ciphertext_CET.o
+
+# target to build an object file
+scheme_structure/Ciphertext_CET.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.o
+.PHONY : scheme_structure/Ciphertext_CET.cpp.o
+
+scheme_structure/Ciphertext_CET.i: scheme_structure/Ciphertext_CET.cpp.i
+
+.PHONY : scheme_structure/Ciphertext_CET.i
+
+# target to preprocess a source file
+scheme_structure/Ciphertext_CET.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.i
+.PHONY : scheme_structure/Ciphertext_CET.cpp.i
+
+scheme_structure/Ciphertext_CET.s: scheme_structure/Ciphertext_CET.cpp.s
+
+.PHONY : scheme_structure/Ciphertext_CET.s
+
+# target to generate assembly for a file
+scheme_structure/Ciphertext_CET.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.s
+.PHONY : scheme_structure/Ciphertext_CET.cpp.s
+
 scheme_structure/Key.o: scheme_structure/Key.cpp.o
 
 .PHONY : scheme_structure/Key.o
@@ -852,6 +879,33 @@ schemes/CLASSIC_ABE.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/CLASSIC_ABE.cpp.s
 .PHONY : schemes/CLASSIC_ABE.cpp.s
 
+schemes/HCET.o: schemes/HCET.cpp.o
+
+.PHONY : schemes/HCET.o
+
+# target to build an object file
+schemes/HCET.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET.cpp.o
+.PHONY : schemes/HCET.cpp.o
+
+schemes/HCET.i: schemes/HCET.cpp.i
+
+.PHONY : schemes/HCET.i
+
+# target to preprocess a source file
+schemes/HCET.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET.cpp.i
+.PHONY : schemes/HCET.cpp.i
+
+schemes/HCET.s: schemes/HCET.cpp.s
+
+.PHONY : schemes/HCET.s
+
+# target to generate assembly for a file
+schemes/HCET.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET.cpp.s
+.PHONY : schemes/HCET.cpp.s
+
 schemes/RW13.o: schemes/RW13.cpp.o
 
 .PHONY : schemes/RW13.o
@@ -1050,6 +1104,9 @@ help:
 	@echo "... scheme_structure/Ciphertext.o"
 	@echo "... scheme_structure/Ciphertext.i"
 	@echo "... scheme_structure/Ciphertext.s"
+	@echo "... scheme_structure/Ciphertext_CET.o"
+	@echo "... scheme_structure/Ciphertext_CET.i"
+	@echo "... scheme_structure/Ciphertext_CET.s"
 	@echo "... scheme_structure/Key.o"
 	@echo "... scheme_structure/Key.i"
 	@echo "... scheme_structure/Key.s"
@@ -1077,6 +1134,9 @@ help:
 	@echo "... schemes/CLASSIC_ABE.o"
 	@echo "... schemes/CLASSIC_ABE.i"
 	@echo "... schemes/CLASSIC_ABE.s"
+	@echo "... schemes/HCET.o"
+	@echo "... schemes/HCET.i"
+	@echo "... schemes/HCET.s"
 	@echo "... schemes/RW13.o"
 	@echo "... schemes/RW13.i"
 	@echo "... schemes/RW13.s"

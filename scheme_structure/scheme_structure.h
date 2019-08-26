@@ -8,6 +8,7 @@
 #include "Key.h"
 #include "Ciphertext.h"
 #include "Text.h"
+#include "Ciphertext_CET.h"
 
 #include "abe_key.h"
 #include "abe_ciphertext.h"
