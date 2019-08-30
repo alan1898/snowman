@@ -23,7 +23,7 @@ public:
     vector<Key*>* setUp(signed long int q);
     Key* authKeyGen(Key *public_key, Key *master_key, element_t_vector *ID);
     Key* authDelegate(Key *public_key, Key *SKID, element_t_vector *ID);
-    Key* userKeyGen(Key *public_key, Key *SKID, vector<string> *attributes);
+    Key* userKeyGen(Key *public_key, Key *SKID, element_t_vector *ID, vector<string> *attributes);
     Key* trapdoor(Key *secret_key, vector<string> *attributes);
 };
 

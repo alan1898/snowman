@@ -472,3 +472,208 @@ Key* HCET::authDelegate(Key *public_key, Key *SKID, element_t_vector *ID) {
 
     return res;
 }
+
+Key* HCET::userKeyGen(Key *public_key, Key *SKID, element_t_vector *ID, vector<string> *attributes) {
+    Key *res = new Key();
+
+    // randomly choose rtilde, rtilde_
+    element_t rtilde, rtilde_;
+    element_init_Zr(rtilde, pairing);
+    element_init_Zr(rtilde_, pairing);
+    element_random(rtilde);
+    element_random(rtilde_);
+
+    // compute neg_rtilde, neg_rtilde_
+    element_t neg_rtilde, neg_rtilde_;
+    element_init_Zr(neg_rtilde, pairing);
+    element_init_Zr(neg_rtilde_, pairing);
+    element_neg(neg_rtilde, rtilde);
+    element_neg(neg_rtilde_, rtilde_);
+
+    // obtain public parameters
+    element_t g, u, h, w, v, g1, g1_, g2, g3;
+    element_init_same_as(g, public_key->getComponent("g"));
+    element_set(g, public_key->getComponent("g"));
+    element_init_same_as(u, public_key->getComponent("u"));
+    element_set(u, public_key->getComponent("u"));
+    element_init_same_as(h, public_key->getComponent("h"));
+    element_set(h, public_key->getComponent("h"));
+    element_init_same_as(w, public_key->getComponent("w"));
+    element_set(w, public_key->getComponent("w"));
+    element_init_same_as(v, public_key->getComponent("v"));
+    element_set(v, public_key->getComponent("v"));
+    element_init_same_as(g1, public_key->getComponent("g1"));
+    element_set(g1, public_key->getComponent("g1"));
+    element_init_same_as(g1_, public_key->getComponent("g1_"));
+    element_set(g1_, public_key->getComponent("g1_"));
+    element_init_same_as(g2, public_key->getComponent("g2"));
+    element_set(g2, public_key->getComponent("g2"));
+    element_init_same_as(g3, public_key->getComponent("g3"));
+    element_set(g3, public_key->getComponent("g3"));
+
+    // obtain K0bar, K0bar_, K1bar, K1bar_, R0bar, R0bar_
+    element_t K0bar, K0bar_, K1bar, K1bar_, R0bar, R0bar_;
+    element_init_G1(K0bar, pairing);
+    element_init_G1(K0bar_, pairing);
+    element_init_G1(K1bar, pairing);
+    element_init_G1(K1bar_, pairing);
+    element_init_G1(R0bar, pairing);
+    element_init_G1(R0bar_, pairing);
+    element_set(K0bar, SKID->getComponent("K0"));
+    element_set(K0bar_, SKID->getComponent("K0_"));
+    element_set(K1bar, SKID->getComponent("K1"));
+    element_set(K1bar_, SKID->getComponent("K1_"));
+    element_set(R0bar, SKID->getComponent("R0"));
+    element_set(R0bar_, SKID->getComponent("R0_"));
+
+    // compute h1^I1*...*hj^Ij
+    element_t hs_Is;
+    element_init_G1(hs_Is, pairing);
+    element_t h_I;
+    element_init_G1(h_I, pairing);
+    string str = "h";
+    char num[21];
+    for (signed long int i = 1; i <= ID->length(); ++i) {
+        sprintf(num, "%ld", i);
+        element_pow_zn(h_I, public_key->getComponent(str + num), ID->getElement(i - 1));
+
+        if (i == 1) {
+            element_set(hs_Is, h_I);
+        } else {
+            element_mul(hs_Is, hs_Is, h_I);
+        }
+    }
+
+    // compute h1^I1*...*hj^Ij*g3
+    element_t hs_Is_g3;
+    element_init_G1(hs_Is_g3, pairing);
+    element_mul(hs_Is_g3, hs_Is, g3);
+
+    // compute h1^I1*...*hj^Ij*g3*w
+    element_t hs_Is_g3_w;
+    element_init_G1(hs_Is_g3_w, pairing);
+    element_mul(hs_Is_g3_w, hs_Is_g3, w);
+
+    // compute (h1^I1*...*hj^Ij*g3*w)^rtilde
+    element_t hs_Is_g3_w_rtilde;
+    element_init_G1(hs_Is_g3_w_rtilde, pairing);
+    element_pow_zn(hs_Is_g3_w_rtilde, hs_Is_g3_w, rtilde);
+
+    // compute (h1^I1*...*hj^Ij*g3*w)^rtilde'
+    element_t hs_Is_g3_w_rtilde_;
+    element_init_G1(hs_Is_g3_w_rtilde_, pairing);
+    element_pow_zn(hs_Is_g3_w_rtilde_, hs_Is_g3_w, rtilde_);
+
+    // compute g^rtilde
+    element_t g_rtilde;
+    element_init_G1(g_rtilde, pairing);
+    element_pow_zn(g_rtilde, g, rtilde);
+
+    // compute g^rtilde'
+    element_t g_rtilde_;
+    element_init_G1(g_rtilde_, pairing);
+    element_pow_zn(g_rtilde_, g, rtilde_);
+
+    // compute K0
+    element_t K0;
+    element_init_G1(K0, pairing);
+    element_mul(K0, K0bar, hs_Is_g3_w_rtilde);
+    res->insertComponent("K0", "G1", K0);
+
+    // compute K0'
+    element_t K0_;
+    element_init_G1(K0_, pairing);
+    element_mul(K0_, K0bar_, hs_Is_g3_w_rtilde_);
+    res->insertComponent("K0_", "G1", K0_);
+
+    // compute K1
+    element_t K1;
+    element_init_G1(K1, pairing);
+    element_mul(K1, K1bar, g_rtilde);
+    res->insertComponent("K1", "G1", K1);
+
+    // compute K1'
+    element_t K1_;
+    element_init_G1(K1_, pairing);
+    element_mul(K1_, K1bar_, g_rtilde_);
+    res->insertComponent("K1_", "G1", K1_);
+
+    // compute v^(-rtilde)
+    element_t v_neg_rtilde;
+    element_init_G1(v_neg_rtilde, pairing);
+    element_pow_zn(v_neg_rtilde, v, neg_rtilde);
+
+    // compute v^(-rtilde')
+    element_t v_neg_rtilde_;
+    element_init_G1(v_neg_rtilde_, pairing);
+    element_pow_zn(v_neg_rtilde_, v, neg_rtilde_);
+
+    // compute R0bar*v^(-rtilde)
+    element_t R0bar_v_neg_rtilde;
+    element_init_G1(R0bar_v_neg_rtilde, pairing);
+    element_mul(R0bar_v_neg_rtilde, R0bar, v_neg_rtilde);
+
+    // compute R0bar'*v^(-rtilde')
+    element_t R0bar__v_neg_rtilde_;
+    element_init_G1(R0bar__v_neg_rtilde_, pairing);
+    element_mul(R0bar__v_neg_rtilde_, R0bar_, v_neg_rtilde_);
+
+    element_t rtau, rtau_;
+    element_init_Zr(rtau, pairing);
+    element_init_Zr(rtau_, pairing);
+    element_t Ktau2, Ktau3, Ktau2_, Ktau3_;
+    element_init_G1(Ktau2, pairing);
+    element_init_G1(Ktau3, pairing);
+    element_init_G1(Ktau2_, pairing);
+    element_init_G1(Ktau3_, pairing);
+    element_t Atau;
+    element_init_Zr(Atau, pairing);
+    element_t u_Atau, u_Atau_h, u_Atau_h_rtau, u_Atau_h_rtau_;
+    element_init_G1(u_Atau, pairing);
+    element_init_G1(u_Atau_h, pairing);
+    element_init_G1(u_Atau_h_rtau, pairing);
+    element_init_G1(u_Atau_h_rtau_, pairing);
+    for (signed long int i = 0; i < attributes->size(); ++i) {
+        // randomly choose rtau, rtau'
+        element_random(rtau);
+        element_random(rtau_);
+
+        // compute Ktau2
+        element_pow_zn(Ktau2, g, rtau);
+        res->insertComponent("K" + (*attributes)[i] + "2", "G1", Ktau2);
+
+        // compute Ktau2'
+        element_pow_zn(Ktau2_, g, rtau_);
+        res->insertComponent("K" + (*attributes)[i] + "2_", "G1", Ktau2_);
+
+        // compute Atau
+        unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
+        SHA256_CTX sha256;
+        SHA256_Init(&sha256);
+        SHA256_Update(&sha256, (*attributes)[i].c_str(), (*attributes)[i].size());
+        SHA256_Final(hash_str_byte, &sha256);
+        element_from_hash(Atau, hash_str_byte, SHA256_DIGEST_LENGTH);
+
+        // compute u^Atau
+        element_pow_zn(u_Atau, u, Atau);
+
+        // compute u^Atau*h
+        element_mul(u_Atau_h, u_Atau, h);
+
+        // compute (u^Atau*h)^rtau
+        element_pow_zn(u_Atau_h_rtau, u_Atau_h, rtau);
+
+        // compute (u^Atau*h)^rtau'
+        element_pow_zn(u_Atau_h_rtau_, u_Atau_h, rtau_);
+
+        // compute Ktau3
+        element_mul(Ktau3, u_Atau_h_rtau, R0bar_v_neg_rtilde);
+        res->insertComponent("K" + (*attributes)[i] + "3", "G1", Ktau3);
+
+        // compute Ktau3'
+        element_mul(Ktau3_, u_Atau_h_rtau_, R0bar__v_neg_rtilde_);
+        res->insertComponent("K" + (*attributes)[i] + "3_", "G1", Ktau3_);
+    }
+
+    return res;
+}
