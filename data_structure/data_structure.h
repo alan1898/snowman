@@ -10,5 +10,6 @@
 #include "num_vector.h"
 #include "binary_tree.h"
 #include "multiway_tree.h"
+#include "access_structure.h"
 
 #endif //ABELIB_DATA_STRUCTURE_H

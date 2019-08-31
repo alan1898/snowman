@@ -25,6 +25,7 @@ public:
     Key* authDelegate(Key *public_key, Key *SKID, element_t_vector *ID);
     Key* userKeyGen(Key *public_key, Key *SKID, element_t_vector *ID, vector<string> *attributes);
     Key* trapdoor(Key *secret_key, vector<string> *attributes);
+    Ciphertext_CET* encrypt(Key *public_key, vector<access_structure*> *A, element_s *m, Key *sp_ch, Key *pk_ch);
 };
 
 

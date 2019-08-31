@@ -6,7 +6,7 @@
 
 element_s* HCET::H1(element_s *e) {
     element_t *res = new element_t[1];
-    element_init_Zr(*res, pairing);
+    element_init_G1(*res, pairing);
 
     signed long int n = element_length_in_bytes(e);
     unsigned char *bytes = (unsigned char*)malloc(n);
@@ -673,6 +673,163 @@ Key* HCET::userKeyGen(Key *public_key, Key *SKID, element_t_vector *ID, vector<s
         // compute Ktau3'
         element_mul(Ktau3_, u_Atau_h_rtau_, R0bar__v_neg_rtilde_);
         res->insertComponent("K" + (*attributes)[i] + "3_", "G1", Ktau3_);
+    }
+
+    return res;
+}
+
+Key* HCET::trapdoor(Key *secret_key, vector<string> *attributes) {
+    Key *res = new Key();
+
+    // obtain K0
+    element_t K0;
+    element_init_same_as(K0, secret_key->getComponent("K0"));
+    element_set(K0, secret_key->getComponent("K0"));
+    res->insertComponent("T0", "G1", K0);
+
+    // obtain K1
+    element_t K1;
+    element_init_same_as(K1, secret_key->getComponent("K1"));
+    element_set(K1, secret_key->getComponent("K1"));
+    res->insertComponent("T1", "G1", K1);
+
+    // obtain Ktau2 and Ktau3  在这里有属性不完全匹配的问题
+    element_t Ktau2, Ktau3;
+    element_init_G1(Ktau2, pairing);
+    element_init_G1(Ktau3, pairing);
+    for (signed long int i = 0; i < attributes->size(); ++i) {
+        element_set(Ktau2, secret_key->getComponent("K" + (*attributes)[i] + "2"));
+        res->insertComponent("T" + (*attributes)[i] + "2", "G1", Ktau2);
+        element_set(Ktau3, secret_key->getComponent("K" + (*attributes)[i] + "3"));
+        res->insertComponent("T" + (*attributes)[i] + "3", "G1", Ktau3);
+    }
+
+    return res;
+}
+
+Ciphertext_CET* HCET::encrypt(Key *public_key, vector<access_structure*> *A, element_s *m, Key *sp_ch, Key *pk_ch) {
+    element_t zr_sample;
+    element_init_Zr(zr_sample, pairing);
+    element_t g1_sample, gt_sample;
+    element_init_G1(g1_sample, pairing);
+    element_init_GT(gt_sample, pairing);
+    signed long int n_zr = element_length_in_bytes(zr_sample);
+    signed long int n_g1 = element_length_in_bytes(g1_sample);
+    signed long int n_gt = element_length_in_bytes(gt_sample);
+    Ciphertext_CET *res = new Ciphertext_CET();
+
+    // obtain public parameters
+    element_t g, u, h, w, v, g1, g1_, g2, g3;
+    element_init_same_as(g, public_key->getComponent("g"));
+    element_set(g, public_key->getComponent("g"));
+    element_init_same_as(u, public_key->getComponent("u"));
+    element_set(u, public_key->getComponent("u"));
+    element_init_same_as(h, public_key->getComponent("h"));
+    element_set(h, public_key->getComponent("h"));
+    element_init_same_as(w, public_key->getComponent("w"));
+    element_set(w, public_key->getComponent("w"));
+    element_init_same_as(v, public_key->getComponent("v"));
+    element_set(v, public_key->getComponent("v"));
+    element_init_same_as(g1, public_key->getComponent("g1"));
+    element_set(g1, public_key->getComponent("g1"));
+    element_init_same_as(g1_, public_key->getComponent("g1_"));
+    element_set(g1_, public_key->getComponent("g1_"));
+    element_init_same_as(g2, public_key->getComponent("g2"));
+    element_set(g2, public_key->getComponent("g2"));
+    element_init_same_as(g3, public_key->getComponent("g3"));
+    element_set(g3, public_key->getComponent("g3"));
+
+    // randomly choose s, z
+    element_t s, z;
+    element_init_Zr(s, pairing);
+    element_init_Zr(z, pairing);
+    element_random(s);
+    element_random(z);
+
+    element_t sj;
+    element_init_Zr(sj, pairing);
+    element_t s_sj;
+    element_init_Zr(s_sj, pairing);
+
+    extend_math_operation emo;
+
+    // compute m^z
+    element_t m_z;
+    element_init_G1(m_z, pairing);
+    element_pow_zn(m_z, m, z);
+
+    // compute e(g1,g2)
+    element_t e_g1g2;
+    element_init_GT(e_g1g2, pairing);
+    element_pairing(e_g1g2, g1, g2);
+
+    // compute e(g1,g2)^s
+    element_t e_g1g2_s;
+    element_init_GT(e_g1g2_s, pairing);
+    element_pow_zn(e_g1g2_s, e_g1g2, s);
+
+    // compute H1(e(g1,g2)^s)
+    element_t H_1;
+    element_init_G1(H_1, pairing);
+    element_set(H_1, H1(e_g1g2_s));
+
+    // compute C=m^z*H1(e(g1,g2)^s)
+    element_t C;
+    element_init_G1(C, pairing);
+    element_mul(C, m_z, H_1);
+    res->insertComponent("C", "G1", C);
+
+    // compute C0=g^s
+    element_t C0;
+    element_init_G1(C0, pairing);
+    element_pow_zn(C0, g, s);
+    res->insertComponent("C0", "G1", C0);
+
+    // compute C0'=g^z
+    element_t C0_;
+    element_init_G1(C0_, pairing);
+    element_pow_zn(C0_, g, z);
+    res->insertComponent("C0_", "G1", C0_);
+
+    // compute e(g1',g2)
+    element_t e_g1_g2;
+    element_init_GT(e_g1_g2, pairing);
+    element_pairing(e_g1_g2, g1_, g2);
+
+    // compute e(g1',g2)^s
+    element_t e_g1_g2_s;
+    element_init_GT(e_g1_g2_s, pairing);
+    element_pow_zn(e_g1_g2_s, e_g1_g2, s);
+
+    // compute H2(e(g1',g2)^s)
+    unsigned char *H_2 = H2(e_g1_g2_s);
+
+    unsigned char *mz = (unsigned char*)malloc(n_g1 + n_zr + 1);
+    element_to_bytes(mz, m);
+    element_to_bytes(mz + n_g1, z);
+    mz[n_g1 + n_zr] = '\0';
+
+    // compute C*
+    res->Cstar = (unsigned char*)malloc(n_g1 + n_zr +1);
+    for (signed long int i = 0; i < n_g1 + n_zr; ++i) {
+        int Cvalue = (int)mz[i] ^ (int)H_2[i];
+        res->Cstar[i] = (unsigned char)Cvalue;
+    }
+
+    for (signed long int j = 0; j < A->size(); ++j) {
+        // randomly choose sj
+        element_random(sj);
+
+        // a random vector
+        element_t_vector *zj = new element_t_vector(A->at(j)->M->col(), zr_sample);
+        element_sub(s_sj, s, sj);
+        element_set(zj->getElement(0), s_sj);
+        for (signed long int k = 1; k < zj->length(); ++k) {
+            element_random(zj->getElement(k));
+        }
+
+        // compute shares
+        element_t_vector *lambda = emo.multiply(A->at(j)->M, zj);
     }
 
     return res;

@@ -177,6 +177,33 @@ curves/curve_param.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/curves/curve_param.cpp.s
 .PHONY : curves/curve_param.cpp.s
 
+data_structure/access_structure.o: data_structure/access_structure.cpp.o
+
+.PHONY : data_structure/access_structure.o
+
+# target to build an object file
+data_structure/access_structure.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/data_structure/access_structure.cpp.o
+.PHONY : data_structure/access_structure.cpp.o
+
+data_structure/access_structure.i: data_structure/access_structure.cpp.i
+
+.PHONY : data_structure/access_structure.i
+
+# target to preprocess a source file
+data_structure/access_structure.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/data_structure/access_structure.cpp.i
+.PHONY : data_structure/access_structure.cpp.i
+
+data_structure/access_structure.s: data_structure/access_structure.cpp.s
+
+.PHONY : data_structure/access_structure.s
+
+# target to generate assembly for a file
+data_structure/access_structure.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/data_structure/access_structure.cpp.s
+.PHONY : data_structure/access_structure.cpp.s
+
 data_structure/binary_tree.o: data_structure/binary_tree.cpp.o
 
 .PHONY : data_structure/binary_tree.o
@@ -1056,6 +1083,9 @@ help:
 	@echo "... curves/curve_param.o"
 	@echo "... curves/curve_param.i"
 	@echo "... curves/curve_param.s"
+	@echo "... data_structure/access_structure.o"
+	@echo "... data_structure/access_structure.i"
+	@echo "... data_structure/access_structure.s"
 	@echo "... data_structure/binary_tree.o"
 	@echo "... data_structure/binary_tree.i"
 	@echo "... data_structure/binary_tree.s"

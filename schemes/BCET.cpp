@@ -30,15 +30,15 @@ unsigned char* BCET::H2(element_s *e) {
     unsigned char *bytes = (unsigned char*)malloc(n);
     element_to_bytes(bytes, e);
 
-    unsigned char *hash_str_byte = (unsigned char*)malloc(SHA256_DIGEST_LENGTH + 8 + 1);
+    unsigned char *hash_str_byte = (unsigned char*)malloc(SHA256_DIGEST_LENGTH + 116 + 1);
     SHA256_CTX sha256;
     SHA256_Init(&sha256);
     SHA256_Update(&sha256, bytes, n);
     SHA256_Final(hash_str_byte, &sha256);
-    for (signed long int i = 0; i < 8; ++i) {
+    for (signed long int i = 0; i < 116; ++i) {
         hash_str_byte[SHA256_DIGEST_LENGTH + i] = '0';
     }
-    hash_str_byte[SHA256_DIGEST_LENGTH + 8] = '\0';
+    hash_str_byte[SHA256_DIGEST_LENGTH + 116] = '\0';
 
     return hash_str_byte;
 }
@@ -152,7 +152,7 @@ element_s* BCET::computeV(Ciphertext_CET *ct, Key *sp_ch, Key *pk_ch, element_s 
     element_init_Zr(zr, pairing);
     int n_1 = element_length_in_bytes(g1);
     int n_z = element_length_in_bytes(zr);
-    int n_total = n_1 + n_z + (2 * n_z) + n_1 + n_1 + n_1 + (M->row() * n_1);
+    int n_total = n_1 + n_z + n_1 + n_z + n_1 + n_1 + n_1 + (M->row() * n_1);
     unsigned char* str = (unsigned char*)malloc(n_total + 1);
     int str_index = 0;
 
@@ -165,7 +165,7 @@ element_s* BCET::computeV(Ciphertext_CET *ct, Key *sp_ch, Key *pk_ch, element_s 
     str_index += n_z;
 
     // add C*
-    for (signed long int i = 0; i < 2 * n_z; ++i) {
+    for (signed long int i = 0; i < n_1 + n_z; ++i) {
         str[str_index] = ct->Cstar[i];
         str_index++;
     }
@@ -548,7 +548,7 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, element_s *m, Key 
 
     // compute m^uu
     element_t m_uu;
-    element_init_Zr(m_uu, pairing);
+    element_init_G1(m_uu, pairing);
     element_pow_zn(m_uu, m, uu);
 
     // compute e(g,g)^(alpha*s)
@@ -559,14 +559,14 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, element_s *m, Key 
 
     // compute H1(e(g,g)^(alpha*s))
     element_t H_1;
-    element_init_Zr(H_1, pairing);
+    element_init_G1(H_1, pairing);
     element_set(H_1, H1(e_gg_alpha_s));
 
     // compute C
     element_t C;
-    element_init_Zr(C, pairing);
+    element_init_G1(C, pairing);
     element_mul(C, m_uu, H_1);
-    res->insertComponent("C", "ZR", C);
+    res->insertComponent("C", "G1", C);
 
     // compute C0=g^s
     element_t C0;
@@ -872,22 +872,25 @@ element_s* BCET::decrypt(Ciphertext_CET *ciphertext_cet, Key *secret_key, vector
     element_s *Xdelta = computeXdelte(ciphertext_cet, secret_key, attributes, "K", "");
     element_s *Xdelta_ = computeXdelte(ciphertext_cet, secret_key, attributes, "K", "_");
 
-    element_t zr;
+    element_t g1, gt, zr;
+    element_init_G1(g1, pairing);
+    element_init_GT(gt, pairing);
     element_init_Zr(zr, pairing);
-    int n_z = element_length_in_bytes(zr);
+    int n_g1 = element_length_in_bytes(g1);
+    int n_zr = element_length_in_bytes(zr);
 
     unsigned char *H_2 = H2(Xdelta_);
-    unsigned char *muu = (unsigned char*)malloc(2 * n_z + 1);
-    muu[2 * n_z] = '\0';
+    unsigned char *mz = (unsigned char*)malloc(n_g1 + n_zr + 1);
+    mz[n_g1 + n_zr] = '\0';
 
-    for (signed long int i = 0; i < 2 * n_z; ++i) {
-        int muuvalue = (int)ciphertext_cet->Cstar[i] ^ (int)H_2[i];
-        muu[i] = (unsigned char)muuvalue;
+    for (signed long int i = 0; i < n_g1 + n_zr; ++i) {
+        int mzvalue = (int)ciphertext_cet->Cstar[i] ^ (int)H_2[i];
+        mz[i] = (unsigned char)mzvalue;
     }
 
     element_t *res = new element_t[1];
-    element_init_Zr(*res, pairing);
-    element_from_bytes(*res, muu);
+    element_init_G1(*res, pairing);
+    element_from_bytes(*res, mz);
 
     return *res;
 }

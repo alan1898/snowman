@@ -102,6 +102,12 @@
 		<Unit filename="/home/alan/graduation_design/abelib/curves/curve_param.h">
 			<Option target="abelib"/>
 		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/access_structure.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/data_structure/access_structure.h">
+			<Option target="abelib"/>
+		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/data_structure/binary_tree.cpp">
 			<Option target="abelib"/>
 		</Unit>
