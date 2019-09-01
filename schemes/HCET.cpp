@@ -144,6 +144,80 @@ element_s* HCET::computeXdelte(Ciphertext_CET *ciphertext, Key *key_x, vector<st
     return *res;
 }
 
+element_s* HCET::computeVj(Ciphertext_CET *ct, Key *sp_ch, Key *pk_ch, element_s *r_ch, access_structure *structure,
+                          string kgc_name) {
+    element_t *res = new element_t[1];
+    element_init_Zr(*res, pairing);
+
+    element_t g1, gt, zr;
+    element_init_G1(g1, pairing);
+    element_init_GT(gt, pairing);
+    element_init_Zr(zr, pairing);
+    int n_1 = element_length_in_bytes(g1);
+    int n_z = element_length_in_bytes(zr);
+    int n_total = n_1 + n_1 + n_1 + n_z + n_1 + n_1 + n_1 + (structure->M->row() * n_1);
+    unsigned char* str = (unsigned char*)malloc(n_total + 1);
+    int str_index = 0;
+
+    // add y of pk_ch
+    element_to_bytes(str + str_index, pk_ch->getComponent("y"));
+    str_index += n_1;
+
+    // add C
+    element_to_bytes(str + str_index, ct->getComponent("C"));
+    str_index += n_1;
+
+    // add C*
+    for (signed long int i = 0; i < n_1 + n_z; ++i) {
+        str[str_index] = ct->Cstar[i];
+        str_index++;
+    }
+
+    // add C0
+    element_to_bytes(str + str_index, ct->getComponent("C0"));
+    str_index += n_1;
+
+    // add C0'
+    element_to_bytes(str + str_index, ct->getComponent("C0_"));
+    str_index += n_1;
+
+    // add Cj03
+    element_to_bytes(str + str_index, ct->getComponent("C" + kgc_name + "03"));
+    str_index += n_1;
+
+    // add Cjtau3
+    for (signed long int i = 0; i < structure->M->row(); ++i) {
+        map<signed long int, string>::iterator it = structure->rho->find(i);
+        string attr = it->second;
+        element_to_bytes(str + str_index, ct->getComponent("C" + kgc_name + attr + "3"));
+        str_index += n_1;
+    }
+
+    str[str_index] = '\0';
+
+    // compute hash value of str
+    element_t m_ch;
+    element_init_Zr(m_ch, pairing);
+    unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, str, n_total);
+    SHA256_Final(hash_str_byte, &sha256);
+    element_from_hash(m_ch, hash_str_byte, SHA256_DIGEST_LENGTH);
+
+    // compute Vj
+    chamhash *ch = new chamhash();
+    element_s *Vg = ch->hash(sp_ch, pk_ch, m_ch, r_ch);
+    unsigned char* Vg_data = (unsigned char*)malloc(n_1 + 1);
+    element_to_bytes(Vg_data, Vg);
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, Vg_data, n_1);
+    SHA256_Final(hash_str_byte, &sha256);
+    element_from_hash(*res, hash_str_byte, SHA256_DIGEST_LENGTH);
+
+    return *res;
+}
+
 vector<Key*>* HCET::setUp(signed long int q) {
     this->q = q;
 

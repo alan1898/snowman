@@ -152,7 +152,7 @@ element_s* BCET::computeV(Ciphertext_CET *ct, Key *sp_ch, Key *pk_ch, element_s 
     element_init_Zr(zr, pairing);
     int n_1 = element_length_in_bytes(g1);
     int n_z = element_length_in_bytes(zr);
-    int n_total = n_1 + n_z + n_1 + n_z + n_1 + n_1 + n_1 + (M->row() * n_1);
+    int n_total = n_1 + n_1 + n_1 + n_z + n_1 + n_1 + n_1 + (M->row() * n_1);
     unsigned char* str = (unsigned char*)malloc(n_total + 1);
     int str_index = 0;
 
@@ -162,7 +162,7 @@ element_s* BCET::computeV(Ciphertext_CET *ct, Key *sp_ch, Key *pk_ch, element_s 
 
     // add C
     element_to_bytes(str + str_index, ct->getComponent("C"));
-    str_index += n_z;
+    str_index += n_1;
 
     // add C*
     for (signed long int i = 0; i < n_1 + n_z; ++i) {

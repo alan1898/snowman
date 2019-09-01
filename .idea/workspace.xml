@@ -13,6 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4feccd8-971e-40d6-afba-4a15fd88543b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemes/BCET.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/BCET.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schemes/HCET.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/HCET.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schemes/HCET.h" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/HCET.h" afterDir="false" />
     </list>
@@ -29,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/schemes/HCET.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="143" column="16" selection-start-line="143" selection-start-column="16" selection-end-line="143" selection-end-column="16" />
+            <state relative-caret-position="193">
+              <caret line="146" column="26" selection-start-line="146" selection-start-column="26" selection-end-line="146" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -38,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/schemes/HCET.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="22" column="133" selection-start-line="22" selection-start-column="133" selection-end-line="22" selection-end-column="133" />
+            <state relative-caret-position="313">
+              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding>
                 <element signature="e#83#104#0" expanded="true" />
               </folding>
@@ -51,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="268">
-              <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="141" selection-end-column="16" />
+              <caret line="206" column="13" lean-forward="true" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -59,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/schemes/BCET.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="22" column="59" lean-forward="true" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
+            <state relative-caret-position="279">
+              <caret line="23" column="141" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="141" />
               <folding>
                 <element signature="e#84#105#0" expanded="true" />
               </folding>
@@ -131,8 +132,8 @@
         <option value="$PROJECT_DIR$/data_structure/data_structure.h" />
         <option value="$PROJECT_DIR$/data_structure/access_structure.h" />
         <option value="$PROJECT_DIR$/schemes/BCET.cpp" />
-        <option value="$PROJECT_DIR$/schemes/HCET.h" />
         <option value="$PROJECT_DIR$/schemes/HCET.cpp" />
+        <option value="$PROJECT_DIR$/schemes/HCET.h" />
       </list>
     </option>
   </component>
@@ -255,18 +256,17 @@
       <workItem from="1567139854531" duration="9963000" />
       <workItem from="1567217831565" duration="3182000" />
       <workItem from="1567258535091" duration="2467000" />
-      <workItem from="1567300460542" duration="9944000" />
+      <workItem from="1567300460542" duration="12566000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172697000" />
+    <option name="totallyTimeSpent" value="175319000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.5124516" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.5124516" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -277,7 +277,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.37970713" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.37970713" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3294979" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.3294979" />
@@ -610,20 +610,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/schemes/BCET.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="22" column="59" lean-forward="true" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
+        <state relative-caret-position="279">
+          <caret line="23" column="141" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="141" />
           <folding>
             <element signature="e#84#105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/HCET.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="22" column="133" selection-start-line="22" selection-start-column="133" selection-end-line="22" selection-end-column="133" />
-          <folding>
-            <element signature="e#83#104#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -631,14 +621,24 @@
     <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
-          <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="141" selection-end-column="16" />
+          <caret line="206" column="13" lean-forward="true" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/HCET.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="e#83#104#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/schemes/HCET.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="143" column="16" selection-start-line="143" selection-start-column="16" selection-end-line="143" selection-end-column="16" />
+        <state relative-caret-position="193">
+          <caret line="146" column="26" selection-start-line="146" selection-start-column="26" selection-end-line="146" selection-end-column="26" />
         </state>
       </provider>
     </entry>

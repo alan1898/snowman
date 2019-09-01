@@ -21,6 +21,7 @@ public:
     unsigned char* H2(element_s *e);
 
     element_s* computeXdelte(Ciphertext_CET *ciphertext, Key *key_x, vector<string> *attributes, access_structure *structure, string kgc_name, string pre_s, string post_s);
+    element_s* computeVj(Ciphertext_CET *ct, Key *sp_ch, Key *pk_ch, element_s *r_ch, access_structure *structure, string kgc_name);
 
     vector<Key*>* setUp(signed long int q);
     Key* authKeyGen(Key *public_key, Key *master_key, element_t_vector *ID);
