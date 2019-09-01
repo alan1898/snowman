@@ -12,23 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4feccd8-971e-40d6-afba-4a15fd88543b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data_structure/access_structure.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_structure/access_structure.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abe_binary_object/BCET.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/BCET.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/abelib.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/abelib.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/abelib.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/abelib.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/abelib.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/abelib.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/abelib.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/abelib.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/abelib.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/abelib.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/abelib.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/abelib.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_structure/data_structure.h" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure/data_structure.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libabe.a" beforeDir="false" afterPath="$PROJECT_DIR$/libabe.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemes/BCET.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/BCET.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schemes/HCET.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/HCET.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schemes/HCET.h" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/HCET.h" afterDir="false" />
     </list>
@@ -42,11 +26,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/schemes/HCET.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="834" column="15" selection-start-line="834" selection-start-column="15" selection-end-line="834" selection-end-column="15" />
+            <state relative-caret-position="328">
+              <caret line="143" column="16" selection-start-line="143" selection-start-column="16" selection-end-line="143" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -54,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/schemes/HCET.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
+            <state relative-caret-position="298">
+              <caret line="22" column="133" selection-start-line="22" selection-start-column="133" selection-end-line="22" selection-end-column="133" />
               <folding>
                 <element signature="e#83#104#0" expanded="true" />
               </folding>
@@ -63,11 +47,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="892" column="33" selection-start-line="892" selection-start-column="33" selection-end-line="892" selection-end-column="33" />
+            <state relative-caret-position="268">
+              <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="141" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/schemes/BCET.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="22" column="59" lean-forward="true" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
+              <folding>
+                <element signature="e#84#105#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,10 +129,10 @@
         <option value="$PROJECT_DIR$/scheme_structure/scheme_structure.h" />
         <option value="$PROJECT_DIR$/schemes/BCET.h" />
         <option value="$PROJECT_DIR$/data_structure/data_structure.h" />
-        <option value="$PROJECT_DIR$/schemes/HCET.h" />
         <option value="$PROJECT_DIR$/data_structure/access_structure.h" />
-        <option value="$PROJECT_DIR$/schemes/HCET.cpp" />
         <option value="$PROJECT_DIR$/schemes/BCET.cpp" />
+        <option value="$PROJECT_DIR$/schemes/HCET.h" />
+        <option value="$PROJECT_DIR$/schemes/HCET.cpp" />
       </list>
     </option>
   </component>
@@ -152,6 +148,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -173,12 +170,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test/BCET_test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -257,18 +253,20 @@
       <workItem from="1567001955364" duration="2131000" />
       <workItem from="1567129315503" duration="8281000" />
       <workItem from="1567139854531" duration="9963000" />
-      <workItem from="1567217831565" duration="2870000" />
+      <workItem from="1567217831565" duration="3182000" />
+      <workItem from="1567258535091" duration="2467000" />
+      <workItem from="1567300460542" duration="9944000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159974000" />
+    <option name="totallyTimeSpent" value="172697000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.4997233" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.5124516" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -279,7 +277,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.37970713" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.37970713" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3294979" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.3294979" />
@@ -524,13 +522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/RW13.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5130">
-          <caret line="342" column="38" selection-start-line="342" selection-start-column="4" selection-end-line="342" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scheme_structure/scheme_structure.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -610,17 +601,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/HCET.cpp">
+    <entry file="file://$PROJECT_DIR$/schemes/RW13.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="834" column="15" selection-start-line="834" selection-start-column="15" selection-end-line="834" selection-end-column="15" />
+        <state relative-caret-position="523">
+          <caret line="235" column="25" selection-start-line="235" selection-start-column="25" selection-end-line="235" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/schemes/BCET.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="28" column="98" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="98" />
+        <state relative-caret-position="264">
+          <caret line="22" column="59" lean-forward="true" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
           <folding>
             <element signature="e#84#105#0" expanded="true" />
           </folding>
@@ -629,8 +620,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/schemes/HCET.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
+        <state relative-caret-position="298">
+          <caret line="22" column="133" selection-start-line="22" selection-start-column="133" selection-end-line="22" selection-end-column="133" />
           <folding>
             <element signature="e#83#104#0" expanded="true" />
           </folding>
@@ -639,8 +630,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="892" column="33" selection-start-line="892" selection-start-column="33" selection-end-line="892" selection-end-column="33" />
+        <state relative-caret-position="268">
+          <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="141" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/HCET.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="143" column="16" selection-start-line="143" selection-start-column="16" selection-end-line="143" selection-end-column="16" />
         </state>
       </provider>
     </entry>

@@ -30,17 +30,118 @@ unsigned char* HCET::H2(element_s *e) {
     unsigned char *bytes = (unsigned char*)malloc(n);
     element_to_bytes(bytes, e);
 
-    unsigned char *hash_str_byte = (unsigned char*)malloc(SHA256_DIGEST_LENGTH + 8 + 1);
+    unsigned char *hash_str_byte = (unsigned char*)malloc(SHA256_DIGEST_LENGTH + 116 + 1);
     SHA256_CTX sha256;
     SHA256_Init(&sha256);
     SHA256_Update(&sha256, bytes, n);
     SHA256_Final(hash_str_byte, &sha256);
-    for (signed long int i = 0; i < 8; ++i) {
+    for (signed long int i = 0; i < 116; ++i) {
         hash_str_byte[SHA256_DIGEST_LENGTH + i] = '0';
     }
-    hash_str_byte[SHA256_DIGEST_LENGTH + 8] = '\0';
+    hash_str_byte[SHA256_DIGEST_LENGTH + 116] = '\0';
 
     return hash_str_byte;
+}
+
+element_s* HCET::computeXdelte(Ciphertext_CET *ciphertext, Key *key_x, vector<string> *attributes,
+                               access_structure *structure, string kgc_name, string pre_s, string post_s) {
+    // compute wi
+    utils util;
+    map<signed long int, signed long int>* matchedAttributes = util.attributesMatching(attributes, structure->rho);
+    element_t_matrix* attributesMatrix = util.getAttributesMatrix(structure->M, matchedAttributes);
+    map<signed long int, signed long int>* x_to_attributes = util.xToAttributes(structure->M, matchedAttributes);
+    element_t_matrix* inverse_M = util.inverse(attributesMatrix);
+    element_t_vector* unit = util.getCoordinateAxisUnitVector(inverse_M);
+    element_t_vector* x= new element_t_vector(inverse_M->col(), inverse_M->getElement(0, 0));
+    extend_math_operation emo;
+    signed long int type = emo.gaussElimination(x, inverse_M, unit);
+    if (-1 == type) {
+        return NULL;
+    }
+
+    // obtain C0, K0, K1
+    element_t C0, K0, K1;
+    element_init_same_as(C0, ciphertext->getComponent("C0"));
+    element_init_same_as(K0, key_x->getComponent(pre_s + "0" + post_s));
+    element_init_same_as(K1, key_x->getComponent(pre_s + "1" + post_s));
+    element_set(C0, ciphertext->getComponent("C0"));
+    element_set(K0, key_x->getComponent(pre_s + "0" + post_s));
+    element_set(K1, key_x->getComponent(pre_s + "1" + post_s));
+
+    // compute e_C0_K0
+    element_t e_C0_K0;
+    element_init_GT(e_C0_K0, pairing);
+    element_pairing(e_C0_K0, C0, K0);
+
+    element_t denominator;
+    element_init_GT(denominator, pairing);
+
+    map<signed long int, signed long int>::iterator it;
+    for (it = matchedAttributes->begin(); it != matchedAttributes->end(); ++it) {
+        // get attribute
+        string attr = (*attributes)[it->second];
+
+        // get Ci1, K1, Ci2, Ktau2, Ci3, Ktau3
+        element_t Ci1, K1, Ci2, Ktau2, Ci3, Ktau3;
+        element_init_G1(Ci1, pairing);
+        element_init_G1(K1, pairing);
+        element_init_G1(Ci2, pairing);
+        element_init_G1(Ktau2, pairing);
+        element_init_G1(Ci3, pairing);
+        element_init_G1(Ktau3, pairing);
+        element_set(Ci1, ciphertext->getComponent("C" + kgc_name + attr + "1"));
+        element_set(K1, key_x->getComponent(pre_s + "1" + post_s));
+        element_set(Ci2, ciphertext->getComponent("C" + kgc_name + attr + "2"));
+        element_set(Ktau2, key_x->getComponent(pre_s + attr + "2" + post_s));
+        element_set(Ci3, ciphertext->getComponent("C" + kgc_name + attr + "3"));
+        element_set(Ktau3, key_x->getComponent(pre_s + attr + "3" + post_s));
+
+        // compute e_Ci1_K1, e_Ci2_Ktau2, e_Ci3_Ktau3
+        element_t e_Ci1_K1, e_Ci2_Ktau2, e_Ci3_Ktau3;
+        element_init_GT(e_Ci1_K1, pairing);
+        element_init_GT(e_Ci2_Ktau2, pairing);
+        element_init_GT(e_Ci3_Ktau3, pairing);
+        element_pairing(e_Ci1_K1, Ci1, K1);
+        element_pairing(e_Ci2_Ktau2, Ci2, Ktau2);
+        element_pairing(e_Ci3_Ktau3, Ci3, Ktau3);
+
+        // compute factor_denominator
+        element_t e_e, e_e_e, factor_denominator;
+        element_init_GT(e_e, pairing);
+        element_init_GT(e_e_e, pairing);
+        element_init_GT(factor_denominator, pairing);
+        element_mul(e_e, e_Ci1_K1, e_Ci2_Ktau2);
+        element_mul(e_e_e, e_e, e_Ci3_Ktau3);
+        // get wi
+        signed long int attribute_index = it->second;
+        map<signed long int, signed long int>::iterator itt = x_to_attributes->find(attribute_index);
+        signed long int x_index = itt->second;
+        element_pow_zn(factor_denominator, e_e_e, x->getElement(x_index));
+
+        if (it == matchedAttributes->begin()) {
+            element_set(denominator, factor_denominator);
+        } else {
+            element_mul(denominator, denominator, factor_denominator);
+        }
+    }
+
+    // obtain Cj0
+    element_t Cj0;
+    element_init_G1(Cj0, pairing);
+    element_set(Cj0, ciphertext->getComponent("C" + kgc_name + "0"));
+
+    // compute e(Cj0,K1)
+    element_t e_Cj0K1;
+    element_init_GT(e_Cj0K1, pairing);
+    element_pairing(e_Cj0K1, Cj0, K1);
+
+    element_mul(denominator, e_Cj0K1, denominator);
+
+    element_t *res = new element_t[1];
+    element_init_GT(*res, pairing);
+    element_div(*res, e_C0_K0, denominator);
+
+    return *res;
 }
 
 vector<Key*>* HCET::setUp(signed long int q) {
@@ -718,6 +819,8 @@ Ciphertext_CET* HCET::encrypt(Key *public_key, vector<access_structure*> *A, ele
     signed long int n_gt = element_length_in_bytes(gt_sample);
     Ciphertext_CET *res = new Ciphertext_CET();
 
+    utils util;
+
     // obtain public parameters
     element_t g, u, h, w, v, g1, g1_, g2, g3;
     element_init_same_as(g, public_key->getComponent("g"));
@@ -829,7 +932,145 @@ Ciphertext_CET* HCET::encrypt(Key *public_key, vector<access_structure*> *A, ele
         }
 
         // compute shares
-        element_t_vector *lambda = emo.multiply(A->at(j)->M, zj);
+        element_t_vector *lambdaj = emo.multiply(A->at(j)->M, zj);
+
+        // compute h1^Ij1*h2^Ij2*...*hyj^Ijyj
+        element_t hs_Is;
+        element_init_G1(hs_Is, pairing);
+        element_t h_I;
+        element_init_G1(h_I, pairing);
+        string str = "h";
+        char num[21];
+        for (signed long int ji = 1; ji <= A->at(j)->ID->length(); ++ji) {
+            sprintf(num, "%ld", ji);
+            element_pow_zn(h_I, public_key->getComponent(str + num), A->at(j)->ID->getElement(ji - 1));
+
+            if (ji == 1) {
+                element_set(hs_Is, h_I);
+            } else {
+                element_mul(hs_Is, hs_Is, h_I);
+            }
+        }
+        // compute h1^Ij1*h2^Ij2*...*hyj^Ijyj*g3
+        element_t hs_Is_g3;
+        element_init_G1(hs_Is_g3, pairing);
+        element_mul(hs_Is_g3, hs_Is, g3);
+        // compute h1^Ij1*h2^Ij2*...*hyj^Ijyj*g3*w
+        element_t hs_Is_g3_w;
+        element_init_G1(hs_Is_g3_w, pairing);
+        element_mul(hs_Is_g3_w, hs_Is_g3, w);
+        // compute (h1^Ij1*h2^Ij2*...*hyj^Ijyj*g3*w)^s
+        element_t hs_Is_g3_w_s;
+        element_init_G1(hs_Is_g3_w_s, pairing);
+        element_pow_zn(hs_Is_g3_w_s, hs_Is_g3_w, s);
+        // compute w^sj
+        element_t w_sj;
+        element_init_G1(w_sj, pairing);
+        element_pow_zn(w_sj, w, sj);
+        // compute Cj0
+        element_t Cj0;
+        element_init_G1(Cj0, pairing);
+        element_mul(Cj0, hs_Is_g3_w_s, w_sj);
+        res->insertComponent("C" + *(A->at(j)->name) + "0", "G1", Cj0);
+
+        // randomly choose tj0
+        element_t tj0;
+        element_init_Zr(tj0, pairing);
+        element_random(tj0);
+
+        // compute Cj03
+        element_t Cj03;
+        element_init_G1(Cj03, pairing);
+        element_pow_zn(Cj03, g, tj0);
+        res->insertComponent("C" + *(A->at(j)->name) + "03", "G1", Cj03);
+
+        for (signed long int jtau = 0; jtau < A->at(j)->M->row(); ++jtau) {
+            // randomly choose tjtau
+            element_t tjtau;
+            element_init_Zr(tjtau, pairing);
+            element_random(tjtau);
+
+            // get rhojtau
+            element_t rhojtau;
+            element_init_Zr(rhojtau, pairing);
+            map<signed long int, string>::iterator it = A->at(j)->rho->find(jtau);
+            string attr = it->second;
+            element_set(rhojtau, util.stringToElementT(attr, "ZR", &pairing));
+
+            // compute w^lambdajtau
+            element_t w_lambdajtau;
+            element_init_G1(w_lambdajtau, pairing);
+            element_pow_zn(w_lambdajtau, w, lambdaj->getElement(jtau));
+            // compute v^tjtau
+            element_t v_tjtau;
+            element_init_G1(v_tjtau, pairing);
+            element_pow_zn(v_tjtau, v, tjtau);
+            // compute Cjtau1
+            element_t Cjtau1;
+            element_init_G1(Cjtau1, pairing);
+            element_mul(Cjtau1, w_lambdajtau, v_tjtau);
+            res->insertComponent("C" + *(A->at(j)->name) + attr + "1", "G1", Cjtau1);
+
+            // compute u^rhojtau
+            element_t u_rhojtau;
+            element_init_G1(u_rhojtau, pairing);
+            element_pow_zn(u_rhojtau, u, rhojtau);
+            // compute u^rhojtau*h
+            element_t u_rhojtau_h;
+            element_init_G1(u_rhojtau_h, pairing);
+            element_mul(u_rhojtau_h, u_rhojtau, h);
+            // compute -tjtau
+            element_t neg_tjtau;
+            element_init_Zr(neg_tjtau, pairing);
+            element_neg(neg_tjtau, tjtau);
+            // compute Cjtau2
+            element_t Cjtau2;
+            element_init_G1(Cjtau2, pairing);
+            element_pow_zn(Cjtau2, u_rhojtau_h, neg_tjtau);
+            res->insertComponent("C" + *(A->at(j)->name) + attr + "2", "G1", Cjtau2);
+
+            // compute Cjtau3
+            element_t Cjtau3;
+            element_init_G1(Cjtau3, pairing);
+            element_pow_zn(Cjtau3, g, tjtau);
+            res->insertComponent("C" + *(A->at(j)->name) + attr + "3", "G1", Cjtau3);
+        }
+
+        // Vj
+        element_t Vj;
+        element_init_Zr(Vj, pairing);
+
+        // compute w^(s-sj)
+        element_t w_s_sj;
+        element_init_G1(w_s_sj, pairing);
+        element_pow_zn(w_s_sj, w, s_sj);
+        // compute v^tj0
+        element_t v_tj0;
+        element_init_G1(v_tj0, pairing);
+        element_pow_zn(v_tj0, v, tj0);
+        // compute Cj01
+        element_t Cj01;
+        element_init_G1(Cj01, pairing);
+        element_mul(Cj01, w_s_sj, v_tj0);
+        res->insertComponent("C" + *(A->at(j)->name) + "01", "G1", Cj01);
+
+        // compute neg_tj0
+        element_t neg_tj0;
+        element_init_Zr(neg_tj0, pairing);
+        element_neg(neg_tj0, tj0);
+        // compute u^Vj
+        element_t u_Vj;
+        element_init_G1(u_Vj, pairing);
+        element_pow_zn(u_Vj, u, Vj);
+        // compute u^Vj*h
+        element_t u_Vj_h;
+        element_init_G1(u_Vj_h, pairing);
+        element_mul(u_Vj_h, u_Vj, h);
+        // compute Cj02
+        element_t Cj02;
+        element_init_G1(Cj02, pairing);
+        element_pow_zn(Cj02, u_Vj_h, neg_tj0);
+        res->insertComponent("C" + *(A->at(j)->name) + "02", "G1", Cj02);
     }
 
     return res;

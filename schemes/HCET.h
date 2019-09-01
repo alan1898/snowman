@@ -20,6 +20,8 @@ public:
     element_s* H1(element_s *e);
     unsigned char* H2(element_s *e);
 
+    element_s* computeXdelte(Ciphertext_CET *ciphertext, Key *key_x, vector<string> *attributes, access_structure *structure, string kgc_name, string pre_s, string post_s);
+
     vector<Key*>* setUp(signed long int q);
     Key* authKeyGen(Key *public_key, Key *master_key, element_t_vector *ID);
     Key* authDelegate(Key *public_key, Key *SKID, element_t_vector *ID);
