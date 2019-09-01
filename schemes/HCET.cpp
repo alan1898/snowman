@@ -1110,9 +1110,16 @@ Ciphertext_CET* HCET::encrypt(Key *public_key, vector<access_structure*> *A, ele
             res->insertComponent("C" + *(A->at(j)->name) + attr + "3", "G1", Cjtau3);
         }
 
+        // randomly choose rchj
+        element_t rchj;
+        element_init_Zr(rchj, pairing);
+        element_random(rchj);
+        res->insertComponent("rch" + *(A->at(j)->name), "ZR", rchj);
+
         // Vj
         element_t Vj;
         element_init_Zr(Vj, pairing);
+        element_set(Vj, computeVj(res, sp_ch, pk_ch, rchj, A->at(j), *(A->at(j)->name)));
 
         // compute w^(s-sj)
         element_t w_s_sj;

@@ -679,7 +679,7 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, element_s *m, Key 
     element_t r_ch;
     element_init_Zr(r_ch, pairing);
     element_random(r_ch);
-    res->insertComponent("r_ch", "ZR", r_ch);
+    res->insertComponent("rch", "ZR", r_ch);
 
     // compute V
     element_s *V = computeV(res, sp_ch, pk_ch, r_ch, M, rho);
