@@ -1156,3 +1156,281 @@ Ciphertext_CET* HCET::encrypt(Key *public_key, vector<access_structure*> *A, ele
 
     return res;
 }
+
+bool* HCET::test(Key *public_key, Ciphertext_CET *CTA, vector<access_structure *> *AA, Key *TdSA, vector<string> *SA,
+                 string A_kgc_name, Ciphertext_CET *CTB, vector<access_structure *> *AB, Key *TdSB, vector<string> *SB,
+                 string B_kgc_name, Key *sp_ch, Key *pk_ch) {
+    // obtain public parameters
+    element_t g, u, h, w, v;
+    element_init_same_as(g, public_key->getComponent("g"));
+    element_set(g, public_key->getComponent("g"));
+    element_init_same_as(u, public_key->getComponent("u"));
+    element_set(u, public_key->getComponent("u"));
+    element_init_same_as(h, public_key->getComponent("h"));
+    element_set(h, public_key->getComponent("h"));
+    element_init_same_as(w, public_key->getComponent("w"));
+    element_set(w, public_key->getComponent("w"));
+    element_init_same_as(v, public_key->getComponent("v"));
+    element_set(v, public_key->getComponent("v"));
+
+    utils util;
+
+    // step one
+    for (signed long int j = 0; j < AA->size(); ++j) {
+        // compute VAj
+        element_s *VAj = computeVj(CTA, sp_ch, pk_ch, CTA->getComponent("rch" + *(AA->at(j)->name)), AA->at(j), *(AA->at(j)->name));
+
+        // obtain Cj02 and Cj03
+        element_t Cj02, Cj03;
+        element_init_G1(Cj02, pairing);
+        element_init_G1(Cj03, pairing);
+        element_set(Cj02, CTA->getComponent("C" + *(AA->at(j)->name) + "02"));
+        element_set(Cj03, CTA->getComponent("C" + *(AA->at(j)->name) + "03"));
+
+        // compute u^VAj
+        element_t u_VAj;
+        element_init_G1(u_VAj, pairing);
+        element_pow_zn(u_VAj, u, VAj);
+
+        // compute u^VAj*h
+        element_t u_VAj_h;
+        element_init_G1(u_VAj_h, pairing);
+        element_mul(u_VAj_h, u_VAj, h);
+
+        // compute e(g,Cj02)
+        element_t e_gCj02;
+        element_init_GT(e_gCj02, pairing);
+        element_pairing(e_gCj02, g, Cj02);
+
+        // compute e(Cj03,u^VAj*h)
+        element_t e_Cj03uVAjh;
+        element_init_GT(e_Cj03uVAjh, pairing);
+        element_pairing(e_Cj03uVAjh, Cj03, u_VAj_h);
+
+        // compute e(Cj03,u^VAj*h)^(-1)
+        element_t inv_e_Cj03uVAjh;
+        element_init_GT(inv_e_Cj03uVAjh, pairing);
+        element_invert(inv_e_Cj03uVAjh, e_Cj03uVAjh);
+
+        if (element_cmp(e_gCj02, inv_e_Cj03uVAjh) != 0) {
+            return NULL;
+        }
+
+        for (signed long int ji = 0; ji < AA->at(j)->M->row(); ++ji) {
+            map<signed long int, string>::iterator it = AA->at(j)->rho->find(ji);
+            string attr = it->second;
+
+            // obtain Cji2 and Cji3
+            element_t Cji2, Cji3;
+            element_init_G1(Cji2, pairing);
+            element_init_G1(Cji3, pairing);
+            element_set(Cji2, CTA->getComponent("C" + *(AA->at(j)->name) + attr + "2"));
+            element_set(Cji3, CTA->getComponent("C" + *(AA->at(j)->name) + attr + "3"));
+
+            // compute e(g,Cji2)
+            element_t e_gCji2;
+            element_init_GT(e_gCji2, pairing);
+            element_pairing(e_gCji2, g, Cji2);
+
+            // compute Aji
+            element_t Aji;
+            element_init_Zr(Aji, pairing);
+            unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
+            SHA256_CTX sha256;
+            SHA256_Init(&sha256);
+            SHA256_Update(&sha256, attr.c_str(), attr.size());
+            SHA256_Final(hash_str_byte, &sha256);
+            element_from_hash(Aji, hash_str_byte, SHA256_DIGEST_LENGTH);
+
+            // compute u^Aji
+            element_t u_Aji;
+            element_init_G1(u_Aji, pairing);
+            element_pow_zn(u_Aji, u, Aji);
+
+            // compute u^Aji*h
+            element_t u_Aji_h;
+            element_init_G1(u_Aji_h, pairing);
+            element_mul(u_Aji_h, u_Aji, h);
+
+            // compute e(Cji3,u^Aji*h)
+            element_t e_Cji3uAjih;
+            element_init_G1(e_Cji3uAjih, pairing);
+            element_pairing(e_Cji3uAjih, Cji3, u_Aji_h);
+
+            // compute e(Cji3,u^Aji*h)^(-1)
+            element_t inv_e_Cji3uAjih;
+            element_init_GT(inv_e_Cji3uAjih, pairing);
+            element_invert(inv_e_Cji3uAjih, e_Cji3uAjih);
+
+            if (element_cmp(e_gCji2, inv_e_Cji3uAjih) != 0) {
+                return NULL;
+            }
+        }
+    }
+
+    for (signed long int j = 0; j < AB->size(); ++j) {
+        // compute VBj
+        element_s *VBj = computeVj(CTB, sp_ch, pk_ch, CTB->getComponent("rch" + *(AB->at(j)->name)), AB->at(j), *(AB->at(j)->name));
+
+        // obtain Cj02 and Cj03
+        element_t Cj02, Cj03;
+        element_init_G1(Cj02, pairing);
+        element_init_G1(Cj03, pairing);
+        element_set(Cj02, CTB->getComponent("C" + *(AB->at(j)->name) + "02"));
+        element_set(Cj03, CTB->getComponent("C" + *(AB->at(j)->name) + "03"));
+
+        // compute u^VAj
+        element_t u_VBj;
+        element_init_G1(u_VBj, pairing);
+        element_pow_zn(u_VBj, u, VBj);
+
+        // compute u^VAj*h
+        element_t u_VBj_h;
+        element_init_G1(u_VBj_h, pairing);
+        element_mul(u_VBj_h, u_VBj, h);
+
+        // compute e(g,Cj02)
+        element_t e_gCj02;
+        element_init_GT(e_gCj02, pairing);
+        element_pairing(e_gCj02, g, Cj02);
+
+        // compute e(Cj03,u^VAj*h)
+        element_t e_Cj03uVBjh;
+        element_init_GT(e_Cj03uVBjh, pairing);
+        element_pairing(e_Cj03uVBjh, Cj03, u_VBj_h);
+
+        // compute e(Cj03,u^VAj*h)^(-1)
+        element_t inv_e_Cj03uVBjh;
+        element_init_GT(inv_e_Cj03uVBjh, pairing);
+        element_invert(inv_e_Cj03uVBjh, e_Cj03uVBjh);
+
+        if (element_cmp(e_gCj02, inv_e_Cj03uVBjh) != 0) {
+            return NULL;
+        }
+
+        for (signed long int ji = 0; ji < AB->at(j)->M->row(); ++ji) {
+            map<signed long int, string>::iterator it = AB->at(j)->rho->find(ji);
+            string attr = it->second;
+
+            // obtain Cji2 and Cji3
+            element_t Cji2, Cji3;
+            element_init_G1(Cji2, pairing);
+            element_init_G1(Cji3, pairing);
+            element_set(Cji2, CTB->getComponent("C" + *(AB->at(j)->name) + attr + "2"));
+            element_set(Cji3, CTB->getComponent("C" + *(AB->at(j)->name) + attr + "3"));
+
+            // compute e(g,Cji2)
+            element_t e_gCji2;
+            element_init_GT(e_gCji2, pairing);
+            element_pairing(e_gCji2, g, Cji2);
+
+            // compute Aji
+            element_t Bji;
+            element_init_Zr(Bji, pairing);
+            unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
+            SHA256_CTX sha256;
+            SHA256_Init(&sha256);
+            SHA256_Update(&sha256, attr.c_str(), attr.size());
+            SHA256_Final(hash_str_byte, &sha256);
+            element_from_hash(Bji, hash_str_byte, SHA256_DIGEST_LENGTH);
+
+            // compute u^Aji
+            element_t u_Bji;
+            element_init_G1(u_Bji, pairing);
+            element_pow_zn(u_Bji, u, Bji);
+
+            // compute u^Aji*h
+            element_t u_Bji_h;
+            element_init_G1(u_Bji_h, pairing);
+            element_mul(u_Bji_h, u_Bji, h);
+
+            // compute e(Cji3,u^Aji*h)
+            element_t e_Cji3uBjih;
+            element_init_G1(e_Cji3uBjih, pairing);
+            element_pairing(e_Cji3uBjih, Cji3, u_Bji_h);
+
+            // compute e(Cji3,u^Aji*h)^(-1)
+            element_t inv_e_Cji3uBjih;
+            element_init_GT(inv_e_Cji3uBjih, pairing);
+            element_invert(inv_e_Cji3uBjih, e_Cji3uBjih);
+
+            if (element_cmp(e_gCji2, inv_e_Cji3uBjih) != 0) {
+                return NULL;
+            }
+        }
+    }
+
+    // step two
+    signed long int ap;
+    for (ap = 0; ap < AA->size(); ++ap) {
+        if (*(AA->at(ap)->name) == A_kgc_name) {
+            break;
+        }
+    }
+    signed long int bp;
+    for (bp = 0; bp < AB->size(); ++bp) {
+        if (*(AB->at(bp)->name) == B_kgc_name) {
+            break;
+        }
+    }
+    element_s *XdelteA = computeXdelte(CTA, TdSA, SA, AA->at(ap), "T", "", A_kgc_name);
+    element_s *XdelteB = computeXdelte(CTB, TdSB, SB, AB->at(bp), "T", "", B_kgc_name);
+
+    // compute XA
+    element_t XA;
+    element_init_Zr(XA, pairing);
+    element_div(XA, CTA->getComponent("C"), H1(XdelteA));
+
+    // compute XB
+    element_t XB;
+    element_init_Zr(XB, pairing);
+    element_div(XB, CTB->getComponent("C"), H1(XdelteB));
+
+    // compute e(C0'A,XB)
+    element_t e_C0_A_XB;
+    element_init_GT(e_C0_A_XB, pairing);
+    element_pairing(e_C0_A_XB, CTA->getComponent("C0_"), XB);
+
+    // compute e(C0'B, XA)
+    element_t e_C0_B_XA;
+    element_init_GT(e_C0_B_XA, pairing);
+    element_pairing(e_C0_B_XA, CTB->getComponent("C0_"), XA);
+
+    bool *res = new bool();
+
+    if (element_cmp(e_C0_A_XB, e_C0_B_XA) == 0) {
+        *res = true;
+        return res;
+    } else {
+        *res = false;
+        return res;
+    }
+}
+
+element_s* HCET::decrypt(Ciphertext_CET *ciphertext_cet, Key *secret_key, vector<string> *attributes,
+                         access_structure *structure, string kgc_name) {
+    element_s *Xdelta = computeXdelte(ciphertext_cet, secret_key, attributes, structure, kgc_name, "K", "");
+    element_s *Xdelta_ = computeXdelte(ciphertext_cet, secret_key, attributes, structure, kgc_name, "K", "_");
+
+    element_t g1, gt, zr;
+    element_init_G1(g1, pairing);
+    element_init_GT(gt, pairing);
+    element_init_Zr(zr, pairing);
+    int n_g1 = element_length_in_bytes(g1);
+    int n_zr = element_length_in_bytes(zr);
+
+    unsigned char *H_2 = H2(Xdelta_);
+    unsigned char *mz = (unsigned char*)malloc(n_g1 + n_zr + 1);
+    mz[n_g1 + n_zr] = '\0';
+
+    for (signed long int i = 0; i < n_g1 + n_zr; ++i) {
+        int mzvalue = (int)ciphertext_cet->Cstar[i] ^ (int)H_2[i];
+        mz[i] = (unsigned char)mzvalue;
+    }
+
+    element_t *res = new element_t[1];
+    element_init_G1(*res, pairing);
+    element_from_bytes(*res, mz);
+
+    return *res;
+}

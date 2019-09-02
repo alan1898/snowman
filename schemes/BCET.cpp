@@ -745,10 +745,10 @@ bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, Key *TdSA, vector<string>
     element_set(v, public_key->getComponent("v"));
 
     // VA
-    element_s *VA = computeV(CTA, sp_ch, pk_ch, CTA->getComponent("r_ch"), M_A, rho_A);
+    element_s *VA = computeV(CTA, sp_ch, pk_ch, CTA->getComponent("rch"), M_A, rho_A);
 
     // VB
-    element_s *VB = computeV(CTB, sp_ch, pk_ch, CTB->getComponent("r_ch"), M_B, rho_B);
+    element_s *VB = computeV(CTB, sp_ch, pk_ch, CTB->getComponent("rch"), M_B, rho_B);
 
     // init params
     element_t Ci2, Ci3;

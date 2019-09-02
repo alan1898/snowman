@@ -29,6 +29,8 @@ public:
     Key* userKeyGen(Key *public_key, Key *SKID, element_t_vector *ID, vector<string> *attributes);
     Key* trapdoor(Key *secret_key, vector<string> *attributes);
     Ciphertext_CET* encrypt(Key *public_key, vector<access_structure*> *A, element_s *m, Key *sp_ch, Key *pk_ch);
+    bool* test(Key *public_key, Ciphertext_CET *CTA, vector<access_structure*> *AA, Key *TdSA, vector<string> *SA, string A_kgc_name, Ciphertext_CET *CTB, vector<access_structure*> *AB, Key *TdSB, vector<string> *SB, string B_kgc_name, Key *sp_ch, Key *pk_ch);
+    element_s* decrypt(Ciphertext_CET *ciphertext_cet, Key *secret_key, vector<string> *attributes, access_structure *structure, string kgc_name);
 };
 
 
