@@ -18,6 +18,14 @@ Ciphertext::Ciphertext(string policy) {
     gt_components = new map<string, element_s*>();
     zr_components = new map<string, element_s*>();
 }
+Ciphertext::Ciphertext(access_structure *A) {
+    this->A = new access_structure(A->getID(), A->getM(), A->getRho(), A->getName());
+
+    g1_components = new map<string, element_s*>();
+    g2_components = new map<string, element_s*>();
+    gt_components = new map<string, element_s*>();
+    zr_components = new map<string, element_s*>();
+}
 
 void Ciphertext::setPolicy(string policy) {
     this->policy = policy;

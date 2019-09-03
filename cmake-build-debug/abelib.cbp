@@ -222,6 +222,12 @@
 		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Key.h">
 			<Option target="abelib"/>
 		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/SecretKey.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/SecretKey.h">
+			<Option target="abelib"/>
+		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Text.cpp">
 			<Option target="abelib"/>
 		</Unit>

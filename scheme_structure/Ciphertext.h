@@ -13,6 +13,7 @@
 class Ciphertext {
 private:
     string policy;
+    access_structure *A;
 
     map<string, element_s*> *g1_components;
     map<string, element_s*> *g2_components;
@@ -21,6 +22,7 @@ private:
 public:
     Ciphertext();
     Ciphertext(string policy);
+    Ciphertext(access_structure *A);
 
     void setPolicy(string policy);
     string getPolicy();

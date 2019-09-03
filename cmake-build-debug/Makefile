@@ -690,6 +690,33 @@ scheme_structure/Key.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Key.cpp.s
 .PHONY : scheme_structure/Key.cpp.s
 
+scheme_structure/SecretKey.o: scheme_structure/SecretKey.cpp.o
+
+.PHONY : scheme_structure/SecretKey.o
+
+# target to build an object file
+scheme_structure/SecretKey.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.o
+.PHONY : scheme_structure/SecretKey.cpp.o
+
+scheme_structure/SecretKey.i: scheme_structure/SecretKey.cpp.i
+
+.PHONY : scheme_structure/SecretKey.i
+
+# target to preprocess a source file
+scheme_structure/SecretKey.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.i
+.PHONY : scheme_structure/SecretKey.cpp.i
+
+scheme_structure/SecretKey.s: scheme_structure/SecretKey.cpp.s
+
+.PHONY : scheme_structure/SecretKey.s
+
+# target to generate assembly for a file
+scheme_structure/SecretKey.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.s
+.PHONY : scheme_structure/SecretKey.cpp.s
+
 scheme_structure/Text.o: scheme_structure/Text.cpp.o
 
 .PHONY : scheme_structure/Text.o
@@ -1140,6 +1167,9 @@ help:
 	@echo "... scheme_structure/Key.o"
 	@echo "... scheme_structure/Key.i"
 	@echo "... scheme_structure/Key.s"
+	@echo "... scheme_structure/SecretKey.o"
+	@echo "... scheme_structure/SecretKey.i"
+	@echo "... scheme_structure/SecretKey.s"
 	@echo "... scheme_structure/Text.o"
 	@echo "... scheme_structure/Text.i"
 	@echo "... scheme_structure/Text.s"
