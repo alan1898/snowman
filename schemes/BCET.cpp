@@ -6,39 +6,32 @@
 
 element_s* BCET::H1(element_s *e) {
     element_t *res = new element_t[1];
-    element_init_Zr(*res, pairing);
+    element_init_G1(*res, pairing);
 
-    signed long int n = element_length_in_bytes(e);
-    unsigned char *bytes = (unsigned char*)malloc(n);
+    unsigned char *bytes = (unsigned char*)malloc(gt_length);
     element_to_bytes(bytes, e);
 
     unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
     SHA256_CTX sha256;
     SHA256_Init(&sha256);
-    SHA256_Update(&sha256, bytes, n);
+    SHA256_Update(&sha256, bytes, gt_length);
     SHA256_Final(hash_str_byte, &sha256);
+
     element_from_hash(*res, hash_str_byte, SHA256_DIGEST_LENGTH);
 
     return *res;
 }
 
 unsigned char* BCET::H2(element_s *e) {
-    element_t *res = new element_t[1];
-    element_init_G1(*res, pairing);
-
-    signed long int n = element_length_in_bytes(e);
-    unsigned char *bytes = (unsigned char*)malloc(n);
+    unsigned char *bytes = (unsigned char*)malloc(gt_length);
     element_to_bytes(bytes, e);
 
-    unsigned char *hash_str_byte = (unsigned char*)malloc(SHA256_DIGEST_LENGTH + 116 + 1);
+    unsigned char *hash_str_byte = (unsigned char*)malloc(SHA256_DIGEST_LENGTH + 1);
     SHA256_CTX sha256;
     SHA256_Init(&sha256);
-    SHA256_Update(&sha256, bytes, n);
+    SHA256_Update(&sha256, bytes, gt_length);
     SHA256_Final(hash_str_byte, &sha256);
-    for (signed long int i = 0; i < 116; ++i) {
-        hash_str_byte[SHA256_DIGEST_LENGTH + i] = '0';
-    }
-    hash_str_byte[SHA256_DIGEST_LENGTH + 116] = '\0';
+    hash_str_byte[SHA256_DIGEST_LENGTH] = '\0';
 
     return hash_str_byte;
 }
@@ -62,7 +55,7 @@ element_s* BCET::computeXdelte(Ciphertext_CET *ciphertext, Key *key_x, vector<st
     map<signed long int, signed long int>* x_to_attributes = util.xToAttributes(M, matchedAttributes);
     element_t_matrix* inverse_M = util.inverse(attributesMatrix);
     element_t_vector* unit = util.getCoordinateAxisUnitVector(inverse_M);
-    element_t_vector* x= new element_t_vector(inverse_M->col(), inverse_M->getElement(0, 0));
+    element_t_vector* x = new element_t_vector(inverse_M->col(), inverse_M->getElement(0, 0));
     extend_math_operation emo;
     signed long int type = emo.gaussElimination(x, inverse_M, unit);
     if (-1 == type) {
@@ -142,6 +135,7 @@ element_s* BCET::computeXdelte(Ciphertext_CET *ciphertext, Key *key_x, vector<st
     return *res;
 }
 
+// 这里面涉及到C*的需要修改
 element_s* BCET::computeV(Ciphertext_CET *ct, Key *sp_ch, Key *pk_ch, element_s *r_ch, element_t_matrix *M, map<signed long int, string> *rho) {
     element_t *res = new element_t[1];
     element_init_Zr(*res, pairing);
@@ -394,7 +388,7 @@ Key* BCET::keyGen(Key *public_key, Key *master_key, vector<string> *attributes) 
     element_init_G1(v_neg_r_, pairing);
     element_pow_zn(v_neg_r_, v, neg_r_);
 
-    // compute Ktau2 and Ktau3
+    // compute Ktau2 and Ktau3, Ktau2' and Ktau3'
     element_t rtau;
     element_init_Zr(rtau, pairing);
     element_t Ktau2, Ktau3;
@@ -434,38 +428,68 @@ Key* BCET::keyGen(Key *public_key, Key *master_key, vector<string> *attributes) 
        // compute Ktau3=(u^Atau*h)^rtau*v^(-r)
        element_mul(Ktau3, u_Atau_h_rtau, v_neg_r);
        res->insertComponent("K" + (*attributes)[i] + "3", "G1", Ktau3);
+
+       // Ktau2' and Ktau3'---------------------------------------------------------------------------------------------
+       // randomly choose rtau
+       element_random(rtau);
+
+       // compute Ktau2=g^rtau
+       element_pow_zn(Ktau2, g, rtau);
+       res->insertComponent("K" + (*attributes)[i] + "2_", "G1", Ktau2);
+
+//       // compute Atau  在这里有重复计算问题
+//       unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
+//       SHA256_CTX sha256;
+//       SHA256_Init(&sha256);
+//       SHA256_Update(&sha256, (*attributes)[i].c_str(), (*attributes)[i].size());
+//       SHA256_Final(hash_str_byte, &sha256);
+//       element_from_hash(Atau, hash_str_byte, SHA256_DIGEST_LENGTH);
+//
+//       // compute u^Atau  在这里有重复计算问题
+//       element_pow_zn(u_Atau, u, Atau);
+//
+//       // compute u^Atau*h  在这里有重复计算问题
+//       element_mul(u_Atau_h, u_Atau, h);
+
+       // compute (u^Atau*h)^rtau
+       element_pow_zn(u_Atau_h_rtau, u_Atau_h, rtau);
+
+       // compute Ktau3=(u^Atau*h)^rtau*v^(-r)
+       element_mul(Ktau3, u_Atau_h_rtau, v_neg_r_);
+       res->insertComponent("K" + (*attributes)[i] + "3_", "G1", Ktau3);
+       // Ktau2' and Ktau3'---------------------------------------------------------------------------------------------
     }
 
-    // compute Ktau2' and Ktau3'
-    for (signed long int i = 0; i < attributes->size(); ++i) {
-        // randomly choose rtau
-        element_random(rtau);
-
-        // compute Ktau2=g^rtau
-        element_pow_zn(Ktau2, g, rtau);
-        res->insertComponent("K" + (*attributes)[i] + "2_", "G1", Ktau2);
-
-        // compute Atau  在这里有重复计算问题
-        unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
-        SHA256_CTX sha256;
-        SHA256_Init(&sha256);
-        SHA256_Update(&sha256, (*attributes)[i].c_str(), (*attributes)[i].size());
-        SHA256_Final(hash_str_byte, &sha256);
-        element_from_hash(Atau, hash_str_byte, SHA256_DIGEST_LENGTH);
-
-        // compute u^Atau  在这里有重复计算问题
-        element_pow_zn(u_Atau, u, Atau);
-
-        // compute u^Atau*h  在这里有重复计算问题
-        element_mul(u_Atau_h, u_Atau, h);
-
-        // compute (u^Atau*h)^rtau
-        element_pow_zn(u_Atau_h_rtau, u_Atau_h, rtau);
-
-        // compute Ktau3=(u^Atau*h)^rtau*v^(-r)
-        element_mul(Ktau3, u_Atau_h_rtau, v_neg_r_);
-        res->insertComponent("K" + (*attributes)[i] + "3_", "G1", Ktau3);
-    }
+//    // compute Ktau2' and Ktau3'
+//    for (signed long int i = 0; i < attributes->size(); ++i) {
+//        // randomly choose rtau
+//        element_random(rtau);
+//
+//        // compute Ktau2=g^rtau
+//        element_pow_zn(Ktau2, g, rtau);
+//        res->insertComponent("K" + (*attributes)[i] + "2_", "G1", Ktau2);
+//
+//        // compute Atau  在这里有重复计算问题
+//        unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
+//        SHA256_CTX sha256;
+//        SHA256_Init(&sha256);
+//        SHA256_Update(&sha256, (*attributes)[i].c_str(), (*attributes)[i].size());
+//        SHA256_Final(hash_str_byte, &sha256);
+//        element_from_hash(Atau, hash_str_byte, SHA256_DIGEST_LENGTH);
+//
+//        // compute u^Atau  在这里有重复计算问题
+//        element_pow_zn(u_Atau, u, Atau);
+//
+//        // compute u^Atau*h  在这里有重复计算问题
+//        element_mul(u_Atau_h, u_Atau, h);
+//
+//        // compute (u^Atau*h)^rtau
+//        element_pow_zn(u_Atau_h_rtau, u_Atau_h, rtau);
+//
+//        // compute Ktau3=(u^Atau*h)^rtau*v^(-r)
+//        element_mul(Ktau3, u_Atau_h_rtau, v_neg_r_);
+//        res->insertComponent("K" + (*attributes)[i] + "3_", "G1", Ktau3);
+//    }
 
     return res;
 }
@@ -499,7 +523,7 @@ Key* BCET::trapdoor(Key *secret_key, vector<string> *attributes) {
     return res;
 }
 
-Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, element_s *m, Key *sp_ch, Key *pk_ch) {
+Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, unsigned char *message, Key *sp_ch, Key *pk_ch) {
     element_t sample_element;
     element_init_Zr(sample_element, pairing);
     Ciphertext_CET *res = new Ciphertext_CET(policy);
@@ -553,6 +577,17 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, element_s *m, Key 
     element_init_Zr(t0, pairing);
     element_random(uu);
     element_random(t0);
+    element_printf("原始的z为：%B\n", uu);
+
+    // change message to m
+    unsigned char hash_bytes[SHA256_DIGEST_LENGTH];
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, message, 8);
+    SHA256_Final(hash_bytes, &sha256);
+    element_t m;
+    element_init_G1(m, pairing);
+    element_from_hash(m, hash_bytes, SHA256_DIGEST_LENGTH);
 
     // compute m^uu
     element_t m_uu;
@@ -600,21 +635,22 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, element_s *m, Key 
     element_pow_zn(e_gg_alpha__s, e_gg_alpha_, s);
     element_printf("e_gg_alpha__s is %B\n", e_gg_alpha__s);
 
-    int n1 = element_length_in_bytes(m);
-    int n2 = element_length_in_bytes(uu);
-    unsigned char *muu = (unsigned char*)malloc(n1 + n2 + 1);
-    element_to_bytes(muu, m);
-    element_to_bytes(muu + n1, uu);
-    muu[n1 + n2] = '\0';
+    unsigned char *muu = (unsigned char*)malloc(8 + zr_length + 1);
+    for (signed long int index = 0; index < 8; ++index) {
+        muu[index] = message[index];
+    }
+    element_to_bytes(muu + 8, uu);
+    muu[8 + zr_length] = '\0';
 //    printf("muu is %s\n", muu);
     unsigned char *H_2 = H2(e_gg_alpha__s);
 
     // compute C*
-    res->Cstar = (unsigned char*)malloc(n1 + n2 +1);
-    for (signed long int i = 0; i < n1 + n2; ++i) {
+    res->Cstar = (unsigned char*)malloc(SHA256_DIGEST_LENGTH +1);
+    for (signed long int i = 0; i < 8 + zr_length; ++i) {
         int Cvalue = (int)muu[i] ^ (int)H_2[i];
         res->Cstar[i] = (unsigned char)Cvalue;
     }
+    res->Cstar[SHA256_DIGEST_LENGTH] = '\0';
 
 //    // test
 //    for (signed long int i = 0; i < n1 + n2; ++i) {
@@ -876,29 +912,24 @@ bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, Key *TdSA, vector<string>
     }
 }
 
-element_s* BCET::decrypt(Ciphertext_CET *ciphertext_cet, Key *secret_key, vector<string> *attributes) {
+unsigned char* BCET::decrypt(Ciphertext_CET *ciphertext_cet, Key *secret_key, vector<string> *attributes) {
     element_s *Xdelta = computeXdelte(ciphertext_cet, secret_key, attributes, "K", "");
     element_s *Xdelta_ = computeXdelte(ciphertext_cet, secret_key, attributes, "K", "_");
 
-    element_t g1, gt, zr;
-    element_init_G1(g1, pairing);
-    element_init_GT(gt, pairing);
-    element_init_Zr(zr, pairing);
-    int n_g1 = element_length_in_bytes(g1);
-    int n_zr = element_length_in_bytes(zr);
-
     unsigned char *H_2 = H2(Xdelta_);
-    unsigned char *mz = (unsigned char*)malloc(n_g1 + n_zr + 1);
-    mz[n_g1 + n_zr] = '\0';
+    unsigned char *mz = (unsigned char*)malloc(8 + zr_length + 1);
+    mz[8 + zr_length] = '\0';
 
-    for (signed long int i = 0; i < n_g1 + n_zr; ++i) {
+    for (signed long int i = 0; i < 8 + zr_length; ++i) {
         int mzvalue = (int)ciphertext_cet->Cstar[i] ^ (int)H_2[i];
         mz[i] = (unsigned char)mzvalue;
     }
 
-    element_t *res = new element_t[1];
-    element_init_G1(*res, pairing);
-    element_from_bytes(*res, mz);
+    element_t z;
+    element_init_Zr(z, pairing);
+    element_from_bytes(z, mz + 8);
+    element_printf("恢复出来的z为：%B\n", z);
 
-    return *res;
+    // 返回值的长度需要修改一下
+    return mz;
 }

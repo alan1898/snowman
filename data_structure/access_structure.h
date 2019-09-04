@@ -22,6 +22,12 @@ public:
     element_t_matrix* getM();
     map<signed long int, string>* getRho();
     string* getName();
+
+    void setMSimply(element_t_matrix *M);
+    void setRhoSimply(map<signed long int, string> *rho);
+
+    void setM(element_t_matrix *M);
+    void setRho(map<signed long int, string> *rho);
 };
 
 

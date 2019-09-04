@@ -24,6 +24,8 @@ public:
     Ciphertext(string policy);
     Ciphertext(access_structure *A);
 
+    access_structure* getAccessStructure();
+
     void setPolicy(string policy);
     string getPolicy();
 

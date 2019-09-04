@@ -27,6 +27,10 @@ Ciphertext::Ciphertext(access_structure *A) {
     zr_components = new map<string, element_s*>();
 }
 
+access_structure* Ciphertext::getAccessStructure() {
+    return A;
+}
+
 void Ciphertext::setPolicy(string policy) {
     this->policy = policy;
 }

@@ -31,9 +31,9 @@ public:
     vector<Key*>* setUp();
     Key* keyGen(Key *public_key, Key *master_key, vector<string> *attributes);
     Key* trapdoor(Key *secret_key, vector<string> *attributes);
-    Ciphertext_CET* encrypt(Key *public_key, string policy, element_s *m, Key *sp_ch, Key *pk_ch);
+    Ciphertext_CET* encrypt(Key *public_key, string policy, unsigned char *message, Key *sp_ch, Key *pk_ch);
     bool* test(Key *public_key, Ciphertext_CET *CTA, Key *TdSA, vector<string> *SA, Ciphertext_CET *CTB, Key *TdSB, vector<string> *SB, Key *sp_ch, Key *pk_ch);
-    element_s* decrypt(Ciphertext_CET *ciphertext_cet, Key *secret_key, vector<string> *attributes);
+    unsigned char* decrypt(Ciphertext_CET *ciphertext_cet, Key *secret_key, vector<string> *attributes);
 };
 
 

@@ -59,3 +59,32 @@ map<signed long int, string>* access_structure::getRho() {
 string* access_structure::getName() {
     return name;
 }
+
+void access_structure::setMSimply(element_t_matrix *M) {
+    this->M = M;
+}
+
+void access_structure::setRhoSimply(map<signed long int, string> *rho) {
+    this->rho = rho;
+}
+
+void access_structure::setM(element_t_matrix *M) {
+    this->M = new element_t_matrix(M->row(), M->col(), M->getElement(0, 0));
+
+    // copy M
+    for (signed long int i = 0; i < M->row(); ++i) {
+        for (signed long int j = 0; j < M->col(); ++j) {
+            this->M->setElement(i, j, M->getElement(i, j));
+        }
+    }
+}
+
+void access_structure::setRho(map<signed long int, string> *rho) {
+    this->rho = new map<signed long int, string>();
+
+    // copy rho
+    map<signed long int, string>::iterator iterator1;
+    for (iterator1 = rho->begin(); iterator1 != rho->end(); ++iterator1) {
+        this->rho->insert(pair<signed long int, string>(iterator1->first, iterator1->second));
+    }
+}
