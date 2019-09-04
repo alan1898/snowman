@@ -13,6 +13,9 @@
 class chamhash {
 private:
     pairing_t pairing;
+
+    element_t g1_sample, g2_sample, gt_sample, zr_sample;
+    int g1_length, g2_length, gt_length, zr_length;
 public:
     chamhash();
     Key* setup();

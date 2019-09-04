@@ -16,12 +16,17 @@
 class BCET {
 private:
     pairing_t pairing;
+
+    element_t g1_sample, g2_sample, gt_sample, zr_sample;
+    int g1_length, g2_length, gt_length, zr_length;
 public:
     element_s* H1(element_s *e);
     unsigned char* H2(element_s *e);
 
     element_s* computeXdelte(Ciphertext_CET *ct, Key *ky, vector<string> *sa, string pre_s, string post_s);
     element_s* computeV(Ciphertext_CET *ct, Key *sp_ch, Key *pk_ch, element_s *r_ch, element_t_matrix *M, map<signed long int, string> *rho);
+
+    BCET();
 
     vector<Key*>* setUp();
     Key* keyGen(Key *public_key, Key *master_key, vector<string> *attributes);

@@ -205,24 +205,32 @@ element_s* BCET::computeV(Ciphertext_CET *ct, Key *sp_ch, Key *pk_ch, element_s 
 
     // compute V
     chamhash *ch = new chamhash();
-    element_s *Vg = ch->hash(sp_ch, pk_ch, m_ch, r_ch);
-    unsigned char* Vg_data = (unsigned char*)malloc(n_1 + 1);
-    element_to_bytes(Vg_data, Vg);
-    SHA256_Init(&sha256);
-    SHA256_Update(&sha256, Vg_data, n_1);
-    SHA256_Final(hash_str_byte, &sha256);
-    element_from_hash(*res, hash_str_byte, SHA256_DIGEST_LENGTH);
+    element_set(*res, ch->hash(sp_ch, pk_ch, m_ch, r_ch));
 
     return *res;
 }
 
-vector<Key*>* BCET::setUp() {
+BCET::BCET() {
     // init pairing
     pbc_param_t par;
     curve_param curves;
     pbc_param_init_set_str(par, curves.a_param.c_str());
     pairing_init_pbc_param(pairing, par);
 
+    // init sample elements
+    element_init_G1(g1_sample, pairing);
+    element_init_G2(g2_sample, pairing);
+    element_init_GT(gt_sample, pairing);
+    element_init_Zr(zr_sample, pairing);
+
+    // get the length of group elements
+    g1_length = element_length_in_bytes(g1_sample);
+    g2_length = element_length_in_bytes(g2_sample);
+    gt_length = element_length_in_bytes(gt_sample);
+    zr_length = element_length_in_bytes(zr_sample);
+}
+
+vector<Key*>* BCET::setUp() {
     chamhash *ch = new chamhash();
     Key *sp = ch->setup();
     vector<Key*> *sk_pk = ch->keygen(sp);
