@@ -135,7 +135,6 @@ element_s* BCET::computeXdelte(Ciphertext_CET *ciphertext, SecretKey *key_x, str
     return *res;
 }
 
-// 这里面涉及到C*的需要修改
 element_s* BCET::computeV(Ciphertext_CET *ct, Key *sp_ch, Key *pk_ch, element_s *r_ch, element_t_matrix *M, map<signed long int, string> *rho) {
     element_t *res = new element_t[1];
     element_init_Zr(*res, pairing);
