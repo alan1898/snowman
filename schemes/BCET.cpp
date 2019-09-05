@@ -140,48 +140,42 @@ element_s* BCET::computeV(Ciphertext_CET *ct, Key *sp_ch, Key *pk_ch, element_s 
     element_t *res = new element_t[1];
     element_init_Zr(*res, pairing);
 
-    element_t g1, gt, zr;
-    element_init_G1(g1, pairing);
-    element_init_GT(gt, pairing);
-    element_init_Zr(zr, pairing);
-    int n_1 = element_length_in_bytes(g1);
-    int n_z = element_length_in_bytes(zr);
-    int n_total = n_1 + n_1 + n_1 + n_z + n_1 + n_1 + n_1 + (M->row() * n_1);
+    int n_total = g1_length + g1_length + 8 + zr_length + g1_length + g1_length + g1_length + (M->row() * g1_length);
     unsigned char* str = (unsigned char*)malloc(n_total + 1);
     int str_index = 0;
 
     // add y of pk_ch
     element_to_bytes(str + str_index, pk_ch->getComponent("y"));
-    str_index += n_1;
+    str_index += g1_length;
 
     // add C
     element_to_bytes(str + str_index, ct->getComponent("C"));
-    str_index += n_1;
+    str_index += g1_length;
 
     // add C*
-    for (signed long int i = 0; i < n_1 + n_z; ++i) {
+    for (signed long int i = 0; i < 8 + zr_length; ++i) {
         str[str_index] = ct->Cstar[i];
         str_index++;
     }
 
     // add C0
     element_to_bytes(str + str_index, ct->getComponent("C0"));
-    str_index += n_1;
+    str_index += g1_length;
 
     // add C0'
     element_to_bytes(str + str_index, ct->getComponent("C0_"));
-    str_index += n_1;
+    str_index += g1_length;
 
     // add C03
     element_to_bytes(str + str_index, ct->getComponent("C03"));
-    str_index += n_1;
+    str_index += g1_length;
 
     // add Ctau3
     for (signed long int i = 0; i < M->row(); ++i) {
         map<signed long int, string>::iterator it = rho->find(i);
         string attr = it->second;
         element_to_bytes(str + str_index, ct->getComponent("C" + attr + "3"));
-        str_index += n_1;
+        str_index += g1_length;
     }
 
     str[str_index] = '\0';

@@ -12,15 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4feccd8-971e-40d6-afba-4a15fd88543b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abe_binary_object/BCET.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/BCET.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abe_binary_object/SecretKey.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/SecretKey.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libabe.a" beforeDir="false" afterPath="$PROJECT_DIR$/libabe.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheme_structure/SecretKey.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/scheme_structure/SecretKey.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheme_structure/SecretKey.h" beforeDir="false" afterPath="$PROJECT_DIR$/scheme_structure/SecretKey.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheme_structure/scheme_structure.h" beforeDir="false" afterPath="$PROJECT_DIR$/scheme_structure/scheme_structure.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schemes/BCET.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/BCET.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemes/BCET.h" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/BCET.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14040">
-              <caret line="936" column="33" selection-start-line="936" selection-start-column="33" selection-end-line="936" selection-end-column="33" />
+            <state relative-caret-position="330">
+              <caret line="177" column="31" selection-start-line="177" selection-start-column="31" selection-end-line="177" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -225,26 +217,6 @@
               <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
               <item name="abelib" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="abelib" type="462c0819:PsiDirectoryNode" />
-              <item name="chameleon_hash" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="abelib" type="462c0819:PsiDirectoryNode" />
-              <item name="data_structure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="abelib" type="462c0819:PsiDirectoryNode" />
-              <item name="scheme_structure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="abelib" type="462c0819:PsiDirectoryNode" />
-              <item name="schemes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -346,17 +318,18 @@
       <workItem from="1567496198913" duration="4502000" />
       <workItem from="1567561173204" duration="13860000" />
       <workItem from="1567606532868" duration="4154000" />
-      <workItem from="1567652968846" duration="4831000" />
+      <workItem from="1567652968846" duration="5865000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219916000" />
+    <option name="totallyTimeSpent" value="220950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25013834" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25013834" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -367,7 +340,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.23012552" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.23012552" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3294979" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.3294979" />
@@ -731,8 +704,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14040">
-          <caret line="936" column="33" selection-start-line="936" selection-start-column="33" selection-end-line="936" selection-end-column="33" />
+        <state relative-caret-position="330">
+          <caret line="177" column="31" selection-start-line="177" selection-start-column="31" selection-end-line="177" selection-end-column="31" />
         </state>
       </provider>
     </entry>
