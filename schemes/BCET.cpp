@@ -36,7 +36,7 @@ unsigned char* BCET::H2(element_s *e) {
     return hash_str_byte;
 }
 
-element_s* BCET::computeXdelte(Ciphertext_CET *ciphertext, Key *key_x, vector<string> *attributes, string pre_s, string post_s) {
+element_s* BCET::computeXdelte(Ciphertext_CET *ciphertext, SecretKey *key_x, string pre_s, string post_s) {
     // get M and rho
     element_t sample_element;
     element_init_Zr(sample_element, pairing);
@@ -50,7 +50,7 @@ element_s* BCET::computeXdelte(Ciphertext_CET *ciphertext, Key *key_x, vector<st
 
     // compute wi
     utils util;
-    map<signed long int, signed long int>* matchedAttributes = util.attributesMatching(attributes, rho);
+    map<signed long int, signed long int>* matchedAttributes = util.attributesMatching(key_x->getAttributes(), rho);
     element_t_matrix* attributesMatrix = util.getAttributesMatrix(M, matchedAttributes);
     map<signed long int, signed long int>* x_to_attributes = util.xToAttributes(M, matchedAttributes);
     element_t_matrix* inverse_M = util.inverse(attributesMatrix);
@@ -82,7 +82,7 @@ element_s* BCET::computeXdelte(Ciphertext_CET *ciphertext, Key *key_x, vector<st
     map<signed long int, signed long int>::iterator it;
     for (it = matchedAttributes->begin(); it != matchedAttributes->end(); ++it) {
         // get attribute
-        string attr = (*attributes)[it->second];
+        string attr = (*key_x->getAttributes())[it->second];
 
         // get Ci1, K1, Ci2, Ktau2, Ci3, Ktau3
         element_t Ci1, K1, Ci2, Ktau2, Ci3, Ktau3;
@@ -293,8 +293,8 @@ vector<Key*>* BCET::setUp() {
     return res;
 }
 
-Key* BCET::keyGen(Key *public_key, Key *master_key, vector<string> *attributes) {
-    Key *res = new Key();
+SecretKey* BCET::keyGen(Key *public_key, Key *master_key, vector<string> *attributes) {
+    SecretKey *res = new SecretKey(attributes);
 
     // obtain public parameters
     element_t g, u, h, w, v;
@@ -494,8 +494,8 @@ Key* BCET::keyGen(Key *public_key, Key *master_key, vector<string> *attributes) 
     return res;
 }
 
-Key* BCET::trapdoor(Key *secret_key, vector<string> *attributes) {
-    Key *res = new Key();
+SecretKey* BCET::trapdoor(SecretKey *secret_key) {
+    SecretKey *res = new SecretKey(secret_key->getAttributes());
 
     // obtain K0
     element_t K0;
@@ -509,15 +509,15 @@ Key* BCET::trapdoor(Key *secret_key, vector<string> *attributes) {
     element_set(K1, secret_key->getComponent("K1"));
     res->insertComponent("T1", "G1", K1);
 
-    // obtain Ktau2 and Ktau3  在这里有属性不完全匹配的问题
+    // obtain Ktau2 and Ktau3
     element_t Ktau2, Ktau3;
     element_init_G1(Ktau2, pairing);
     element_init_G1(Ktau3, pairing);
-    for (signed long int i = 0; i < attributes->size(); ++i) {
-        element_set(Ktau2, secret_key->getComponent("K" + (*attributes)[i] + "2"));
-        res->insertComponent("T" + (*attributes)[i] + "2", "G1", Ktau2);
-        element_set(Ktau3, secret_key->getComponent("K" + (*attributes)[i] + "3"));
-        res->insertComponent("T" + (*attributes)[i] + "3", "G1", Ktau3);
+    for (signed long int i = 0; i < secret_key->getAttributes()->size(); ++i) {
+        element_set(Ktau2, secret_key->getComponent("K" + (*secret_key->getAttributes())[i] + "2"));
+        res->insertComponent("T" + (*secret_key->getAttributes())[i] + "2", "G1", Ktau2);
+        element_set(Ktau3, secret_key->getComponent("K" + (*secret_key->getAttributes())[i] + "3"));
+        res->insertComponent("T" + (*secret_key->getAttributes())[i] + "3", "G1", Ktau3);
     }
 
     return res;
@@ -756,7 +756,7 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, unsigned char *mes
     return res;
 }
 
-bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, Key *TdSA, vector<string> *SA, Ciphertext_CET *CTB, Key *TdSB, vector<string> *SB, Key *sp_ch, Key *pk_ch) {
+bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, SecretKey *TdSA, Ciphertext_CET *CTB, SecretKey *TdSB, Key *sp_ch, Key *pk_ch) {
     // get M and rho
     element_t sample_element;
     element_init_Zr(sample_element, pairing);
@@ -878,8 +878,8 @@ bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, Key *TdSA, vector<string>
     }
 
     // test the second structure
-    element_s *XdelteA = computeXdelte(CTA, TdSA, SA, "T", "");
-    element_s *XdelteB = computeXdelte(CTB, TdSB, SB, "T", "");
+    element_s *XdelteA = computeXdelte(CTA, TdSA, "T", "");
+    element_s *XdelteB = computeXdelte(CTB, TdSB, "T", "");
 
     // compute XA
     element_t XA;
@@ -912,24 +912,32 @@ bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, Key *TdSA, vector<string>
     }
 }
 
-unsigned char* BCET::decrypt(Ciphertext_CET *ciphertext_cet, Key *secret_key, vector<string> *attributes) {
-    element_s *Xdelta = computeXdelte(ciphertext_cet, secret_key, attributes, "K", "");
-    element_s *Xdelta_ = computeXdelte(ciphertext_cet, secret_key, attributes, "K", "_");
+unsigned char* BCET::decrypt(Ciphertext_CET *ciphertext_cet, SecretKey *secret_key) {
+    element_s *Xdelta = computeXdelte(ciphertext_cet, secret_key, "K", "");
+    element_s *Xdelta_ = computeXdelte(ciphertext_cet, secret_key, "K", "_");
 
     unsigned char *H_2 = H2(Xdelta_);
-    unsigned char *mz = (unsigned char*)malloc(8 + zr_length + 1);
-    mz[8 + zr_length] = '\0';
 
-    for (signed long int i = 0; i < 8 + zr_length; ++i) {
+    unsigned char *res = (unsigned char*)malloc(8 + 1);
+    res[8] = '\0';
+    unsigned char *z_bytes = (unsigned char*)malloc(zr_length + 1);
+    z_bytes[zr_length] = '\0';
+
+    for (signed long int i = 0; i < 8; ++i) {
         int mzvalue = (int)ciphertext_cet->Cstar[i] ^ (int)H_2[i];
-        mz[i] = (unsigned char)mzvalue;
+        res[i] = (unsigned char)mzvalue;
+    }
+    for (signed long int i = 8; i < 8 + zr_length; ++i) {
+        int mzvalue = (int)ciphertext_cet->Cstar[i] ^ (int)H_2[i];
+        z_bytes[i - 8] = (unsigned char)mzvalue;
     }
 
     element_t z;
     element_init_Zr(z, pairing);
-    element_from_bytes(z, mz + 8);
+    element_from_bytes(z, z_bytes);
     element_printf("恢复出来的z为：%B\n", z);
 
-    // 返回值的长度需要修改一下
-    return mz;
+    // 添加验证！！！
+
+    return res;
 }

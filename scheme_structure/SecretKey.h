@@ -13,6 +13,7 @@ private:
     string *kgc_name;
 public:
     SecretKey();
+    SecretKey(vector<string> *attributes);
     SecretKey(vector<string> *attributes, string *kgc_name);
 
     vector<string>* getAttributes();
