@@ -663,6 +663,33 @@ scheme_structure/Ciphertext_CET.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.s
 .PHONY : scheme_structure/Ciphertext_CET.cpp.s
 
+scheme_structure/Ciphertext_HCET.o: scheme_structure/Ciphertext_HCET.cpp.o
+
+.PHONY : scheme_structure/Ciphertext_HCET.o
+
+# target to build an object file
+scheme_structure/Ciphertext_HCET.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.o
+.PHONY : scheme_structure/Ciphertext_HCET.cpp.o
+
+scheme_structure/Ciphertext_HCET.i: scheme_structure/Ciphertext_HCET.cpp.i
+
+.PHONY : scheme_structure/Ciphertext_HCET.i
+
+# target to preprocess a source file
+scheme_structure/Ciphertext_HCET.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.i
+.PHONY : scheme_structure/Ciphertext_HCET.cpp.i
+
+scheme_structure/Ciphertext_HCET.s: scheme_structure/Ciphertext_HCET.cpp.s
+
+.PHONY : scheme_structure/Ciphertext_HCET.s
+
+# target to generate assembly for a file
+scheme_structure/Ciphertext_HCET.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.s
+.PHONY : scheme_structure/Ciphertext_HCET.cpp.s
+
 scheme_structure/Key.o: scheme_structure/Key.cpp.o
 
 .PHONY : scheme_structure/Key.o
@@ -1164,6 +1191,9 @@ help:
 	@echo "... scheme_structure/Ciphertext_CET.o"
 	@echo "... scheme_structure/Ciphertext_CET.i"
 	@echo "... scheme_structure/Ciphertext_CET.s"
+	@echo "... scheme_structure/Ciphertext_HCET.o"
+	@echo "... scheme_structure/Ciphertext_HCET.i"
+	@echo "... scheme_structure/Ciphertext_HCET.s"
 	@echo "... scheme_structure/Key.o"
 	@echo "... scheme_structure/Key.i"
 	@echo "... scheme_structure/Key.s"

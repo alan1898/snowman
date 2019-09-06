@@ -216,6 +216,12 @@
 		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Ciphertext_CET.h">
 			<Option target="abelib"/>
 		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Ciphertext_HCET.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Ciphertext_HCET.h">
+			<Option target="abelib"/>
+		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Key.cpp">
 			<Option target="abelib"/>
 		</Unit>
