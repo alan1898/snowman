@@ -12,6 +12,8 @@ public:
     unsigned char* Cstar;
     Ciphertext_CET();
     Ciphertext_CET(string policy);
+    Ciphertext_CET(access_structure *A);
+    Ciphertext_CET(element_t_matrix *M, map<signed long int, string> *rho);
 };
 
 

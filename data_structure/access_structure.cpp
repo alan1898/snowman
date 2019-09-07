@@ -11,6 +11,25 @@ access_structure::access_structure() {
     this->name = new string();
 }
 
+access_structure::access_structure(element_t_matrix *M, map<signed long int, string> *rho) {
+    this->M = new element_t_matrix(M->row(), M->col(), M->getElement(0, 0));
+
+    this->rho = new map<signed long int, string>();
+
+    // copy M
+    for (signed long int i = 0; i < M->row(); ++i) {
+        for (signed long int j = 0; j < M->col(); ++j) {
+            this->M->setElement(i, j, M->getElement(i, j));
+        }
+    }
+
+    // copy rho
+    map<signed long int, string>::iterator iterator1;
+    for (iterator1 = rho->begin(); iterator1 != rho->end(); ++iterator1) {
+        this->rho->insert(pair<signed long int, string>(iterator1->first, iterator1->second));
+    }
+}
+
 access_structure::access_structure(element_t_vector *ID, element_t_matrix *M, map<signed long int, string> *rho,
                                    string *name) {
     // 缺少合法判断

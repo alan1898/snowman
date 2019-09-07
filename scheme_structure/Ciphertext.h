@@ -23,6 +23,7 @@ public:
     Ciphertext();
     Ciphertext(string policy);
     Ciphertext(access_structure *A);
+    Ciphertext(element_t_matrix *M, map<signed long int, string> *rho);
 
     access_structure* getAccessStructure();
 

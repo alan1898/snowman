@@ -26,6 +26,14 @@ Ciphertext::Ciphertext(access_structure *A) {
     gt_components = new map<string, element_s*>();
     zr_components = new map<string, element_s*>();
 }
+Ciphertext::Ciphertext(element_t_matrix *M, map<signed long int, string> *rho) {
+    this->A = new access_structure(M, rho);
+
+    g1_components = new map<string, element_s*>();
+    g2_components = new map<string, element_s*>();
+    gt_components = new map<string, element_s*>();
+    zr_components = new map<string, element_s*>();
+}
 
 access_structure* Ciphertext::getAccessStructure() {
     return A;

@@ -37,22 +37,11 @@ unsigned char* BCET::H2(element_s *e) {
 }
 
 element_s* BCET::computeXdelte(Ciphertext_CET *ciphertext, SecretKey *key_x, string pre_s, string post_s) {
-    // get M and rho
-    element_t sample_element;
-    element_init_Zr(sample_element, pairing);
-    policy_resolution pr;
-    policy_generation pg;
-    vector<string>* postfix_expression = pr.infixToPostfix(ciphertext->getPolicy());
-    binary_tree* binary_tree_expression = pr.postfixToBinaryTree(postfix_expression, sample_element);
-    pg.generatePolicyInMatrixForm(binary_tree_expression);
-    element_t_matrix* M = pg.getPolicyInMatrixFormFromTree(binary_tree_expression);
-    map<signed long int, string>* rho = pg.getRhoFromTree(binary_tree_expression);
-
     // compute wi
     utils util;
-    map<signed long int, signed long int>* matchedAttributes = util.attributesMatching(key_x->getAttributes(), rho);
-    element_t_matrix* attributesMatrix = util.getAttributesMatrix(M, matchedAttributes);
-    map<signed long int, signed long int>* x_to_attributes = util.xToAttributes(M, matchedAttributes);
+    map<signed long int, signed long int>* matchedAttributes = util.attributesMatching(key_x->getAttributes(), ciphertext->getAccessStructure()->getRho());
+    element_t_matrix* attributesMatrix = util.getAttributesMatrix(ciphertext->getAccessStructure()->getM(), matchedAttributes);
+    map<signed long int, signed long int>* x_to_attributes = util.xToAttributes(ciphertext->getAccessStructure()->getM(), matchedAttributes);
     element_t_matrix* inverse_M = util.inverse(attributesMatrix);
     element_t_vector* unit = util.getCoordinateAxisUnitVector(inverse_M);
     element_t_vector* x = new element_t_vector(inverse_M->col(), inverse_M->getElement(0, 0));
@@ -516,19 +505,11 @@ SecretKey* BCET::trapdoor(SecretKey *secret_key) {
     return res;
 }
 
-Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, unsigned char *message, Key *sp_ch, Key *pk_ch) {
-    element_t sample_element;
-    element_init_Zr(sample_element, pairing);
-    Ciphertext_CET *res = new Ciphertext_CET(policy);
+Ciphertext_CET* BCET::encrypt(Key *public_key, access_structure *A, unsigned char *message, Key *sp_ch, Key *pk_ch) {
+    Ciphertext_CET *res = new Ciphertext_CET(A->getM(), A->getRho());
+    cout << "init res" << endl;
 
-    policy_resolution pr;
-    policy_generation pg;
     utils util;
-    vector<string>* postfix_expression = pr.infixToPostfix(policy);
-    binary_tree* binary_tree_expression = pr.postfixToBinaryTree(postfix_expression, sample_element);
-    pg.generatePolicyInMatrixForm(binary_tree_expression);
-    element_t_matrix* M = pg.getPolicyInMatrixFormFromTree(binary_tree_expression);
-    map<signed long int, string>* rho = pg.getRhoFromTree(binary_tree_expression);
 
     // obtain public parameters
     element_t g, u, h, w, v;
@@ -547,6 +528,7 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, unsigned char *mes
     element_set(e_gg_alpha, public_key->getComponent("e_gg_alpha"));
     element_init_same_as(e_gg_alpha_, public_key->getComponent("e_gg_alpha_"));
     element_set(e_gg_alpha_, public_key->getComponent("e_gg_alpha_"));
+    cout << "obtain public parameters" << endl;
 
     // randomly choose s to be shared
     element_t s;
@@ -554,15 +536,17 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, unsigned char *mes
     element_random(s);
 
     // generate vector y
-    element_t_vector *y = new element_t_vector(M->col(), sample_element);
+    element_t_vector *y = new element_t_vector(A->getM()->col(), zr_sample);
     element_set(y->getElement(0), s);
     for (signed long int i = 1; i < y->length(); ++i) {
         element_random(y->getElement(i));
     }
+    cout << "generate vector y" << endl;
 
     // compute shares
     extend_math_operation emo;
-    element_t_vector *shares = emo.multiply(M, y);
+    element_t_vector *shares = emo.multiply(A->getM(), y);
+    cout << "compute shares" << endl;
 
     // randomly choose u and t0
     element_t uu, t0;
@@ -656,7 +640,7 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, unsigned char *mes
 //    element_from_bytes(mess, muu);
 //    element_printf("message is %B\n", mess);
 
-    for (signed long int i = 0; i < M->row(); ++i) {
+    for (signed long int i = 0; i < A->getM()->row(); ++i) {
         // get ttau
         element_t ttau;
         element_init_Zr(ttau, pairing);
@@ -665,7 +649,7 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, unsigned char *mes
         // get rhotau
         element_t rhotau;
         element_init_Zr(rhotau, pairing);
-        map<signed long int, string>::iterator it = rho->find(i);
+        map<signed long int, string>::iterator it = A->getRho()->find(i);
         string attr = it->second;
         element_set(rhotau, util.stringToElementT(attr, "ZR", &pairing));
 
@@ -719,11 +703,11 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, unsigned char *mes
     res->insertComponent("rch", "ZR", r_ch);
 
     // compute V
-    element_s *V = computeV(res, sp_ch, pk_ch, r_ch, M, rho);
+    element_s *V = computeV(res, sp_ch, pk_ch, r_ch, A->getM(), A->getRho());
     element_printf("V is %B\n", V);
 
-//    element_s *test_V = computeV(res, sp_ch, pk_ch, r_ch, M, rho);
-//    element_printf("%B\n", test_V);
+    element_s *test_V = computeV(res, sp_ch, pk_ch, r_ch, A->getM(), A->getRho());
+    element_printf("%B\n", test_V);
 
     // compute u^V
     element_t u_V;
@@ -750,24 +734,6 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, string policy, unsigned char *mes
 }
 
 bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, SecretKey *TdSA, Ciphertext_CET *CTB, SecretKey *TdSB, Key *sp_ch, Key *pk_ch) {
-    // get M and rho
-    element_t sample_element;
-    element_init_Zr(sample_element, pairing);
-    policy_resolution pr;
-    policy_generation pg;
-    vector<string>* postfix_expression_A = pr.infixToPostfix(CTA->getPolicy());
-    binary_tree* binary_tree_expression_A = pr.postfixToBinaryTree(postfix_expression_A, sample_element);
-    pg.generatePolicyInMatrixForm(binary_tree_expression_A);
-    element_t_matrix* M_A = pg.getPolicyInMatrixFormFromTree(binary_tree_expression_A);
-    map<signed long int, string>* rho_A = pg.getRhoFromTree(binary_tree_expression_A);
-
-    // get M and rho
-    vector<string>* postfix_expression_B = pr.infixToPostfix(CTB->getPolicy());
-    binary_tree* binary_tree_expression_B = pr.postfixToBinaryTree(postfix_expression_B, sample_element);
-    pg.generatePolicyInMatrixForm(binary_tree_expression_B);
-    element_t_matrix* M_B = pg.getPolicyInMatrixFormFromTree(binary_tree_expression_B);
-    map<signed long int, string>* rho_B = pg.getRhoFromTree(binary_tree_expression_B);
-
     // obtain public parameters
     element_t g, u, h, w, v;
     element_init_same_as(g, public_key->getComponent("g"));
@@ -782,10 +748,10 @@ bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, SecretKey *TdSA, Cipherte
     element_set(v, public_key->getComponent("v"));
 
     // VA
-    element_s *VA = computeV(CTA, sp_ch, pk_ch, CTA->getComponent("rch"), M_A, rho_A);
+    element_s *VA = computeV(CTA, sp_ch, pk_ch, CTA->getComponent("rch"), CTA->getAccessStructure()->getM(), CTA->getAccessStructure()->getRho());
 
     // VB
-    element_s *VB = computeV(CTB, sp_ch, pk_ch, CTB->getComponent("rch"), M_B, rho_B);
+    element_s *VB = computeV(CTB, sp_ch, pk_ch, CTB->getComponent("rch"), CTB->getAccessStructure()->getM(), CTB->getAccessStructure()->getRho());
 
     // init params
     element_t Ci2, Ci3;
@@ -799,8 +765,8 @@ bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, SecretKey *TdSA, Cipherte
     element_init_GT(e_Ci3uAih, pairing);
     element_init_GT(inv_e_Ci3uAih, pairing);
     // test the first structure
-    for (signed long int i = 0; i < M_A->row(); ++i) {
-        map<signed long int, string>::iterator it = rho_A->find(i);
+    for (signed long int i = 0; i < CTA->getAccessStructure()->getM()->row(); ++i) {
+        map<signed long int, string>::iterator it = CTA->getAccessStructure()->getRho()->find(i);
         string attr = it->second;
 
         // obtain Ci2 and Ci3
@@ -834,8 +800,8 @@ bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, SecretKey *TdSA, Cipherte
             return NULL;
         }
     }
-    for (signed long int i = 0; i < M_B->row(); ++i) {
-        map<signed long int, string>::iterator it = rho_B->find(i);
+    for (signed long int i = 0; i < CTB->getAccessStructure()->getM()->row(); ++i) {
+        map<signed long int, string>::iterator it = CTB->getAccessStructure()->getRho()->find(i);
         string attr = it->second;
 
         // obtain Ci2 and Ci3

@@ -16,6 +16,7 @@ private:
     string *name;
 public:
     access_structure();
+    access_structure(element_t_matrix *M, map<signed long int, string> *rho);
     access_structure(element_t_vector *ID, element_t_matrix *M, map<signed long int, string> *rho, string *name);
 
     element_t_vector* getID();
