@@ -13,4 +13,7 @@
 #include "SR02.h"
 #include "SAR.h"
 
+#include "BCET.h"
+#include "HCET.h"
+
 #endif //ABELIB_SCHEMES_H
