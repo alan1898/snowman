@@ -398,7 +398,7 @@ Key* HCET::authKeyGen(Key *public_key, Key *master_key, element_t_vector *ID) {
     element_init_G1(hs_Is_g3_w_r_, pairing);
     element_pow_zn(hs_Is_g3_w_r_, hs_Is_g3_w, r_);
 
-    // compute K0'=g2^alpha*(h1^I1*...*hj^Ij*g3*w)^r'
+    // compute K0'=g2^alpha'*(h1^I1*...*hj^Ij*g3*w)^r'
     element_t K0_;
     element_init_G1(K0_, pairing);
     element_mul(K0_, g2_alpha_, hs_Is_g3_w_r_);
@@ -1001,6 +1001,7 @@ Ciphertext_HCET* HCET::encrypt(Key *public_key, map<string, access_structure*> *
         int Cvalue = (int)mz[i] ^ (int)H_2[i];
         res->Cstar[i] = (unsigned char)Cvalue;
     }
+    res->Cstar[SHA256_DIGEST_LENGTH] = '\0';
 
     //init
     //------------------------------------------------------------------------------------------------------------------
@@ -1013,10 +1014,8 @@ Ciphertext_HCET* HCET::encrypt(Key *public_key, map<string, access_structure*> *
     //------------------------------------------------------------------------------------------------------------------
     element_t hs_Is_g3;
     element_init_G1(hs_Is_g3, pairing);
-    element_t hs_Is_g3_w;
-    element_init_G1(hs_Is_g3_w, pairing);
-    element_t hs_Is_g3_w_s;
-    element_init_G1(hs_Is_g3_w_s, pairing);
+    element_t hs_Is_g3_s;
+    element_init_G1(hs_Is_g3_s, pairing);
     element_t w_sj;
     element_init_G1(w_sj, pairing);
     element_t Cj0;
@@ -1096,14 +1095,12 @@ Ciphertext_HCET* HCET::encrypt(Key *public_key, map<string, access_structure*> *
         }
         // compute h1^Ij1*h2^Ij2*...*hyj^Ijyj*g3
         element_mul(hs_Is_g3, hs_Is, g3);
-        // compute h1^Ij1*h2^Ij2*...*hyj^Ijyj*g3*w
-        element_mul(hs_Is_g3_w, hs_Is_g3, w);
-        // compute (h1^Ij1*h2^Ij2*...*hyj^Ijyj*g3*w)^s
-        element_pow_zn(hs_Is_g3_w_s, hs_Is_g3_w, s);
+        // compute (h1^Ij1*h2^Ij2*...*hyj^Ijyj*g3)^s
+        element_pow_zn(hs_Is_g3_s, hs_Is_g3, s);
         // compute w^sj
         element_pow_zn(w_sj, w, sj);
         // compute Cj0
-        element_mul(Cj0, hs_Is_g3_w_s, w_sj);
+        element_mul(Cj0, hs_Is_g3_s, w_sj);
         res->insertComponent("C" + *(iterator1->second->getName()) + "0", "G1", Cj0);
 
         // randomly choose tj0

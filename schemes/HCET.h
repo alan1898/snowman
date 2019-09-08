@@ -11,6 +11,7 @@
 #include "../curves/curve_param.h"
 #include "../utils/utils.h"
 #include "../chameleon_hash/chamhash.h"
+#include "openssl/sha.h"
 
 class HCET {
 private:
