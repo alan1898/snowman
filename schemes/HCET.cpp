@@ -916,6 +916,8 @@ Ciphertext_HCET* HCET::encrypt(Key *public_key, map<string, access_structure*> *
     element_random(s);
     element_random(z);
 
+    element_printf("随机选择的z为：%B\n", z);
+
     element_t sj;
     element_init_Zr(sj, pairing);
     element_t s_sj;
@@ -947,6 +949,7 @@ Ciphertext_HCET* HCET::encrypt(Key *public_key, map<string, access_structure*> *
     element_t e_g1g2_s;
     element_init_GT(e_g1g2_s, pairing);
     element_pow_zn(e_g1g2_s, e_g1g2, s);
+    element_printf("e(g1,g2)^s is %B\n", e_g1g2_s);
 
     // compute H1(e(g1,g2)^s)
     element_t H_1;
@@ -980,6 +983,7 @@ Ciphertext_HCET* HCET::encrypt(Key *public_key, map<string, access_structure*> *
     element_t e_g1_g2_s;
     element_init_GT(e_g1_g2_s, pairing);
     element_pow_zn(e_g1_g2_s, e_g1_g2, s);
+    element_printf("e(g1',g2)^s is %B\n", e_g1_g2_s);
 
     // compute H2(e(g1',g2)^s)
     unsigned char *H_2 = H2(e_g1_g2_s);
@@ -1397,10 +1401,12 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
 
 unsigned char* HCET::decrypt(Ciphertext_HCET *ciphertext_hcet, SecretKey *secret_key) {
     map<string, access_structure*>::iterator iterator1 = ciphertext_hcet->getAA()->find(*(secret_key->getKgcName()));
-    element_s *Xdelta = computeXdelte(ciphertext_hcet, secret_key, "K", "");
-    element_s *Xdelta_ = computeXdelte(ciphertext_hcet, secret_key, "K", "_");
+    element_s *Xdelte = computeXdelte(ciphertext_hcet, secret_key, "K", "");
+    element_printf("Xdelte is %B\n", Xdelte);
+    element_s *Xdelte_ = computeXdelte(ciphertext_hcet, secret_key, "K", "_");
+    element_printf("Xdelte_ is %B\n", Xdelte_);
 
-    unsigned char *H_2 = H2(Xdelta_);
+    unsigned char *H_2 = H2(Xdelte_);
 
     unsigned char *res = (unsigned char*)malloc(8 + 1);
     res[8] = '\0';
