@@ -949,7 +949,7 @@ Ciphertext_HCET* HCET::encrypt(Key *public_key, map<string, access_structure*> *
     element_t e_g1g2_s;
     element_init_GT(e_g1g2_s, pairing);
     element_pow_zn(e_g1g2_s, e_g1g2, s);
-    element_printf("e(g1,g2)^s is %B\n", e_g1g2_s);
+//    element_printf("e(g1,g2)^s is %B\n", e_g1g2_s);
 
     // compute H1(e(g1,g2)^s)
     element_t H_1;
@@ -983,7 +983,7 @@ Ciphertext_HCET* HCET::encrypt(Key *public_key, map<string, access_structure*> *
     element_t e_g1_g2_s;
     element_init_GT(e_g1_g2_s, pairing);
     element_pow_zn(e_g1_g2_s, e_g1_g2, s);
-    element_printf("e(g1',g2)^s is %B\n", e_g1_g2_s);
+//    element_printf("e(g1',g2)^s is %B\n", e_g1_g2_s);
 
     // compute H2(e(g1',g2)^s)
     unsigned char *H_2 = H2(e_g1_g2_s);
@@ -1196,18 +1196,26 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
 
     element_t u_VAj;
     element_init_G1(u_VAj, pairing);
+    element_t u_VBj;
+    element_init_G1(u_VBj, pairing);
 
     element_t u_VAj_h;
     element_init_G1(u_VAj_h, pairing);
+    element_t u_VBj_h;
+    element_init_G1(u_VBj_h, pairing);
 
     element_t e_gCj02;
     element_init_GT(e_gCj02, pairing);
 
     element_t e_Cj03uVAjh;
     element_init_GT(e_Cj03uVAjh, pairing);
+    element_t e_Cj03uVBjh;
+    element_init_GT(e_Cj03uVBjh, pairing);
 
     element_t inv_e_Cj03uVAjh;
     element_init_GT(inv_e_Cj03uVAjh, pairing);
+    element_t inv_e_Cj03uVBjh;
+    element_init_GT(inv_e_Cj03uVBjh, pairing);
     //------------------------------------------------------------------------------------------------------------------
     element_t Cji2, Cji3;
     element_init_G1(Cji2, pairing);
@@ -1227,7 +1235,7 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
     element_init_G1(u_Aji_h, pairing);
 
     element_t e_Cji3uAjih;
-    element_init_G1(e_Cji3uAjih, pairing);
+    element_init_GT(e_Cji3uAjih, pairing);
 
     element_t inv_e_Cji3uAjih;
     element_init_GT(inv_e_Cji3uAjih, pairing);
@@ -1237,27 +1245,36 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
     for (iterator1 = CTA->getAA()->begin(); iterator1 != CTA->getAA()->end(); ++iterator1) {
         // compute VAj
         element_s *VAj = computeVj(CTA, sp_ch, pk_ch, CTA->getComponent("rch" + *(iterator1->second->getName())), iterator1->second);
+//        cout << "VAj" << endl;
 
         // obtain Cj02 and Cj03
         element_set(Cj02, CTA->getComponent("C" + *(iterator1->second->getName()) + "02"));
+//        cout << "Cj02" << endl;
         element_set(Cj03, CTA->getComponent("C" + *(iterator1->second->getName()) + "03"));
+//        cout << "Cj03" << endl;
 
         // compute u^VAj
         element_pow_zn(u_VAj, u, VAj);
+//        cout << "u^VAj" << endl;
 
         // compute u^VAj*h
         element_mul(u_VAj_h, u_VAj, h);
+//        cout << "u^VAj*h" << endl;
 
         // compute e(g,Cj02)
         element_pairing(e_gCj02, g, Cj02);
+//        cout << "e(g,Cj02)" << endl;
 
         // compute e(Cj03,u^VAj*h)
         element_pairing(e_Cj03uVAjh, Cj03, u_VAj_h);
+//        cout << "e(Cj03,u^VAj*h)" << endl;
 
         // compute e(Cj03,u^VAj*h)^(-1)
         element_invert(inv_e_Cj03uVAjh, e_Cj03uVAjh);
+//        cout << "e(Cj03,u^VAj*h)^(-1)" << endl;
 
         if (element_cmp(e_gCj02, inv_e_Cj03uVAjh) != 0) {
+            cout << "A-1-1" << endl;
             return NULL;
         }
 
@@ -1267,10 +1284,13 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
 
             // obtain Cji2 and Cji3
             element_set(Cji2, CTA->getComponent("C" +  *(iterator1->second->getName()) + attr + "2"));
+//            cout << "Cji2" << endl;
             element_set(Cji3, CTA->getComponent("C" +  *(iterator1->second->getName()) + attr + "3"));
+//            cout << "Cji3" << endl;
 
             // compute e(g,Cji2)
             element_pairing(e_gCji2, g, Cji2);
+//            cout << "e(g,Cji2)" << endl;
 
             // compute Aji
             SHA256_CTX sha256;
@@ -1278,20 +1298,26 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
             SHA256_Update(&sha256, attr.c_str(), attr.size());
             SHA256_Final(hash_str_byte, &sha256);
             element_from_hash(Aji, hash_str_byte, SHA256_DIGEST_LENGTH);
+//            cout << "Aji" << endl;
 
             // compute u^Aji
             element_pow_zn(u_Aji, u, Aji);
+//            cout << "u^Aji" << endl;
 
             // compute u^Aji*h
             element_mul(u_Aji_h, u_Aji, h);
+//            cout << "u^Aji*h" << endl;
 
             // compute e(Cji3,u^Aji*h)
             element_pairing(e_Cji3uAjih, Cji3, u_Aji_h);
+//            cout << "e(Cji3,u^Aji*h)" << endl;
 
             // compute e(Cji3,u^Aji*h)^(-1)
             element_invert(inv_e_Cji3uAjih, e_Cji3uAjih);
+//            cout << "e(Cji3,u^Aji*h)^(-1)" << endl;
 
             if (element_cmp(e_gCji2, inv_e_Cji3uAjih) != 0) {
+                cout << "A-1-2" << endl;
                 return NULL;
             }
         }
@@ -1299,29 +1325,30 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
 
     // CTB
     for (iterator1 = CTB->getAA()->begin(); iterator1 != CTB->getAA()->end(); ++iterator1) {
-        // compute VAj
-        element_s *VAj = computeVj(CTA, sp_ch, pk_ch, CTA->getComponent("rch" + *(iterator1->second->getName())), iterator1->second);
+        // compute VBj
+        element_s *VBj = computeVj(CTB, sp_ch, pk_ch, CTB->getComponent("rch" + *(iterator1->second->getName())), iterator1->second);
 
         // obtain Cj02 and Cj03
-        element_set(Cj02, CTA->getComponent("C" + *(iterator1->second->getName()) + "02"));
-        element_set(Cj03, CTA->getComponent("C" + *(iterator1->second->getName()) + "03"));
+        element_set(Cj02, CTB->getComponent("C" + *(iterator1->second->getName()) + "02"));
+        element_set(Cj03, CTB->getComponent("C" + *(iterator1->second->getName()) + "03"));
 
-        // compute u^VAj
-        element_pow_zn(u_VAj, u, VAj);
+        // compute u^VBj
+        element_pow_zn(u_VBj, u, VBj);
 
-        // compute u^VAj*h
-        element_mul(u_VAj_h, u_VAj, h);
+        // compute u^VBj*h
+        element_mul(u_VBj_h, u_VBj, h);
 
         // compute e(g,Cj02)
         element_pairing(e_gCj02, g, Cj02);
 
-        // compute e(Cj03,u^VAj*h)
-        element_pairing(e_Cj03uVAjh, Cj03, u_VAj_h);
+        // compute e(Cj03,u^VBj*h)
+        element_pairing(e_Cj03uVBjh, Cj03, u_VBj_h);
 
         // compute e(Cj03,u^VAj*h)^(-1)
-        element_invert(inv_e_Cj03uVAjh, e_Cj03uVAjh);
+        element_invert(inv_e_Cj03uVBjh, e_Cj03uVBjh);
 
-        if (element_cmp(e_gCj02, inv_e_Cj03uVAjh) != 0) {
+        if (element_cmp(e_gCj02, inv_e_Cj03uVBjh) != 0) {
+            cout << "B-1-1" << endl;
             return NULL;
         }
 
@@ -1330,8 +1357,8 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
             string attr = it->second;
 
             // obtain Cji2 and Cji3
-            element_set(Cji2, CTA->getComponent("C" +  *(iterator1->second->getName()) + attr + "2"));
-            element_set(Cji3, CTA->getComponent("C" +  *(iterator1->second->getName()) + attr + "3"));
+            element_set(Cji2, CTB->getComponent("C" +  *(iterator1->second->getName()) + attr + "2"));
+            element_set(Cji3, CTB->getComponent("C" +  *(iterator1->second->getName()) + attr + "3"));
 
             // compute e(g,Cji2)
             element_pairing(e_gCji2, g, Cji2);
@@ -1356,6 +1383,7 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
             element_invert(inv_e_Cji3uAjih, e_Cji3uAjih);
 
             if (element_cmp(e_gCji2, inv_e_Cji3uAjih) != 0) {
+                cout << "B-1-2" << endl;
                 return NULL;
             }
         }
@@ -1367,12 +1395,12 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
 
     // compute XA
     element_t XA;
-    element_init_Zr(XA, pairing);
+    element_init_G1(XA, pairing);
     element_div(XA, CTA->getComponent("C"), H1(XdelteA));
 
     // compute XB
     element_t XB;
-    element_init_Zr(XB, pairing);
+    element_init_G1(XB, pairing);
     element_div(XB, CTB->getComponent("C"), H1(XdelteB));
 
     // compute e(C0'A,XB)
@@ -1399,9 +1427,7 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
 unsigned char* HCET::decrypt(Ciphertext_HCET *ciphertext_hcet, SecretKey *secret_key) {
     map<string, access_structure*>::iterator iterator1 = ciphertext_hcet->getAA()->find(*(secret_key->getKgcName()));
     element_s *Xdelte = computeXdelte(ciphertext_hcet, secret_key, "K", "");
-    element_printf("Xdelte is %B\n", Xdelte);
     element_s *Xdelte_ = computeXdelte(ciphertext_hcet, secret_key, "K", "_");
-    element_printf("Xdelte_ is %B\n", Xdelte_);
 
     unsigned char *H_2 = H2(Xdelte_);
 
