@@ -30,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="699" column="7" selection-start-line="699" selection-start-column="7" selection-end-line="699" selection-end-column="7" />
+            <state relative-caret-position="517">
+              <caret line="897" column="39" selection-start-line="897" selection-start-column="39" selection-end-line="897" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -237,16 +237,15 @@
       <workItem from="1567775411873" duration="8260000" />
       <workItem from="1567924509850" duration="9060000" />
       <workItem from="1567940696293" duration="1344000" />
-      <workItem from="1567993754035" duration="2483000" />
+      <workItem from="1567993754035" duration="3510000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263190000" />
+    <option name="totallyTimeSpent" value="264217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27670172" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -621,8 +620,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="699" column="7" selection-start-line="699" selection-start-column="7" selection-end-line="699" selection-end-column="7" />
+        <state relative-caret-position="517">
+          <caret line="897" column="39" selection-start-line="897" selection-start-column="39" selection-end-line="897" selection-end-column="39" />
         </state>
       </provider>
     </entry>

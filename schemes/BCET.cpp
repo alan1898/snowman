@@ -550,7 +550,7 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, access_structure *A, unsigned cha
     element_init_Zr(t0, pairing);
     element_random(uu);
     element_random(t0);
-    element_printf("原始的z为：%B\n", uu);
+//    element_printf("原始的z为：%B\n", uu);
 
     // change message to m
     unsigned char hash_bytes[SHA256_DIGEST_LENGTH];
@@ -851,14 +851,14 @@ bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, SecretKey *TdSA, Cipherte
     element_t e_C0_A_XB;
     element_init_GT(e_C0_A_XB, pairing);
     element_pairing(e_C0_A_XB, CTA->getComponent("C0_"), XB);
-    element_printf("e(C0'A,XB) is: %B\n", e_C0_A_XB);
+//    element_printf("e(C0'A,XB) is: %B\n", e_C0_A_XB);
 //    cout << "e_C0_A_XB" << endl;
 
     // compute e(C0'B,XA)
     element_t e_C0_B_XA;
     element_init_GT(e_C0_B_XA, pairing);
     element_pairing(e_C0_B_XA, CTB->getComponent("C0_"), XA);
-    element_printf("e(C0'B,XA) is: %B\n", e_C0_B_XA);
+//    element_printf("e(C0'B,XA) is: %B\n", e_C0_B_XA);
 //    cout << "e_C0_B_XA" << endl;
 
     bool *res = new bool();
@@ -895,7 +895,7 @@ unsigned char* BCET::decrypt(Ciphertext_CET *ciphertext_cet, SecretKey *secret_k
     element_t z;
     element_init_Zr(z, pairing);
     element_from_bytes(z, z_bytes);
-    element_printf("恢复出来的z为：%B\n", z);
+//    element_printf("恢复出来的z为：%B\n", z);
 
     // 添加验证！！！
 
