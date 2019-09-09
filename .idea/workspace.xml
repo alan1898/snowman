@@ -13,10 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d4feccd8-971e-40d6-afba-4a15fd88543b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abe_binary_object/HCET.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/HCET.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abe_binary_object/BCET.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/BCET.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libabe.a" beforeDir="false" afterPath="$PROJECT_DIR$/libabe.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemes/HCET.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/HCET.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemes/HCET.h" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/HCET.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemes/BCET.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/BCET.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,46 +26,12 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/schemes/HCET.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="1102" column="33" selection-start-line="1102" selection-start-column="33" selection-end-line="1102" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="547" column="38" selection-start-line="547" selection-start-column="38" selection-end-line="547" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/schemes/HCET.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/openssl/sha.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1530" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/schemes/schemes.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+            <state relative-caret-position="413">
+              <caret line="699" column="7" selection-start-line="699" selection-start-column="7" selection-end-line="699" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -132,10 +97,10 @@
         <option value="$PROJECT_DIR$/scheme_structure/Ciphertext.h" />
         <option value="$PROJECT_DIR$/scheme_structure/Ciphertext.cpp" />
         <option value="$PROJECT_DIR$/scheme_structure/Ciphertext_CET.cpp" />
-        <option value="$PROJECT_DIR$/schemes/BCET.cpp" />
         <option value="$PROJECT_DIR$/schemes/schemes.h" />
         <option value="$PROJECT_DIR$/schemes/HCET.h" />
         <option value="$PROJECT_DIR$/schemes/HCET.cpp" />
+        <option value="$PROJECT_DIR$/schemes/BCET.cpp" />
       </list>
     </option>
   </component>
@@ -162,16 +127,6 @@
             <path>
               <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
               <item name="abelib" type="462c0819:PsiDirectoryNode" />
-              <item name="data_structure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="abelib" type="462c0819:PsiDirectoryNode" />
-              <item name="scheme_structure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="abelib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="abelib" type="462c0819:PsiDirectoryNode" />
               <item name="schemes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -183,7 +138,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test/BCET_test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -282,17 +237,18 @@
       <workItem from="1567775411873" duration="8260000" />
       <workItem from="1567924509850" duration="9060000" />
       <workItem from="1567940696293" duration="1344000" />
+      <workItem from="1567993754035" duration="2483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260688000" />
+    <option name="totallyTimeSpent" value="263190000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27006087" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27670172" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -656,17 +612,17 @@
         <state relative-caret-position="-1530" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="547" column="38" selection-start-line="547" selection-start-column="38" selection-end-line="547" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/schemes/HCET.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="1102" column="33" selection-start-line="1102" selection-start-column="33" selection-end-line="1102" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="699" column="7" selection-start-line="699" selection-start-column="7" selection-end-line="699" selection-end-column="7" />
         </state>
       </provider>
     </entry>

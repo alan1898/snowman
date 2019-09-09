@@ -507,7 +507,6 @@ SecretKey* BCET::trapdoor(SecretKey *secret_key) {
 
 Ciphertext_CET* BCET::encrypt(Key *public_key, access_structure *A, unsigned char *message, Key *sp_ch, Key *pk_ch) {
     Ciphertext_CET *res = new Ciphertext_CET(A->getM(), A->getRho());
-    cout << "init res" << endl;
 
     utils util;
 
@@ -528,7 +527,6 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, access_structure *A, unsigned cha
     element_set(e_gg_alpha, public_key->getComponent("e_gg_alpha"));
     element_init_same_as(e_gg_alpha_, public_key->getComponent("e_gg_alpha_"));
     element_set(e_gg_alpha_, public_key->getComponent("e_gg_alpha_"));
-    cout << "obtain public parameters" << endl;
 
     // randomly choose s to be shared
     element_t s;
@@ -541,12 +539,10 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, access_structure *A, unsigned cha
     for (signed long int i = 1; i < y->length(); ++i) {
         element_random(y->getElement(i));
     }
-    cout << "generate vector y" << endl;
 
     // compute shares
     extend_math_operation emo;
     element_t_vector *shares = emo.multiply(A->getM(), y);
-    cout << "compute shares" << endl;
 
     // randomly choose u and t0
     element_t uu, t0;
@@ -575,7 +571,6 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, access_structure *A, unsigned cha
     element_t e_gg_alpha_s;
     element_init_GT(e_gg_alpha_s, pairing);
     element_pow_zn(e_gg_alpha_s, e_gg_alpha, s);
-    element_printf("e_gg_alpha_s is %B\n", e_gg_alpha_s);
 
     // compute H1(e(g,g)^(alpha*s))
     element_t H_1;
@@ -610,7 +605,6 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, access_structure *A, unsigned cha
     element_t e_gg_alpha__s;
     element_init_GT(e_gg_alpha__s, pairing);
     element_pow_zn(e_gg_alpha__s, e_gg_alpha_, s);
-    element_printf("e_gg_alpha__s is %B\n", e_gg_alpha__s);
 
     unsigned char *muu = (unsigned char*)malloc(8 + zr_length + 1);
     for (signed long int index = 0; index < 8; ++index) {
@@ -704,10 +698,7 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, access_structure *A, unsigned cha
 
     // compute V
     element_s *V = computeV(res, sp_ch, pk_ch, r_ch, A->getM(), A->getRho());
-    element_printf("V is %B\n", V);
-
-    element_s *test_V = computeV(res, sp_ch, pk_ch, r_ch, A->getM(), A->getRho());
-    element_printf("%B\n", test_V);
+//    element_printf("V is %B\n", V);
 
     // compute u^V
     element_t u_V;
@@ -800,6 +791,7 @@ bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, SecretKey *TdSA, Cipherte
             return NULL;
         }
     }
+//    cout << "1-1" << endl;
     for (signed long int i = 0; i < CTB->getAccessStructure()->getM()->row(); ++i) {
         map<signed long int, string>::iterator it = CTB->getAccessStructure()->getRho()->find(i);
         string attr = it->second;
@@ -835,30 +827,39 @@ bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, SecretKey *TdSA, Cipherte
             return NULL;
         }
     }
+//    cout << "1-2" << endl;
 
     // test the second structure
     element_s *XdelteA = computeXdelte(CTA, TdSA, "T", "");
+//    cout << "XdelteA" << endl;
     element_s *XdelteB = computeXdelte(CTB, TdSB, "T", "");
+//    cout << "XdelteB" << endl;
 
     // compute XA
     element_t XA;
-    element_init_Zr(XA, pairing);
+    element_init_G1(XA, pairing);
     element_div(XA, CTA->getComponent("C"), H1(XdelteA));
+//    cout << "XA" << endl;
 
     // compute XB
     element_t XB;
-    element_init_Zr(XB, pairing);
+    element_init_G1(XB, pairing);
     element_div(XB, CTB->getComponent("C"), H1(XdelteB));
+//    cout << "XB" << endl;
 
     // compute e(C0'A,XB)
     element_t e_C0_A_XB;
     element_init_GT(e_C0_A_XB, pairing);
     element_pairing(e_C0_A_XB, CTA->getComponent("C0_"), XB);
+    element_printf("e(C0'A,XB) is: %B\n", e_C0_A_XB);
+//    cout << "e_C0_A_XB" << endl;
 
-    // compute e(C0'B, XA)
+    // compute e(C0'B,XA)
     element_t e_C0_B_XA;
     element_init_GT(e_C0_B_XA, pairing);
     element_pairing(e_C0_B_XA, CTB->getComponent("C0_"), XA);
+    element_printf("e(C0'B,XA) is: %B\n", e_C0_B_XA);
+//    cout << "e_C0_B_XA" << endl;
 
     bool *res = new bool();
 
