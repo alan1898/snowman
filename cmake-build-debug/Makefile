@@ -1014,6 +1014,33 @@ schemes/OCET.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OCET.cpp.s
 .PHONY : schemes/OCET.cpp.s
 
+schemes/OHCET.o: schemes/OHCET.cpp.o
+
+.PHONY : schemes/OHCET.o
+
+# target to build an object file
+schemes/OHCET.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET.cpp.o
+.PHONY : schemes/OHCET.cpp.o
+
+schemes/OHCET.i: schemes/OHCET.cpp.i
+
+.PHONY : schemes/OHCET.i
+
+# target to preprocess a source file
+schemes/OHCET.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET.cpp.i
+.PHONY : schemes/OHCET.cpp.i
+
+schemes/OHCET.s: schemes/OHCET.cpp.s
+
+.PHONY : schemes/OHCET.s
+
+# target to generate assembly for a file
+schemes/OHCET.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET.cpp.s
+.PHONY : schemes/OHCET.cpp.s
+
 schemes/RW13.o: schemes/RW13.cpp.o
 
 .PHONY : schemes/RW13.o
@@ -1257,6 +1284,9 @@ help:
 	@echo "... schemes/OCET.o"
 	@echo "... schemes/OCET.i"
 	@echo "... schemes/OCET.s"
+	@echo "... schemes/OHCET.o"
+	@echo "... schemes/OHCET.i"
+	@echo "... schemes/OHCET.s"
 	@echo "... schemes/RW13.o"
 	@echo "... schemes/RW13.i"
 	@echo "... schemes/RW13.s"
