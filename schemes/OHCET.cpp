@@ -918,7 +918,7 @@ vector<SecretKey*>* OHCET::userKeyGen(Key *public_key, Key *SKID, element_t_vect
 vector<SecretKey*>* OHCET::trapdoor(vector<SecretKey*> *secret_key) {
     vector<SecretKey*> *res = new vector<SecretKey*>(2);
 
-    SecretKey *res1 = new SecretKey(secret_key->at(0)->getAttributes());
+    SecretKey *res1 = new SecretKey(secret_key->at(0)->getAttributes(), secret_key->at(0)->getKgcName());
     SecretKey *res2 = new SecretKey();
 
     // obtain K0
@@ -1323,7 +1323,6 @@ Ciphertext_HCET* OHCET::transform(Key *public_key, SecretKey *key_x, string *key
     element_t inv_e_Cji3uAjih;
     element_init_GT(inv_e_Cji3uAjih, pairing);
     //------------------------------------------------------------------------------------------------------------------
-    cout << "init: success" << endl;
     map<string, access_structure*>::iterator iterator1;
     for (iterator1 = CT->getAA()->begin(); iterator1 != CT->getAA()->end(); ++iterator1) {
         // compute Vj
@@ -1354,7 +1353,6 @@ Ciphertext_HCET* OHCET::transform(Key *public_key, SecretKey *key_x, string *key
 
         // compute e(Cj03,u^Vj*h)^(-1)
         element_invert(inv_e_Cj03uVjh, e_Cj03uVjh);
-//        cout << "e(Cj03,u^Vj*h)^(-1)" << endl;
 
         if (element_cmp(e_gCj02, inv_e_Cj03uVjh) != 0) {
             cout << "A-1-1" << endl;
@@ -1367,9 +1365,7 @@ Ciphertext_HCET* OHCET::transform(Key *public_key, SecretKey *key_x, string *key
 
             // obtain Cji2 and Cji3
             element_set(Cji2, CT->getComponent("C" +  *(iterator1->second->getName()) + attr + "2"));
-//            cout << "Cji2" << endl;
             element_set(Cji3, CT->getComponent("C" +  *(iterator1->second->getName()) + attr + "3"));
-//            cout << "Cji3" << endl;
 
             // compute e(g,Cji2)
             element_pairing(e_gCji2, g, Cji2);
@@ -1424,6 +1420,53 @@ Ciphertext_HCET* OHCET::transform(Key *public_key, SecretKey *key_x, string *key
     }
 
     return res;
+}
+
+bool* OHCET::test(Key *public_key, Ciphertext_HCET *ITA, vector<SecretKey *> *TdSA, Ciphertext_HCET *ITB,
+                  vector<SecretKey *> *TdSB) {
+    bool *res = new bool();
+    if (ITA == NULL || ITB == NULL) {
+        *res = false;
+        return res;
+    }
+
+    // compute CdelteA^oA
+    element_t CdelteA_oA;
+    element_init_GT(CdelteA_oA, pairing);
+    element_pow_zn(CdelteA_oA, ITA->getComponent("Cdelte"), TdSA->at(1)->getComponent("o"));
+
+    // compute XA
+    element_t XA;
+    element_init_G1(XA, pairing);
+    element_div(XA, ITA->getComponent("C"), H1(CdelteA_oA));
+
+    // compute CdelteB^oB
+    element_t CdelteB_oB;
+    element_init_GT(CdelteB_oB, pairing);
+    element_pow_zn(CdelteB_oB, ITB->getComponent("Cdelte"), TdSB->at(1)->getComponent("o"));
+
+    // compute XB
+    element_t XB;
+    element_init_G1(XB, pairing);
+    element_div(XB, ITB->getComponent("C"), H1(CdelteB_oB));
+
+    // compute e(C0'A,XB)
+    element_t e_C0_A_XB;
+    element_init_GT(e_C0_A_XB, pairing);
+    element_pairing(e_C0_A_XB, ITA->getComponent("C0_"), XB);
+
+    // compute e(C0'B,XA)
+    element_t e_C0_B_XA;
+    element_init_GT(e_C0_B_XA, pairing);
+    element_pairing(e_C0_B_XA, ITB->getComponent("C0_"), XA);
+
+    if (element_cmp(e_C0_A_XB, e_C0_B_XA) == 0) {
+        *res = true;
+        return res;
+    } else {
+        *res = false;
+        return res;
+    }
 }
 
 unsigned char* OHCET::decrypt(Ciphertext_HCET *IT, SecretKey *DK) {

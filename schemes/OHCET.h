@@ -36,7 +36,7 @@ public:
     vector<SecretKey*>* trapdoor(vector<SecretKey*> *secret_key);
     Ciphertext_HCET* encrypt(Key *public_key, map<string, access_structure*> *AA, unsigned char *message, Key *sp_ch, Key *pk_ch);
     Ciphertext_HCET* transform(Key *public_key, SecretKey *key_x, string *key_type, Ciphertext_HCET *ciphertext, Key *sp_ch, Key *pk_ch);
-//    bool* test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphertext_HCET *CTB, SecretKey *TdSB, Key *sp_ch, Key *pk_ch);
+    bool* test(Key *public_key, Ciphertext_HCET *ITA, vector<SecretKey *> *TdSA, Ciphertext_HCET *ITB, vector<SecretKey *> *TdSB);
     unsigned char* decrypt(Ciphertext_HCET *IT, SecretKey *DK);
 };
 
