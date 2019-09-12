@@ -17,5 +17,6 @@
 #include "HCET.h"
 #include "OCET.h"
 #include "OHCET.h"
+#include "HABE.h"
 
 #endif //ABELIB_SCHEMES_H

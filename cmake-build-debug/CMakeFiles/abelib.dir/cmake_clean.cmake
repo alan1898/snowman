@@ -38,6 +38,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.o"
   "CMakeFiles/abelib.dir/schemes/OCET.cpp.o"
   "CMakeFiles/abelib.dir/schemes/OHCET.cpp.o"
+  "CMakeFiles/abelib.dir/schemes/HABE.cpp.o"
   "libabelib.pdb"
   "libabelib.a"
 )

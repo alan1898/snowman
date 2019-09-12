@@ -564,6 +564,19 @@ CMakeFiles/abelib.dir/schemes/OHCET.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/OHCET.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/OHCET.cpp -o CMakeFiles/abelib.dir/schemes/OHCET.cpp.s
 
+CMakeFiles/abelib.dir/schemes/HABE.cpp.o: CMakeFiles/abelib.dir/flags.make
+CMakeFiles/abelib.dir/schemes/HABE.cpp.o: ../schemes/HABE.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/abelib.dir/schemes/HABE.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/HABE.cpp.o -c /home/alan/graduation_design/abelib/schemes/HABE.cpp
+
+CMakeFiles/abelib.dir/schemes/HABE.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/HABE.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/HABE.cpp > CMakeFiles/abelib.dir/schemes/HABE.cpp.i
+
+CMakeFiles/abelib.dir/schemes/HABE.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/HABE.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/HABE.cpp -o CMakeFiles/abelib.dir/schemes/HABE.cpp.s
+
 # Object files for target abelib
 abelib_OBJECTS = \
 "CMakeFiles/abelib.dir/library.cpp.o" \
@@ -604,7 +617,8 @@ abelib_OBJECTS = \
 "CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.o" \
 "CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.o" \
 "CMakeFiles/abelib.dir/schemes/OCET.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/OHCET.cpp.o"
+"CMakeFiles/abelib.dir/schemes/OHCET.cpp.o" \
+"CMakeFiles/abelib.dir/schemes/HABE.cpp.o"
 
 # External object files for target abelib
 abelib_EXTERNAL_OBJECTS =
@@ -648,9 +662,10 @@ libabelib.a: CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/schemes/OCET.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/schemes/OHCET.cpp.o
+libabelib.a: CMakeFiles/abelib.dir/schemes/HABE.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/build.make
 libabelib.a: CMakeFiles/abelib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Linking CXX static library libabelib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Linking CXX static library libabelib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/abelib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/abelib.dir/link.txt --verbose=$(VERBOSE)
 

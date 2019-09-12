@@ -960,6 +960,33 @@ schemes/CLASSIC_ABE.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/CLASSIC_ABE.cpp.s
 .PHONY : schemes/CLASSIC_ABE.cpp.s
 
+schemes/HABE.o: schemes/HABE.cpp.o
+
+.PHONY : schemes/HABE.o
+
+# target to build an object file
+schemes/HABE.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE.cpp.o
+.PHONY : schemes/HABE.cpp.o
+
+schemes/HABE.i: schemes/HABE.cpp.i
+
+.PHONY : schemes/HABE.i
+
+# target to preprocess a source file
+schemes/HABE.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE.cpp.i
+.PHONY : schemes/HABE.cpp.i
+
+schemes/HABE.s: schemes/HABE.cpp.s
+
+.PHONY : schemes/HABE.s
+
+# target to generate assembly for a file
+schemes/HABE.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE.cpp.s
+.PHONY : schemes/HABE.cpp.s
+
 schemes/HCET.o: schemes/HCET.cpp.o
 
 .PHONY : schemes/HCET.o
@@ -1278,6 +1305,9 @@ help:
 	@echo "... schemes/CLASSIC_ABE.o"
 	@echo "... schemes/CLASSIC_ABE.i"
 	@echo "... schemes/CLASSIC_ABE.s"
+	@echo "... schemes/HABE.o"
+	@echo "... schemes/HABE.i"
+	@echo "... schemes/HABE.s"
 	@echo "... schemes/HCET.o"
 	@echo "... schemes/HCET.i"
 	@echo "... schemes/HCET.s"
