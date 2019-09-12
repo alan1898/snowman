@@ -18,5 +18,6 @@
 #include "OCET.h"
 #include "OHCET.h"
 #include "HABE.h"
+#include "DETC.h"
 
 #endif //ABELIB_SCHEMES_H

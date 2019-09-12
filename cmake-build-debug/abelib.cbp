@@ -285,6 +285,12 @@
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/CLASSIC_ABE.h">
 			<Option target="abelib"/>
 		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/DETC.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/DETC.h">
+			<Option target="abelib"/>
+		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/HABE.cpp">
 			<Option target="abelib"/>
 		</Unit>

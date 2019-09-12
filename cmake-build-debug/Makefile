@@ -960,6 +960,33 @@ schemes/CLASSIC_ABE.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/CLASSIC_ABE.cpp.s
 .PHONY : schemes/CLASSIC_ABE.cpp.s
 
+schemes/DETC.o: schemes/DETC.cpp.o
+
+.PHONY : schemes/DETC.o
+
+# target to build an object file
+schemes/DETC.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC.cpp.o
+.PHONY : schemes/DETC.cpp.o
+
+schemes/DETC.i: schemes/DETC.cpp.i
+
+.PHONY : schemes/DETC.i
+
+# target to preprocess a source file
+schemes/DETC.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC.cpp.i
+.PHONY : schemes/DETC.cpp.i
+
+schemes/DETC.s: schemes/DETC.cpp.s
+
+.PHONY : schemes/DETC.s
+
+# target to generate assembly for a file
+schemes/DETC.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC.cpp.s
+.PHONY : schemes/DETC.cpp.s
+
 schemes/HABE.o: schemes/HABE.cpp.o
 
 .PHONY : schemes/HABE.o
@@ -1305,6 +1332,9 @@ help:
 	@echo "... schemes/CLASSIC_ABE.o"
 	@echo "... schemes/CLASSIC_ABE.i"
 	@echo "... schemes/CLASSIC_ABE.s"
+	@echo "... schemes/DETC.o"
+	@echo "... schemes/DETC.i"
+	@echo "... schemes/DETC.s"
 	@echo "... schemes/HABE.o"
 	@echo "... schemes/HABE.i"
 	@echo "... schemes/HABE.s"
