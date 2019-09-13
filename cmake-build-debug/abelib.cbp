@@ -273,6 +273,12 @@
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/BCET.h">
 			<Option target="abelib"/>
 		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/BCET_test.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/BCET_test.h">
+			<Option target="abelib"/>
+		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/BSW07.cpp">
 			<Option target="abelib"/>
 		</Unit>
@@ -289,6 +295,12 @@
 			<Option target="abelib"/>
 		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/DETC.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/DETC_test.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/DETC_test.h">
 			<Option target="abelib"/>
 		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/HABE.cpp">

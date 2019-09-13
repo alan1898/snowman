@@ -906,6 +906,33 @@ schemes/BCET.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET.cpp.s
 .PHONY : schemes/BCET.cpp.s
 
+schemes/BCET_test.o: schemes/BCET_test.cpp.o
+
+.PHONY : schemes/BCET_test.o
+
+# target to build an object file
+schemes/BCET_test.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET_test.cpp.o
+.PHONY : schemes/BCET_test.cpp.o
+
+schemes/BCET_test.i: schemes/BCET_test.cpp.i
+
+.PHONY : schemes/BCET_test.i
+
+# target to preprocess a source file
+schemes/BCET_test.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET_test.cpp.i
+.PHONY : schemes/BCET_test.cpp.i
+
+schemes/BCET_test.s: schemes/BCET_test.cpp.s
+
+.PHONY : schemes/BCET_test.s
+
+# target to generate assembly for a file
+schemes/BCET_test.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET_test.cpp.s
+.PHONY : schemes/BCET_test.cpp.s
+
 schemes/BSW07.o: schemes/BSW07.cpp.o
 
 .PHONY : schemes/BSW07.o
@@ -986,6 +1013,33 @@ schemes/DETC.s: schemes/DETC.cpp.s
 schemes/DETC.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC.cpp.s
 .PHONY : schemes/DETC.cpp.s
+
+schemes/DETC_test.o: schemes/DETC_test.cpp.o
+
+.PHONY : schemes/DETC_test.o
+
+# target to build an object file
+schemes/DETC_test.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC_test.cpp.o
+.PHONY : schemes/DETC_test.cpp.o
+
+schemes/DETC_test.i: schemes/DETC_test.cpp.i
+
+.PHONY : schemes/DETC_test.i
+
+# target to preprocess a source file
+schemes/DETC_test.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC_test.cpp.i
+.PHONY : schemes/DETC_test.cpp.i
+
+schemes/DETC_test.s: schemes/DETC_test.cpp.s
+
+.PHONY : schemes/DETC_test.s
+
+# target to generate assembly for a file
+schemes/DETC_test.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC_test.cpp.s
+.PHONY : schemes/DETC_test.cpp.s
 
 schemes/HABE.o: schemes/HABE.cpp.o
 
@@ -1326,6 +1380,9 @@ help:
 	@echo "... schemes/BCET.o"
 	@echo "... schemes/BCET.i"
 	@echo "... schemes/BCET.s"
+	@echo "... schemes/BCET_test.o"
+	@echo "... schemes/BCET_test.i"
+	@echo "... schemes/BCET_test.s"
 	@echo "... schemes/BSW07.o"
 	@echo "... schemes/BSW07.i"
 	@echo "... schemes/BSW07.s"
@@ -1335,6 +1392,9 @@ help:
 	@echo "... schemes/DETC.o"
 	@echo "... schemes/DETC.i"
 	@echo "... schemes/DETC.s"
+	@echo "... schemes/DETC_test.o"
+	@echo "... schemes/DETC_test.i"
+	@echo "... schemes/DETC_test.s"
 	@echo "... schemes/HABE.o"
 	@echo "... schemes/HABE.i"
 	@echo "... schemes/HABE.s"

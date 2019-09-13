@@ -14,10 +14,14 @@
 #include "SAR.h"
 
 #include "BCET.h"
+#include "BCET_test.h"
+
 #include "HCET.h"
 #include "OCET.h"
 #include "OHCET.h"
 #include "HABE.h"
+
 #include "DETC.h"
+#include "DETC_test.h"
 
 #endif //ABELIB_SCHEMES_H
