@@ -20,9 +20,10 @@ private:
     int g1_length, g2_length, gt_length, zr_length;
 public:
     element_s* H1(element_s *e);
-    unsigned char* H2(element_s *e);
+    unsigned char* H2(unsigned char* str, signed long int len);
 
     element_s* computeXsub(Ciphertext_CET *ciphertext, SecretKey *key_x, string post_s);
+    unsigned char* computeH2Input(element_s * e_gg_alpha__s, Ciphertext_CET *ciphertext);
 
     DETC();
 

@@ -22,14 +22,11 @@ element_s* DETC::H1(element_s *e) {
     return *res;
 }
 
-unsigned char* DETC::H2(element_s *e) {
-    unsigned char *bytes = (unsigned char*)malloc(gt_length);
-    element_to_bytes(bytes, e);
-
+unsigned char* DETC::H2(unsigned char* str, signed long int len) {
     unsigned char *hash_str_byte = (unsigned char*)malloc(SHA256_DIGEST_LENGTH + 1);
     SHA256_CTX sha256;
     SHA256_Init(&sha256);
-    SHA256_Update(&sha256, bytes, gt_length);
+    SHA256_Update(&sha256, str, len);
     SHA256_Final(hash_str_byte, &sha256);
     hash_str_byte[SHA256_DIGEST_LENGTH] = '\0';
 
@@ -115,6 +112,38 @@ element_s* DETC::computeXsub(Ciphertext_CET *ciphertext, SecretKey *key_x, strin
     element_div(*res, e_C_K, denominator);
 
     return *res;
+}
+
+unsigned char* DETC::computeH2Input(element_s *e_gg_alpha__s, Ciphertext_CET *ciphertext) {
+    unsigned char* res = (unsigned char*)malloc(gt_length + (3 * g1_length) + (ciphertext->getAccessStructure()->getM()->row() * g1_length * 2) + 1);
+    signed long int str_index = 0;
+
+    element_to_bytes(res + str_index, e_gg_alpha__s);
+    str_index += gt_length;
+
+    // add C
+    element_to_bytes(res + str_index, ciphertext->getComponent("C"));
+    str_index += g1_length;
+
+    // add C'
+    element_to_bytes(res + str_index, ciphertext->getComponent("C_"));
+    str_index += g1_length;
+
+    // add C''
+    element_to_bytes(res + str_index, ciphertext->getComponent("C__"));
+    str_index += g1_length;
+
+    for (signed long int i = 0; i < ciphertext->getAccessStructure()->getM()->row(); ++i) {
+        map<signed long int, string>::iterator it = ciphertext->getAccessStructure()->getRho()->find(i);
+        string attr = it->second;
+        element_to_bytes(res + str_index, ciphertext->getComponent("C" + attr));
+        str_index += g1_length;
+        element_to_bytes(res + str_index, ciphertext->getComponent("D" + attr));
+        str_index += g1_length;
+    }
+    res[str_index] = '\0';
+
+    return res;
 }
 
 DETC::DETC() {
@@ -285,24 +314,6 @@ Ciphertext_CET* DETC::encrypt(Key *public_key, access_structure *A, unsigned cha
     element_pow_zn(C__, g, u);
     res->insertComponent("C__", "G1", C__);
 
-    // compute C*
-    // 待改进！！！！！！
-    unsigned char *mu = (unsigned char*)malloc(8 + zr_length + 1);
-    for (signed long int index = 0; index < 8; ++index) {
-        mu[index] = message[index];
-    }
-    element_to_bytes(mu + 8, u);
-    mu[8 + zr_length] = '\0';
-    unsigned char *H_2 = H2(e_gg_alpha__s);
-
-    // compute C*
-    res->Cstar = (unsigned char*)malloc(SHA256_DIGEST_LENGTH +1);
-    for (signed long int i = 0; i < 8 + zr_length; ++i) {
-        int Cvalue = (int)mu[i] ^ (int)H_2[i];
-        res->Cstar[i] = (unsigned char)Cvalue;
-    }
-    res->Cstar[SHA256_DIGEST_LENGTH] = '\0';
-
     // init
     element_t ri, neg_ri;
     element_init_Zr(ri, pairing);
@@ -341,6 +352,25 @@ Ciphertext_CET* DETC::encrypt(Key *public_key, access_structure *A, unsigned cha
         element_pow_zn(Di, g, ri);
         res->insertComponent("D" + attr, "G1", Di);
     }
+
+    // compute C*
+    // 待改进！！！！！！
+    unsigned char *mu = (unsigned char*)malloc(8 + zr_length + 1);
+    for (signed long int index = 0; index < 8; ++index) {
+        mu[index] = message[index];
+    }
+    element_to_bytes(mu + 8, u);
+    mu[8 + zr_length] = '\0';
+    unsigned char *str = computeH2Input(e_gg_alpha__s, res);
+    unsigned char *H_2 = H2(str, gt_length + (3 * g1_length) + (A->getM()->row() * g1_length * 2) + 1);
+
+    // compute C*
+    res->Cstar = (unsigned char*)malloc(SHA256_DIGEST_LENGTH +1);
+    for (signed long int i = 0; i < 8 + zr_length; ++i) {
+        int Cvalue = (int)mu[i] ^ (int)H_2[i];
+        res->Cstar[i] = (unsigned char)Cvalue;
+    }
+    res->Cstar[SHA256_DIGEST_LENGTH] = '\0';
 
     return res;
 }
@@ -523,7 +553,8 @@ unsigned char* DETC::decrypt(Ciphertext_CET *ciphertext_cet, SecretKey *secret_k
     element_s *Xsub_ = computeXsub(ciphertext_cet, secret_key, "_");
 
     // 需要改进！！！！！！
-    unsigned char *H_2 = H2(Xsub_);
+    unsigned char *str = computeH2Input(Xsub_, ciphertext_cet);
+    unsigned char *H_2 = H2(str, gt_length + (3 * g1_length) + (ciphertext_cet->getAccessStructure()->getM()->row() * g1_length * 2) + 1);
 
     unsigned char *res = (unsigned char*)malloc(8 + 1);
     res[8] = '\0';
