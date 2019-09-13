@@ -68,40 +68,40 @@ element_s* BCET::computeXdelte(Ciphertext_CET *ciphertext, SecretKey *key_x, str
     element_t denominator;
     element_init_GT(denominator, pairing);
 
+    // init------
+    element_t Ci1, Ci2, Ktau2, Ci3, Ktau3;
+    element_init_G1(Ci1, pairing);
+    element_init_G1(Ci2, pairing);
+    element_init_G1(Ktau2, pairing);
+    element_init_G1(Ci3, pairing);
+    element_init_G1(Ktau3, pairing);
+    element_t e_Ci1_K1, e_Ci2_Ktau2, e_Ci3_Ktau3;
+    element_init_GT(e_Ci1_K1, pairing);
+    element_init_GT(e_Ci2_Ktau2, pairing);
+    element_init_GT(e_Ci3_Ktau3, pairing);
+    element_t e_e, e_e_e, factor_denominator;
+    element_init_GT(e_e, pairing);
+    element_init_GT(e_e_e, pairing);
+    element_init_GT(factor_denominator, pairing);
+    // init------
     map<signed long int, signed long int>::iterator it;
     for (it = matchedAttributes->begin(); it != matchedAttributes->end(); ++it) {
         // get attribute
         string attr = (*key_x->getAttributes())[it->second];
 
-        // get Ci1, K1, Ci2, Ktau2, Ci3, Ktau3
-        element_t Ci1, K1, Ci2, Ktau2, Ci3, Ktau3;
-        element_init_G1(Ci1, pairing);
-        element_init_G1(K1, pairing);
-        element_init_G1(Ci2, pairing);
-        element_init_G1(Ktau2, pairing);
-        element_init_G1(Ci3, pairing);
-        element_init_G1(Ktau3, pairing);
+        // get Ci1, Ci2, Ktau2, Ci3, Ktau3
         element_set(Ci1, ciphertext->getComponent("C" + attr + "1"));
-        element_set(K1, key_x->getComponent(pre_s + "1" + post_s));
         element_set(Ci2, ciphertext->getComponent("C" + attr + "2"));
         element_set(Ktau2, key_x->getComponent(pre_s + attr + "2" + post_s));
         element_set(Ci3, ciphertext->getComponent("C" + attr + "3"));
         element_set(Ktau3, key_x->getComponent(pre_s + attr + "3" + post_s));
 
         // compute e_Ci1_K1, e_Ci2_Ktau2, e_Ci3_Ktau3
-        element_t e_Ci1_K1, e_Ci2_Ktau2, e_Ci3_Ktau3;
-        element_init_GT(e_Ci1_K1, pairing);
-        element_init_GT(e_Ci2_Ktau2, pairing);
-        element_init_GT(e_Ci3_Ktau3, pairing);
         element_pairing(e_Ci1_K1, Ci1, K1);
         element_pairing(e_Ci2_Ktau2, Ci2, Ktau2);
         element_pairing(e_Ci3_Ktau3, Ci3, Ktau3);
 
         // compute factor_denominator
-        element_t e_e, e_e_e, factor_denominator;
-        element_init_GT(e_e, pairing);
-        element_init_GT(e_e_e, pairing);
-        element_init_GT(factor_denominator, pairing);
         element_mul(e_e, e_Ci1_K1, e_Ci2_Ktau2);
         element_mul(e_e_e, e_e, e_Ci3_Ktau3);
         // get wi
@@ -634,35 +634,53 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, access_structure *A, unsigned cha
 //    element_from_bytes(mess, muu);
 //    element_printf("message is %B\n", mess);
 
+    // init------
+    element_t ttau;
+    element_init_Zr(ttau, pairing);
+    element_t rhotau;
+    element_init_Zr(rhotau, pairing);
+    element_t Ctau1, Ctau2, Ctau3;
+    element_init_G1(Ctau1, pairing);
+    element_init_G1(Ctau2, pairing);
+    element_init_G1(Ctau3, pairing);
+    element_t w_lambdatau, v_ttau;
+    element_init_G1(w_lambdatau, pairing);
+    element_init_G1(v_ttau, pairing);
+    element_t neg_ttau;
+    element_t u_rhotau, u_rhotau_h;
+    element_init_Zr(neg_ttau, pairing);
+    element_init_G1(u_rhotau, pairing);
+    element_init_G1(u_rhotau_h, pairing);
+    element_t w_s;
+    element_init_G1(w_s, pairing);
+    element_t v_t0;
+    element_init_G1(v_t0, pairing);
+    element_t C01;
+    element_init_G1(C01, pairing);
+    element_t r_ch;
+    element_init_Zr(r_ch, pairing);
+    element_t u_V;
+    element_init_G1(u_V, pairing);
+    element_t u_V_h;
+    element_init_G1(u_V_h, pairing);
+    element_t neg_t0;
+    element_init_Zr(neg_t0, pairing);
+    element_t C02;
+    element_init_G1(C02, pairing);
+    // init------
     for (signed long int i = 0; i < A->getM()->row(); ++i) {
         // get ttau
-        element_t ttau;
-        element_init_Zr(ttau, pairing);
         element_random(ttau);
 
         // get rhotau
-        element_t rhotau;
-        element_init_Zr(rhotau, pairing);
         map<signed long int, string>::iterator it = A->getRho()->find(i);
         string attr = it->second;
         element_set(rhotau, util.stringToElementT(attr, "ZR", &pairing));
 
         // compute Ctau1, Ctau2, Ctau3
-        element_t Ctau1, Ctau2, Ctau3;
-        element_init_G1(Ctau1, pairing);
-        element_init_G1(Ctau2, pairing);
-        element_init_G1(Ctau3, pairing);
-        element_t w_lambdatau, v_ttau;
-        element_init_G1(w_lambdatau, pairing);
-        element_init_G1(v_ttau, pairing);
         element_pow_zn(w_lambdatau, w, shares->getElement(i));
         element_pow_zn(v_ttau, v, ttau);
         element_mul(Ctau1, w_lambdatau, v_ttau);
-        element_t neg_ttau;
-        element_t u_rhotau, u_rhotau_h;
-        element_init_Zr(neg_ttau, pairing);
-        element_init_G1(u_rhotau, pairing);
-        element_init_G1(u_rhotau_h, pairing);
         element_neg(neg_ttau, ttau);
         element_pow_zn(u_rhotau, u, rhotau);
         element_mul(u_rhotau_h, u_rhotau, h);
@@ -675,24 +693,16 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, access_structure *A, unsigned cha
     }
 
     // compute w^s
-    element_t w_s;
-    element_init_G1(w_s, pairing);
     element_pow_zn(w_s, w, s);
 
     // compute v^t0
-    element_t v_t0;
-    element_init_G1(v_t0, pairing);
     element_pow_zn(v_t0, v, t0);
 
     // compute C01=w^s*v^t0
-    element_t C01;
-    element_init_G1(C01, pairing);
     element_mul(C01, w_s, v_t0);
     res->insertComponent("C01", "G1", C01);
 
     // randomly choose rnd
-    element_t r_ch;
-    element_init_Zr(r_ch, pairing);
     element_random(r_ch);
     res->insertComponent("rch", "ZR", r_ch);
 
@@ -701,23 +711,15 @@ Ciphertext_CET* BCET::encrypt(Key *public_key, access_structure *A, unsigned cha
 //    element_printf("V is %B\n", V);
 
     // compute u^V
-    element_t u_V;
-    element_init_G1(u_V, pairing);
     element_pow_zn(u_V, u, V);
 
     // compute u^V*h
-    element_t u_V_h;
-    element_init_G1(u_V_h, pairing);
     element_mul(u_V_h, u_V, h);
 
     // compute -t0
-    element_t neg_t0;
-    element_init_Zr(neg_t0, pairing);
     element_neg(neg_t0, t0);
 
     // compute C02
-    element_t C02;
-    element_init_G1(C02, pairing);
     element_pow_zn(C02, u_V_h, neg_t0);
     res->insertComponent("C02", "G1", C02);
 
