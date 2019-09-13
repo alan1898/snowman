@@ -552,7 +552,6 @@ unsigned char* DETC::decrypt(Ciphertext_CET *ciphertext_cet, SecretKey *secret_k
     element_s *Xsub = computeXsub(ciphertext_cet, secret_key, "");
     element_s *Xsub_ = computeXsub(ciphertext_cet, secret_key, "_");
 
-    // 需要改进！！！！！！
     unsigned char *str = computeH2Input(Xsub_, ciphertext_cet);
     unsigned char *H_2 = H2(str, gt_length + (3 * g1_length) + (ciphertext_cet->getAccessStructure()->getM()->row() * g1_length * 2) + 1);
 

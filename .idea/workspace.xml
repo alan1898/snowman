@@ -12,11 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4feccd8-971e-40d6-afba-4a15fd88543b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abe_binary_object/DETC.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/DETC.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libabe.a" beforeDir="false" afterPath="$PROJECT_DIR$/libabe.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schemes/DETC.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/DETC.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemes/DETC.h" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/DETC.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/schemes/DETC.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="141" column="31" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="31" />
+            <state relative-caret-position="313">
+              <caret line="553" column="4" selection-start-line="553" selection-start-column="4" selection-end-line="553" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -291,12 +287,12 @@
       <workItem from="1568268006074" duration="1621000" />
       <workItem from="1568285435924" duration="760000" />
       <workItem from="1568296288938" duration="9397000" />
-      <workItem from="1568340479732" duration="1472000" />
+      <workItem from="1568340479732" duration="1585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="315902000" />
+    <option name="totallyTimeSpent" value="316015000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -690,8 +686,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/schemes/DETC.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="141" column="31" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="31" />
+        <state relative-caret-position="313">
+          <caret line="553" column="4" selection-start-line="553" selection-start-column="4" selection-end-line="553" selection-end-column="4" />
         </state>
       </provider>
     </entry>
