@@ -16,6 +16,7 @@
       <change beforePath="$PROJECT_DIR$/abe_binary_object/BCET.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/BCET.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libabe.a" beforeDir="false" afterPath="$PROJECT_DIR$/libabe.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schemes/BCET.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/BCET.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemes/BCET.h" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/BCET.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/schemes/BCET.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+            <state relative-caret-position="473">
+              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
               <folding>
                 <element signature="e#84#105#0" expanded="true" />
               </folding>
@@ -42,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3017">
-              <caret line="668" column="34" selection-start-line="668" selection-start-column="34" selection-end-line="668" selection-end-column="34" />
+            <state relative-caret-position="493">
+              <caret line="940" column="29" selection-start-line="940" selection-start-column="29" selection-end-line="940" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -109,9 +110,9 @@
         <option value="$PROJECT_DIR$/schemes/HABE.h" />
         <option value="$PROJECT_DIR$/schemes/HABE.cpp" />
         <option value="$PROJECT_DIR$/schemes/schemes.h" />
-        <option value="$PROJECT_DIR$/schemes/BCET.h" />
         <option value="$PROJECT_DIR$/schemes/DETC.h" />
         <option value="$PROJECT_DIR$/schemes/DETC.cpp" />
+        <option value="$PROJECT_DIR$/schemes/BCET.h" />
         <option value="$PROJECT_DIR$/schemes/BCET.cpp" />
       </list>
     </option>
@@ -261,15 +262,15 @@
       <workItem from="1568285435924" duration="760000" />
       <workItem from="1568296288938" duration="9397000" />
       <workItem from="1568340479732" duration="1718000" />
-      <workItem from="1568366212327" duration="767000" />
+      <workItem from="1568366212327" duration="1904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316915000" />
+    <option name="totallyTimeSpent" value="318052000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32816824" />
@@ -650,8 +651,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/schemes/BCET.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+        <state relative-caret-position="473">
+          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
           <folding>
             <element signature="e#84#105#0" expanded="true" />
           </folding>
@@ -660,8 +661,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3017">
-          <caret line="668" column="34" selection-start-line="668" selection-start-column="34" selection-end-line="668" selection-end-column="34" />
+        <state relative-caret-position="493">
+          <caret line="940" column="29" selection-start-line="940" selection-start-column="29" selection-end-line="940" selection-end-column="29" />
         </state>
       </provider>
     </entry>
