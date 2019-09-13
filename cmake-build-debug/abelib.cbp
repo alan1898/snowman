@@ -321,6 +321,12 @@
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/OCET.h">
 			<Option target="abelib"/>
 		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/OCET_test.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/OCET_test.h">
+			<Option target="abelib"/>
+		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/OHCET.cpp">
 			<Option target="abelib"/>
 		</Unit>

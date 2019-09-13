@@ -42,6 +42,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/abelib.dir/schemes/DETC.cpp.o"
   "CMakeFiles/abelib.dir/schemes/BCET_test.cpp.o"
   "CMakeFiles/abelib.dir/schemes/DETC_test.cpp.o"
+  "CMakeFiles/abelib.dir/schemes/OCET_test.cpp.o"
   "libabelib.pdb"
   "libabelib.a"
 )
