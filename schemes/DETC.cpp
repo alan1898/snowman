@@ -548,7 +548,7 @@ bool* DETC::test(Key *public_key, Ciphertext_CET *CTA, SecretKey *TdSA, Cipherte
     }
 }
 
-unsigned char* DETC::decrypt(Ciphertext_CET *ciphertext_cet, SecretKey *secret_key) {
+unsigned char* DETC::decrypt(Key *public_key, Ciphertext_CET *ciphertext_cet, SecretKey *secret_key) {
     element_s *Xsub = computeXsub(ciphertext_cet, secret_key, "");
     element_s *Xsub_ = computeXsub(ciphertext_cet, secret_key, "_");
 
@@ -574,7 +574,48 @@ unsigned char* DETC::decrypt(Ciphertext_CET *ciphertext_cet, SecretKey *secret_k
     element_from_bytes(u, u_bytes);
 //    element_printf("恢复出来的u为：%B\n", u);
 
-    // 添加验证！！！
+    // verify
+    // obtain g
+    element_t g;
+    element_init_same_as(g, public_key->getComponent("g"));
+    element_set(g, public_key->getComponent("g"));
+    // compute g^u
+    element_t g_u;
+    element_init_G1(g_u, pairing);
+    element_pow_zn(g_u, g, u);
+    // obtain C''
+    element_t C__;
+    element_init_same_as(C__, ciphertext_cet->getComponent("C__"));
+    element_set(C__, ciphertext_cet->getComponent("C__"));
+    if (element_cmp(g_u, C__) != 0) {
+        return NULL;
+    }
+
+    // verify
+    // change res to m
+    unsigned char hash_bytes[SHA256_DIGEST_LENGTH];
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, res, 8);
+    SHA256_Final(hash_bytes, &sha256);
+    element_t m;
+    element_init_G1(m, pairing);
+    element_from_hash(m, hash_bytes, SHA256_DIGEST_LENGTH);
+    // compute m^u
+    element_t m_u;
+    element_init_G1(m_u, pairing);
+    element_pow_zn(m_u, m, u);
+    // compute m^u*H1(Xsub)
+    element_t m_u_H1;
+    element_init_G1(m_u_H1, pairing);
+    element_mul(m_u_H1, m_u, H1(Xsub));
+    // obtain C
+    element_t C;
+    element_init_same_as(C, ciphertext_cet->getComponent("C"));
+    element_set(C, ciphertext_cet->getComponent("C"));
+    if (element_cmp(C, m_u_H1) != 0) {
+        return NULL;
+    }
 
     return res;
 }
