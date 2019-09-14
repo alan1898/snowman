@@ -33,7 +33,7 @@ public:
     Ciphertext_CET* encrypt(Key *public_key, access_structure *A, unsigned char *message, Key *sp_ch, Key *pk_ch);
     Ciphertext_CET* transform(Key *public_key, SecretKey *key_x, string *key_type, Ciphertext_CET *ciphertext, Key *sp_ch, Key *pk_ch);
     bool* test(Key *public_key, Ciphertext_CET *ITA, vector<SecretKey*> *TdSA, Ciphertext_CET *ITB, vector<SecretKey*> *TdSB);
-    unsigned char* decrypt(Ciphertext_CET *IT, SecretKey *DK);
+    unsigned char* decrypt(Key *public_key, Ciphertext_CET *IT, SecretKey *DK);
 };
 
 

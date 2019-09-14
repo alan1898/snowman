@@ -472,7 +472,7 @@ void OCET_test::decrypt_test(signed long int num) {
 
     for (signed long int i = 0; i < 20; ++i) {
         start = clock();
-        ocet.decrypt(IT, user_sk->at(1));
+        ocet.decrypt(psk->at(1), IT, user_sk->at(1));
         end = clock();
         execution_time = (double)(end-start)/CLOCKS_PER_SEC * 1000;
         sum_time_20 += execution_time;

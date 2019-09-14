@@ -881,7 +881,7 @@ bool* OCET::test(Key *public_key, Ciphertext_CET *ITA, vector<SecretKey *> *TdSA
     }
 }
 
-unsigned char* OCET::decrypt(Ciphertext_CET *IT, SecretKey *DK) {
+unsigned char* OCET::decrypt(Key *public_key, Ciphertext_CET *IT, SecretKey *DK) {
     if (IT == NULL) {
         return NULL;
     }
@@ -912,7 +912,52 @@ unsigned char* OCET::decrypt(Ciphertext_CET *IT, SecretKey *DK) {
     element_from_bytes(z, z_bytes);
 //    element_printf("恢复出来的z为：%B\n", z);
 
-    // 添加验证！！！
+    // verify
+    // obtain g
+    element_t g;
+    element_init_same_as(g, public_key->getComponent("g"));
+    element_set(g, public_key->getComponent("g"));
+    // compute g^z
+    element_t g_z;
+    element_init_G1(g_z, pairing);
+    element_pow_zn(g_z, g, z);
+    // obtain C0'
+    element_t C0_;
+    element_init_same_as(C0_, IT->getComponent("C0_"));
+    element_set(C0_, IT->getComponent("C0_"));
+    if (element_cmp(g_z, C0_) != 0) {
+        return NULL;
+    }
+
+    // verify
+    // change res to m
+    unsigned char hash_bytes[SHA256_DIGEST_LENGTH];
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, res, 8);
+    SHA256_Final(hash_bytes, &sha256);
+    element_t m;
+    element_init_G1(m, pairing);
+    element_from_hash(m, hash_bytes, SHA256_DIGEST_LENGTH);
+    // compute m^z
+    element_t m_z;
+    element_init_G1(m_z, pairing);
+    element_pow_zn(m_z, m, z);
+    // compute Cdelte^o
+    element_t Cdelte_o;
+    element_init_GT(Cdelte_o, pairing);
+    element_pow_zn(Cdelte_o, IT->getComponent("Cdelte"), DK->getComponent("o"));
+    // compute m^z*H1(Cdelte^o)
+    element_t m_z_H1;
+    element_init_G1(m_z_H1, pairing);
+    element_mul(m_z_H1, m_z, H1(Cdelte_o));
+    // obtain C
+    element_t C;
+    element_init_same_as(C, IT->getComponent("C"));
+    element_set(C, IT->getComponent("C"));
+    if (element_cmp(C, m_z_H1) != 0) {
+        return NULL;
+    }
 
     return res;
 }
