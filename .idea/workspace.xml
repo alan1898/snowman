@@ -12,13 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4feccd8-971e-40d6-afba-4a15fd88543b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abe_binary_object/DETC.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/DETC.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abe_binary_object/DETC_test.o" beforeDir="false" afterPath="$PROJECT_DIR$/abe_binary_object/DETC_test.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libabe.a" beforeDir="false" afterPath="$PROJECT_DIR$/libabe.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schemes/DETC.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/DETC.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemes/DETC.h" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/DETC.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemes/DETC_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/DETC_test.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,41 +24,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/schemes/DETC.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="615" column="35" selection-start-line="615" selection-start-column="35" selection-end-line="615" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/schemes/DETC_test.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="317" column="33" selection-start-line="317" selection-start-column="33" selection-end-line="317" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/schemes/BCET.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="942" column="5" selection-start-line="932" selection-start-column="4" selection-end-line="942" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/schemes/DETC.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
-              <folding>
-                <element signature="e#83#104#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="360">
+              <caret line="363" column="103" selection-start-line="363" selection-start-column="103" selection-end-line="363" selection-end-column="103" />
             </state>
           </provider>
         </entry>
@@ -132,8 +96,8 @@
         <option value="$PROJECT_DIR$/schemes/OCET_test.cpp" />
         <option value="$PROJECT_DIR$/schemes/OCET.cpp" />
         <option value="$PROJECT_DIR$/schemes/DETC.h" />
-        <option value="$PROJECT_DIR$/schemes/DETC.cpp" />
         <option value="$PROJECT_DIR$/schemes/DETC_test.cpp" />
+        <option value="$PROJECT_DIR$/schemes/DETC.cpp" />
       </list>
     </option>
   </component>
@@ -289,7 +253,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="329620000" />
+    <option name="totallyTimeSpent" value="329873000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -695,17 +659,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/DETC.cpp">
+    <entry file="file://$PROJECT_DIR$/schemes/DETC_test.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="615" column="35" selection-start-line="615" selection-start-column="35" selection-end-line="615" selection-end-column="35" />
+        <state relative-caret-position="703">
+          <caret line="326" column="1" lean-forward="true" selection-start-line="326" selection-start-column="1" selection-end-line="326" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/DETC_test.cpp">
+    <entry file="file://$PROJECT_DIR$/schemes/DETC.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="317" column="33" selection-start-line="317" selection-start-column="33" selection-end-line="317" selection-end-column="33" />
+        <state relative-caret-position="360">
+          <caret line="363" column="103" selection-start-line="363" selection-start-column="103" selection-end-line="363" selection-end-column="103" />
         </state>
       </provider>
     </entry>

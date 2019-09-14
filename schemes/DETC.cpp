@@ -354,7 +354,6 @@ Ciphertext_CET* DETC::encrypt(Key *public_key, access_structure *A, unsigned cha
     }
 
     // compute C*
-    // 待改进！！！！！！
     unsigned char *mu = (unsigned char*)malloc(8 + zr_length + 1);
     for (signed long int index = 0; index < 8; ++index) {
         mu[index] = message[index];
@@ -363,7 +362,6 @@ Ciphertext_CET* DETC::encrypt(Key *public_key, access_structure *A, unsigned cha
     mu[8 + zr_length] = '\0';
     unsigned char *str = computeH2Input(e_gg_alpha__s, res);
     unsigned char *H_2 = H2(str, gt_length + (3 * g1_length) + (A->getM()->row() * g1_length * 2) + 1);
-
     // compute C*
     res->Cstar = (unsigned char*)malloc(SHA256_DIGEST_LENGTH +1);
     for (signed long int i = 0; i < 8 + zr_length; ++i) {
