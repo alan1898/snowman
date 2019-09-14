@@ -17,12 +17,16 @@
 #include "BCET_test.h"
 
 #include "HCET.h"
+#include "HCET_test.h"
 
 #include "OCET.h"
 #include "OCET_test.h"
 
 #include "OHCET.h"
+#include "OHCET_test.h"
+
 #include "HABE.h"
+#include "HABE_test.h"
 
 #include "DETC.h"
 #include "DETC_test.h"

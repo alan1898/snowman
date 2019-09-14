@@ -1068,6 +1068,33 @@ schemes/HABE.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE.cpp.s
 .PHONY : schemes/HABE.cpp.s
 
+schemes/HABE_test.o: schemes/HABE_test.cpp.o
+
+.PHONY : schemes/HABE_test.o
+
+# target to build an object file
+schemes/HABE_test.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE_test.cpp.o
+.PHONY : schemes/HABE_test.cpp.o
+
+schemes/HABE_test.i: schemes/HABE_test.cpp.i
+
+.PHONY : schemes/HABE_test.i
+
+# target to preprocess a source file
+schemes/HABE_test.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE_test.cpp.i
+.PHONY : schemes/HABE_test.cpp.i
+
+schemes/HABE_test.s: schemes/HABE_test.cpp.s
+
+.PHONY : schemes/HABE_test.s
+
+# target to generate assembly for a file
+schemes/HABE_test.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE_test.cpp.s
+.PHONY : schemes/HABE_test.cpp.s
+
 schemes/HCET.o: schemes/HCET.cpp.o
 
 .PHONY : schemes/HCET.o
@@ -1094,6 +1121,33 @@ schemes/HCET.s: schemes/HCET.cpp.s
 schemes/HCET.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET.cpp.s
 .PHONY : schemes/HCET.cpp.s
+
+schemes/HCET_test.o: schemes/HCET_test.cpp.o
+
+.PHONY : schemes/HCET_test.o
+
+# target to build an object file
+schemes/HCET_test.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET_test.cpp.o
+.PHONY : schemes/HCET_test.cpp.o
+
+schemes/HCET_test.i: schemes/HCET_test.cpp.i
+
+.PHONY : schemes/HCET_test.i
+
+# target to preprocess a source file
+schemes/HCET_test.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET_test.cpp.i
+.PHONY : schemes/HCET_test.cpp.i
+
+schemes/HCET_test.s: schemes/HCET_test.cpp.s
+
+.PHONY : schemes/HCET_test.s
+
+# target to generate assembly for a file
+schemes/HCET_test.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET_test.cpp.s
+.PHONY : schemes/HCET_test.cpp.s
 
 schemes/OCET.o: schemes/OCET.cpp.o
 
@@ -1175,6 +1229,33 @@ schemes/OHCET.s: schemes/OHCET.cpp.s
 schemes/OHCET.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET.cpp.s
 .PHONY : schemes/OHCET.cpp.s
+
+schemes/OHCET_test.o: schemes/OHCET_test.cpp.o
+
+.PHONY : schemes/OHCET_test.o
+
+# target to build an object file
+schemes/OHCET_test.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.o
+.PHONY : schemes/OHCET_test.cpp.o
+
+schemes/OHCET_test.i: schemes/OHCET_test.cpp.i
+
+.PHONY : schemes/OHCET_test.i
+
+# target to preprocess a source file
+schemes/OHCET_test.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.i
+.PHONY : schemes/OHCET_test.cpp.i
+
+schemes/OHCET_test.s: schemes/OHCET_test.cpp.s
+
+.PHONY : schemes/OHCET_test.s
+
+# target to generate assembly for a file
+schemes/OHCET_test.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.s
+.PHONY : schemes/OHCET_test.cpp.s
 
 schemes/RW13.o: schemes/RW13.cpp.o
 
@@ -1425,9 +1506,15 @@ help:
 	@echo "... schemes/HABE.o"
 	@echo "... schemes/HABE.i"
 	@echo "... schemes/HABE.s"
+	@echo "... schemes/HABE_test.o"
+	@echo "... schemes/HABE_test.i"
+	@echo "... schemes/HABE_test.s"
 	@echo "... schemes/HCET.o"
 	@echo "... schemes/HCET.i"
 	@echo "... schemes/HCET.s"
+	@echo "... schemes/HCET_test.o"
+	@echo "... schemes/HCET_test.i"
+	@echo "... schemes/HCET_test.s"
 	@echo "... schemes/OCET.o"
 	@echo "... schemes/OCET.i"
 	@echo "... schemes/OCET.s"
@@ -1437,6 +1524,9 @@ help:
 	@echo "... schemes/OHCET.o"
 	@echo "... schemes/OHCET.i"
 	@echo "... schemes/OHCET.s"
+	@echo "... schemes/OHCET_test.o"
+	@echo "... schemes/OHCET_test.i"
+	@echo "... schemes/OHCET_test.s"
 	@echo "... schemes/RW13.o"
 	@echo "... schemes/RW13.i"
 	@echo "... schemes/RW13.s"
