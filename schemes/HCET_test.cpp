@@ -214,7 +214,7 @@ void HCET_test::trapdoor_test(signed long int num_attr) {
     cout << num_attr << ", Trapdoor: " << execution_time << "ms" << endl;
 }
 
-void HCET_test::encrypt_test(signed long int num_kgc, signed long int size_ID, signed long int num_attr) {
+void HCET_test::encrypt_test(signed long int max_kgc, signed long int num_kgc, signed long int size_ID, signed long int num_attr) {
     clock_t start, end;
     double execution_time;
     double sum_time_20 = 0;
@@ -281,7 +281,7 @@ void HCET_test::encrypt_test(signed long int num_kgc, signed long int size_ID, s
     HCET hcet;
 
     // Setup
-    vector<Key*> *psk = hcet.setUp(11);
+    vector<Key*> *psk = hcet.setUp(max_kgc);
 
     for (signed long int i = 0; i < 20; ++i) {
         start = clock();

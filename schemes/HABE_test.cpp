@@ -164,7 +164,7 @@ void HABE_test::userkeygen_test(signed long int size_ID, signed long int num_att
     cout << "(" << size_ID << "," << num_attr << ")" << ", UserKeyGen: " << execution_time << "ms" << endl;
 }
 
-void HABE_test::encrypt_test(signed long int num_kgc, signed long int size_ID, signed long int num_attr) {
+void HABE_test::encrypt_test(signed long int max_kgc, signed long int num_kgc, signed long int size_ID, signed long int num_attr) {
     clock_t start, end;
     double execution_time;
     double sum_time_20 = 0;
@@ -229,7 +229,7 @@ void HABE_test::encrypt_test(signed long int num_kgc, signed long int size_ID, s
     HABE habe;
 
     // Setup
-    vector<Key*> *psk = habe.setUp(11);
+    vector<Key*> *psk = habe.setUp(max_kgc);
 
     for (signed long int i = 0; i < 20; ++i) {
         start = clock();
