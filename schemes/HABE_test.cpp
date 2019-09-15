@@ -138,7 +138,7 @@ void HABE_test::userkeygen_test(signed long int size_ID, signed long int num_att
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num_attr; ++i) {
+    for (signed long int i = 100; i < 100 + num_attr; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -263,7 +263,7 @@ void HABE_test::decrypt_test(signed long int max_kgc, signed long int num_kgc, s
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num_attr; ++i) {
+    for (signed long int i = 100; i < 100 + num_attr; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }

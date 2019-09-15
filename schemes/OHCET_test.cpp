@@ -138,7 +138,7 @@ void OHCET_test::userkeygen_test(signed long int size_ID, signed long int num_at
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num_attr; ++i) {
+    for (signed long int i = 100; i < 100 + num_attr; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -185,7 +185,7 @@ void OHCET_test::trapdoor_test(signed long int num_attr) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num_attr; ++i) {
+    for (signed long int i = 100; i < 100 + num_attr; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
