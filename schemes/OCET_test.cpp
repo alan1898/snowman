@@ -38,7 +38,7 @@ void OCET_test::keygen_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -68,7 +68,7 @@ void OCET_test::encrypt_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -132,7 +132,7 @@ void OCET_test::trapdoor_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -165,7 +165,7 @@ void OCET_test::transform1_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -240,7 +240,7 @@ void OCET_test::transform2_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -312,7 +312,7 @@ void OCET_test::test_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -412,7 +412,7 @@ void OCET_test::decrypt_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }

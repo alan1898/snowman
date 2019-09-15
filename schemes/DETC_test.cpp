@@ -19,7 +19,7 @@ void DETC_test::setup_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -45,7 +45,7 @@ void DETC_test::keygen_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -75,7 +75,7 @@ void DETC_test::encrypt_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -139,7 +139,7 @@ void DETC_test::trapdoor_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -169,7 +169,7 @@ void DETC_test::test_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -263,7 +263,7 @@ void DETC_test::decrypt_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }

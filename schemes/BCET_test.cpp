@@ -38,7 +38,7 @@ void BCET_test::keygen_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -68,7 +68,7 @@ void BCET_test::encrypt_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -135,7 +135,7 @@ void BCET_test::trapdoor_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -168,7 +168,7 @@ void BCET_test::test_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
@@ -262,7 +262,7 @@ void BCET_test::decrypt_test(signed long int num) {
 
     vector<string> *attributes = new vector<string>();
     char n[4];
-    for (signed long int i = 100; i <= 100 + num; ++i) {
+    for (signed long int i = 100; i < 100 + num; ++i) {
         sprintf(n, "%ld", i);
         attributes->push_back(n);
     }
