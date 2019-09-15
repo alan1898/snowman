@@ -20,6 +20,7 @@ public:
     void userkeygen_test(signed long int size_ID, signed long int num_attr);
     void trapdoor_test(signed long int num_attr);
     void encrypt_test(signed long int max_kgc, signed long int num_kgc, signed long int size_ID, signed long int num_attr);
+    void decrypt_test(signed long int max_kgc, signed long int num_kgc, signed long int size_ID, signed long int num_attr);
 };
 
 
