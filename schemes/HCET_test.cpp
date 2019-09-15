@@ -394,3 +394,122 @@ void HCET_test::decrypt_test(signed long int max_kgc, signed long int num_kgc, s
 
     cout << "(" << num_kgc << "," << size_ID << "," << num_attr << ")" << ", Decrypt: " << execution_time << "ms" << endl;
 }
+
+void HCET_test::test_test(signed long int max_kgc, signed long int num_kgc, signed long int size_ID,
+                          signed long int num_attr) {
+    clock_t start, end;
+    double execution_time;
+    double sum_time_20 = 0;
+
+    element_t g1_sample, g2_sample, gt_sample, zr_sample;
+    element_init_G1(g1_sample, pairing);
+    element_init_G2(g2_sample, pairing);
+    element_init_GT(gt_sample, pairing);
+    element_init_Zr(zr_sample, pairing);
+
+    // host kgc
+    element_t_vector *host_kgc_ID = new element_t_vector(size_ID, zr_sample);
+    for (signed long int i = 0; i < host_kgc_ID->length(); ++i) {
+        element_random(host_kgc_ID->getElement(i));
+    }
+
+    vector<string> *attributes = new vector<string>();
+    char n[4];
+    for (signed long int i = 100; i < 100 + num_attr; ++i) {
+        sprintf(n, "%ld", i);
+        attributes->push_back(n);
+    }
+
+    string policy = "";
+    for (signed long int i = 0; i < num_attr; ++i) {
+        if (i == num_attr - 1) {
+            policy = policy + attributes->at(i);
+        } else {
+            policy = policy + attributes->at(i) + "&";
+        }
+    }
+
+    unsigned char *message1 = (unsigned char*)malloc(9);
+    message1[0] = 'L';
+    message1[1] = 'a';
+    message1[2] = 'n';
+    message1[3] = 's';
+    message1[4] = 'e';
+    message1[5] = 'o';
+    message1[6] = 'n';
+    message1[7] = '!';
+    message1[8] = '\0';
+    unsigned char *message2 = (unsigned char*)malloc(9);
+    message2[0] = 'L';
+    message2[1] = 'a';
+    message2[2] = 'n';
+    message2[3] = 's';
+    message2[4] = 'e';
+    message2[5] = 'o';
+    message2[6] = 'n';
+    message2[7] = '!';
+    message2[8] = '\0';
+
+    // get M and rho
+    element_t sample_element;
+    element_init_Zr(sample_element, pairing);
+    policy_resolution pr;
+    policy_generation pg;
+    map<string, access_structure*> *AA = new map<string, access_structure*>();
+    vector<string>* postfix_expression = pr.infixToPostfix(policy);
+    binary_tree* binary_tree_expression = pr.postfixToBinaryTree(postfix_expression, sample_element);
+    pg.generatePolicyInMatrixForm(binary_tree_expression);
+    element_t_matrix* M = pg.getPolicyInMatrixFormFromTree(binary_tree_expression);
+    map<signed long int, string>* rho = pg.getRhoFromTree(binary_tree_expression);
+    char name[4];
+    for (signed long int i = 100; i < num_kgc + 100; ++i) {
+        sprintf(name, "%ld", i);
+        string *host_kgc_name = new string();
+        *host_kgc_name = name;
+        access_structure *as = new access_structure(host_kgc_ID, M, rho, host_kgc_name);
+        AA->insert(pair<string, access_structure*>(*host_kgc_name, as));
+    }
+
+    HCET hcet;
+
+    string *host_kgc_name = new string();
+    *host_kgc_name = "100";
+
+    // Setup
+    vector<Key*> *psk = hcet.setUp(max_kgc);
+
+    // Encrypt
+    Ciphertext_HCET *ciphertext1 = hcet.encrypt(psk->at(1), AA, message1, psk->at(4), psk->at(3));
+    Ciphertext_HCET *ciphertext2 = hcet.encrypt(psk->at(1), AA, message2, psk->at(4), psk->at(3));
+
+    // AuthKeyGen
+    Key *SK_host_kgc = hcet.authKeyGen(psk->at(1), psk->at(0), host_kgc_ID);
+
+    // UserKeyGen
+    SecretKey *SK_user1 = hcet.userKeyGen(psk->at(1), SK_host_kgc, host_kgc_ID, host_kgc_name, attributes);
+    SecretKey *SK_user2 = hcet.userKeyGen(psk->at(1), SK_host_kgc, host_kgc_ID, host_kgc_name, attributes);
+
+    // Trapdoor
+    SecretKey *Td_user1 = hcet.trapdoor(SK_user1);
+    SecretKey *Td_user2 = hcet.trapdoor(SK_user2);
+
+    // Test Test
+    for (signed long int i = 0; i < 20; ++i) {
+        start = clock();
+        hcet.test(psk->at(1), ciphertext1, Td_user1, ciphertext2, Td_user2, psk->at(4), psk->at(3));
+        end = clock();
+        execution_time = (double)(end-start)/CLOCKS_PER_SEC * 1000;
+        sum_time_20 += execution_time;
+    }
+
+    execution_time = sum_time_20 / 20;
+
+    bool *test_res = hcet.test(psk->at(1), ciphertext1, Td_user1, ciphertext2, Td_user2, psk->at(4), psk->at(3));
+    if (*test_res == true) {
+        cout << "message1 and message2 are the same" << endl;
+    } else {
+        cout << "message1 and message2 are different" << endl;
+    }
+
+    cout << "(" << num_kgc << "," << size_ID << "," << num_attr << ")" << ", Test: " << execution_time << "ms" << endl;
+}
