@@ -244,7 +244,7 @@ void HABE_test::encrypt_test(signed long int max_kgc, signed long int num_kgc, s
     cout << "(" << num_kgc << "," << size_ID << "," << num_attr << ")" << ", Encrypt: " << execution_time << "ms" << endl;
 }
 
-void HABE_test::decrypt_test(signed long int size_ID, signed long int num_attr) {
+void HABE_test::decrypt_test(signed long int max_kgc, signed long int num_kgc, signed long int size_ID, signed long int num_attr) {
     clock_t start, end;
     double execution_time;
     double sum_time_20 = 0;
@@ -260,8 +260,6 @@ void HABE_test::decrypt_test(signed long int size_ID, signed long int num_attr) 
     for (signed long int i = 0; i < host_kgc_ID->length(); ++i) {
         element_random(host_kgc_ID->getElement(i));
     }
-    string *host_kgc_name = new string();
-    *host_kgc_name = "host_kgc";
 
     vector<string> *attributes = new vector<string>();
     char n[4];
@@ -282,6 +280,7 @@ void HABE_test::decrypt_test(signed long int size_ID, signed long int num_attr) 
     element_t m;
     element_init_GT(m, pairing);
     element_random(m);
+    element_printf("Message: %B\n", m);
 
     // get M and rho
     element_t sample_element;
@@ -294,13 +293,22 @@ void HABE_test::decrypt_test(signed long int size_ID, signed long int num_attr) 
     pg.generatePolicyInMatrixForm(binary_tree_expression);
     element_t_matrix* M = pg.getPolicyInMatrixFormFromTree(binary_tree_expression);
     map<signed long int, string>* rho = pg.getRhoFromTree(binary_tree_expression);
-    access_structure *as = new access_structure(host_kgc_ID, M, rho, host_kgc_name);
-    AA->insert(pair<string, access_structure*>(*host_kgc_name, as));
+    char name[4];
+    for (signed long int i = 100; i < num_kgc + 100; ++i) {
+        sprintf(name, "%ld", i);
+        string *host_kgc_name = new string();
+        *host_kgc_name = name;
+        access_structure *as = new access_structure(host_kgc_ID, M, rho, host_kgc_name);
+        AA->insert(pair<string, access_structure*>(*host_kgc_name, as));
+    }
+
+    string *host_kgc_name = new string();
+    *host_kgc_name = "100";
 
     HABE habe;
 
     // Setup
-    vector<Key*> *psk = habe.setUp(11);
+    vector<Key*> *psk = habe.setUp(max_kgc);
 
     // AuthKeyGen
     Key *SK_host_kgc = habe.authKeyGen(psk->at(1), psk->at(0), host_kgc_ID);
@@ -311,6 +319,7 @@ void HABE_test::decrypt_test(signed long int size_ID, signed long int num_attr) 
     // Encrypt
     Ciphertext_HCET *ciphertext = habe.encrypt(psk->at(1), AA, m);
 
+    // Decrypt Test
     for (signed long int i = 0; i < 20; ++i) {
         start = clock();
         habe.decrypt(ciphertext, SK_user);
@@ -321,5 +330,7 @@ void HABE_test::decrypt_test(signed long int size_ID, signed long int num_attr) 
 
     execution_time = sum_time_20 / 20;
 
-    cout << "(" << size_ID << "," << num_attr << ")" << ", Decrypt: " << execution_time << "ms" << endl;
+    element_printf("Decrypt: %B\n", habe.decrypt(ciphertext, SK_user));
+
+    cout << "(" << num_kgc << "," << size_ID << "," << num_attr << ")" << ", Decrypt: " << execution_time << "ms" << endl;
 }

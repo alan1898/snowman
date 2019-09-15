@@ -389,5 +389,8 @@ void HCET_test::decrypt_test(signed long int max_kgc, signed long int num_kgc, s
 
     execution_time = sum_time_20 / 20;
 
+    unsigned char* m_user = hcet.decrypt(psk->at(1), ciphertext, SK_user);
+    printf("Decrypt: %s\n", m_user);
+
     cout << "(" << num_kgc << "," << size_ID << "," << num_attr << ")" << ", Decrypt: " << execution_time << "ms" << endl;
 }

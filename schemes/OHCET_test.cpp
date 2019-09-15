@@ -383,18 +383,21 @@ void OHCET_test::decrypt_test(signed long int max_kgc, signed long int num_kgc, 
     *type1 = "Td";
     string *type2 = new string();
     *type2 = "TK";
-    Ciphertext_HCET *IT1 = ohcet.transform(psk->at(1), SK_user->at(0), type2, ciphertext, psk->at(4), psk->at(3));
+    Ciphertext_HCET *IT = ohcet.transform(psk->at(1), SK_user->at(0), type2, ciphertext, psk->at(4), psk->at(3));
 
     // Decrypt Test
     for (signed long int i = 0; i < 20; ++i) {
         start = clock();
-        ohcet.decrypt(psk->at(1), IT1, SK_user->at(1));
+        ohcet.decrypt(psk->at(1), IT, SK_user->at(1));
         end = clock();
         execution_time = (double)(end-start)/CLOCKS_PER_SEC * 1000;
         sum_time_20 += execution_time;
     }
 
     execution_time = sum_time_20 / 20;
+
+    unsigned char* m_user = ohcet.decrypt(psk->at(1), IT, SK_user->at(1));
+    printf("Decrypt: %s\n", m_user);
 
     cout << "(" << num_kgc << "," << size_ID << "," << num_attr << ")" << ", Decrypt: " << execution_time << "ms" << endl;
 }
