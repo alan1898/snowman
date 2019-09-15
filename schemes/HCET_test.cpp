@@ -213,3 +213,85 @@ void HCET_test::trapdoor_test(signed long int num_attr) {
 
     cout << num_attr << ", Trapdoor: " << execution_time << "ms" << endl;
 }
+
+void HCET_test::encrypt_test(signed long int num_kgc, signed long int size_ID, signed long int num_attr) {
+    clock_t start, end;
+    double execution_time;
+    double sum_time_20 = 0;
+
+    element_t g1_sample, g2_sample, gt_sample, zr_sample;
+    element_init_G1(g1_sample, pairing);
+    element_init_G2(g2_sample, pairing);
+    element_init_GT(gt_sample, pairing);
+    element_init_Zr(zr_sample, pairing);
+
+    // host kgc
+    element_t_vector *host_kgc_ID = new element_t_vector(size_ID, zr_sample);
+    for (signed long int i = 0; i < host_kgc_ID->length(); ++i) {
+        element_random(host_kgc_ID->getElement(i));
+    }
+
+    vector<string> *attributes = new vector<string>();
+    char n[4];
+    for (signed long int i = 100; i < 100 + num_attr; ++i) {
+        sprintf(n, "%ld", i);
+        attributes->push_back(n);
+    }
+
+    string policy = "";
+    for (signed long int i = 0; i < num_attr; ++i) {
+        if (i == num_attr - 1) {
+            policy = policy + attributes->at(i);
+        } else {
+            policy = policy + attributes->at(i) + "&";
+        }
+    }
+
+    unsigned char *message = (unsigned char*)malloc(9);
+    message[0] = 'L';
+    message[1] = 'a';
+    message[2] = 'n';
+    message[3] = 's';
+    message[4] = 'e';
+    message[5] = 'o';
+    message[6] = 'n';
+    message[7] = '!';
+    message[8] = '\0';
+
+    // get M and rho
+    element_t sample_element;
+    element_init_Zr(sample_element, pairing);
+    policy_resolution pr;
+    policy_generation pg;
+    map<string, access_structure*> *AA = new map<string, access_structure*>();
+    vector<string>* postfix_expression = pr.infixToPostfix(policy);
+    binary_tree* binary_tree_expression = pr.postfixToBinaryTree(postfix_expression, sample_element);
+    pg.generatePolicyInMatrixForm(binary_tree_expression);
+    element_t_matrix* M = pg.getPolicyInMatrixFormFromTree(binary_tree_expression);
+    map<signed long int, string>* rho = pg.getRhoFromTree(binary_tree_expression);
+    char name[4];
+    for (signed long int i = 100; i < num_kgc + 100; ++i) {
+        sprintf(name, "%ld", i);
+        string *host_kgc_name = new string();
+        *host_kgc_name = name;
+        access_structure *as = new access_structure(host_kgc_ID, M, rho, host_kgc_name);
+        AA->insert(pair<string, access_structure*>(*host_kgc_name, as));
+    }
+
+    HCET hcet;
+
+    // Setup
+    vector<Key*> *psk = hcet.setUp(11);
+
+    for (signed long int i = 0; i < 20; ++i) {
+        start = clock();
+        hcet.encrypt(psk->at(1), AA, message, psk->at(4), psk->at(3));
+        end = clock();
+        execution_time = (double)(end-start)/CLOCKS_PER_SEC * 1000;
+        sum_time_20 += execution_time;
+    }
+
+    execution_time = sum_time_20 / 20;
+
+    cout << "(" << num_kgc << "," << size_ID << "," << num_attr << ")" << ", Encrypt: " << execution_time << "ms" << endl;
+}

@@ -990,7 +990,7 @@ Ciphertext_HCET* OHCET::encrypt(Key *public_key, map<string, access_structure *>
     element_random(s);
     element_random(z);
 
-    element_printf("随机选择的z为：%B\n", z);
+//    element_printf("随机选择的z为：%B\n", z);
 
     element_t sj;
     element_init_Zr(sj, pairing);
