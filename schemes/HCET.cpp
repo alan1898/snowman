@@ -1424,7 +1424,7 @@ bool* HCET::test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphert
     }
 }
 
-unsigned char* HCET::decrypt(Ciphertext_HCET *ciphertext_hcet, SecretKey *secret_key) {
+unsigned char* HCET::decrypt(Key *public_key, Ciphertext_HCET *ciphertext_hcet, SecretKey *secret_key) {
     map<string, access_structure*>::iterator iterator1 = ciphertext_hcet->getAA()->find(*(secret_key->getKgcName()));
     element_s *Xdelte = computeXdelte(ciphertext_hcet, secret_key, "K", "");
     element_s *Xdelte_ = computeXdelte(ciphertext_hcet, secret_key, "K", "_");
@@ -1448,9 +1448,50 @@ unsigned char* HCET::decrypt(Ciphertext_HCET *ciphertext_hcet, SecretKey *secret
     element_t z;
     element_init_Zr(z, pairing);
     element_from_bytes(z, z_bytes);
-    element_printf("恢复出来的z为：%B\n", z);
+//    element_printf("恢复出来的z为：%B\n", z);
 
-    // 添加验证！！！
+    // verify
+    // obtain g
+    element_t g;
+    element_init_same_as(g, public_key->getComponent("g"));
+    element_set(g, public_key->getComponent("g"));
+    // compute g^z
+    element_t g_z;
+    element_init_G1(g_z, pairing);
+    element_pow_zn(g_z, g, z);
+    // obtain C0'
+    element_t C0_;
+    element_init_same_as(C0_, ciphertext_hcet->getComponent("C0_"));
+    element_set(C0_, ciphertext_hcet->getComponent("C0_"));
+    if (element_cmp(g_z, C0_) != 0) {
+        return NULL;
+    }
+
+    // verify
+    // change res to m
+    unsigned char hash_bytes[SHA256_DIGEST_LENGTH];
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, res, 8);
+    SHA256_Final(hash_bytes, &sha256);
+    element_t m;
+    element_init_G1(m, pairing);
+    element_from_hash(m, hash_bytes, SHA256_DIGEST_LENGTH);
+    // compute m^z
+    element_t m_z;
+    element_init_G1(m_z, pairing);
+    element_pow_zn(m_z, m, z);
+    // compute m^z*H1(Xdelte)
+    element_t m_z_H1;
+    element_init_G1(m_z_H1, pairing);
+    element_mul(m_z_H1, m_z, H1(Xdelte));
+    // obtain C
+    element_t C;
+    element_init_same_as(C, ciphertext_hcet->getComponent("C"));
+    element_set(C, ciphertext_hcet->getComponent("C"));
+    if (element_cmp(C, m_z_H1) != 0) {
+        return NULL;
+    }
 
     return res;
 }

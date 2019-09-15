@@ -36,7 +36,7 @@ public:
     SecretKey* trapdoor(SecretKey *secret_key);
     Ciphertext_HCET* encrypt(Key *public_key, map<string, access_structure*> *AA, unsigned char *message, Key *sp_ch, Key *pk_ch);
     bool* test(Key *public_key, Ciphertext_HCET *CTA, SecretKey *TdSA, Ciphertext_HCET *CTB, SecretKey *TdSB, Key *sp_ch, Key *pk_ch);
-    unsigned char* decrypt(Ciphertext_HCET *ciphertext_hcet, SecretKey *secret_key);
+    unsigned char* decrypt(Key *public_key, Ciphertext_HCET *ciphertext_hcet, SecretKey *secret_key);
 };
 
 
