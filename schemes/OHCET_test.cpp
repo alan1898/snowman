@@ -117,7 +117,7 @@ void OHCET_test::authdelegate_test(signed long int num) {
     cout << num << ", AuthDelegate: " << execution_time << "ms" << endl;
 }
 
-void OHCET_test::userkeygen_test(signed long int size_ID, signed long int num_attr) {
+void OHCET_test::userkeygen_test(signed long int max_kgc, signed long int size_ID, signed long int num_attr) {
     clock_t start, end;
     double execution_time;
     double sum_time_20 = 0;
@@ -146,7 +146,7 @@ void OHCET_test::userkeygen_test(signed long int size_ID, signed long int num_at
     OHCET ohcet;
 
     // Setup
-    vector<Key*> *psk = ohcet.setUp(11);
+    vector<Key*> *psk = ohcet.setUp(max_kgc);
 
     // AuthKeyGen
     Key *SK_host_kgc = ohcet.authKeyGen(psk->at(1), psk->at(0), host_kgc_ID);

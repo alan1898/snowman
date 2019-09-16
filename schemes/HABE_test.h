@@ -17,7 +17,7 @@ public:
     void setup_test(signed long int num);
     void authkeygen_test(signed long int num);
     void authdelegate_test(signed long int num);
-    void userkeygen_test(signed long int size_ID, signed long int num_attr);
+    void userkeygen_test(signed long int max_kgc, signed long int size_ID, signed long int num_attr);
     void encrypt_test(signed long int max_kgc, signed long int num_kgc, signed long int size_ID, signed long int num_attr);
     void decrypt_test(signed long int max_kgc, signed long int num_kgc, signed long int size_ID, signed long int num_attr);
 };

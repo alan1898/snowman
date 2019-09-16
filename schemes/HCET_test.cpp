@@ -117,7 +117,7 @@ void HCET_test::authdelegate_test(signed long int num) {
     cout << num << ", AuthDelegate: " << execution_time << "ms" << endl;
 }
 
-void HCET_test::userkeygen_test(signed long int size_ID, signed long int num_attr) {
+void HCET_test::userkeygen_test(signed long int max_kgc, signed long int size_ID, signed long int num_attr) {
     clock_t start, end;
     double execution_time;
     double sum_time_20 = 0;
@@ -146,7 +146,7 @@ void HCET_test::userkeygen_test(signed long int size_ID, signed long int num_att
     HCET hcet;
 
     // Setup
-    vector<Key*> *psk = hcet.setUp(11);
+    vector<Key*> *psk = hcet.setUp(max_kgc);
 
     // AuthKeyGen
     Key *SK_host_kgc = hcet.authKeyGen(psk->at(1), psk->at(0), host_kgc_ID);
