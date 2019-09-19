@@ -663,6 +663,33 @@ scheme_structure/Ciphertext_CET.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.s
 .PHONY : scheme_structure/Ciphertext_CET.cpp.s
 
+scheme_structure/Ciphertext_DET.o: scheme_structure/Ciphertext_DET.cpp.o
+
+.PHONY : scheme_structure/Ciphertext_DET.o
+
+# target to build an object file
+scheme_structure/Ciphertext_DET.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.o
+.PHONY : scheme_structure/Ciphertext_DET.cpp.o
+
+scheme_structure/Ciphertext_DET.i: scheme_structure/Ciphertext_DET.cpp.i
+
+.PHONY : scheme_structure/Ciphertext_DET.i
+
+# target to preprocess a source file
+scheme_structure/Ciphertext_DET.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.i
+.PHONY : scheme_structure/Ciphertext_DET.cpp.i
+
+scheme_structure/Ciphertext_DET.s: scheme_structure/Ciphertext_DET.cpp.s
+
+.PHONY : scheme_structure/Ciphertext_DET.s
+
+# target to generate assembly for a file
+scheme_structure/Ciphertext_DET.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.s
+.PHONY : scheme_structure/Ciphertext_DET.cpp.s
+
 scheme_structure/Ciphertext_HCET.o: scheme_structure/Ciphertext_HCET.cpp.o
 
 .PHONY : scheme_structure/Ciphertext_HCET.o
@@ -986,6 +1013,33 @@ schemes/CLASSIC_ABE.s: schemes/CLASSIC_ABE.cpp.s
 schemes/CLASSIC_ABE.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/CLASSIC_ABE.cpp.s
 .PHONY : schemes/CLASSIC_ABE.cpp.s
+
+schemes/DET.o: schemes/DET.cpp.o
+
+.PHONY : schemes/DET.o
+
+# target to build an object file
+schemes/DET.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET.cpp.o
+.PHONY : schemes/DET.cpp.o
+
+schemes/DET.i: schemes/DET.cpp.i
+
+.PHONY : schemes/DET.i
+
+# target to preprocess a source file
+schemes/DET.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET.cpp.i
+.PHONY : schemes/DET.cpp.i
+
+schemes/DET.s: schemes/DET.cpp.s
+
+.PHONY : schemes/DET.s
+
+# target to generate assembly for a file
+schemes/DET.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET.cpp.s
+.PHONY : schemes/DET.cpp.s
 
 schemes/DETC.o: schemes/DETC.cpp.o
 
@@ -1461,6 +1515,9 @@ help:
 	@echo "... scheme_structure/Ciphertext_CET.o"
 	@echo "... scheme_structure/Ciphertext_CET.i"
 	@echo "... scheme_structure/Ciphertext_CET.s"
+	@echo "... scheme_structure/Ciphertext_DET.o"
+	@echo "... scheme_structure/Ciphertext_DET.i"
+	@echo "... scheme_structure/Ciphertext_DET.s"
 	@echo "... scheme_structure/Ciphertext_HCET.o"
 	@echo "... scheme_structure/Ciphertext_HCET.i"
 	@echo "... scheme_structure/Ciphertext_HCET.s"
@@ -1497,6 +1554,9 @@ help:
 	@echo "... schemes/CLASSIC_ABE.o"
 	@echo "... schemes/CLASSIC_ABE.i"
 	@echo "... schemes/CLASSIC_ABE.s"
+	@echo "... schemes/DET.o"
+	@echo "... schemes/DET.i"
+	@echo "... schemes/DET.s"
 	@echo "... schemes/DETC.o"
 	@echo "... schemes/DETC.i"
 	@echo "... schemes/DETC.s"

@@ -11,6 +11,7 @@
 #include "Ciphertext_CET.h"
 #include "SecretKey.h"
 #include "Ciphertext_HCET.h"
+#include "Ciphertext_DET.h"
 
 #include "abe_key.h"
 #include "abe_ciphertext.h"

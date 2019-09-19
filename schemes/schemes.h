@@ -31,4 +31,6 @@
 #include "DETC.h"
 #include "DETC_test.h"
 
+#include "DET.h"
+
 #endif //ABELIB_SCHEMES_H

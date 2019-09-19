@@ -216,6 +216,12 @@
 		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Ciphertext_CET.h">
 			<Option target="abelib"/>
 		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Ciphertext_DET.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Ciphertext_DET.h">
+			<Option target="abelib"/>
+		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/scheme_structure/Ciphertext_HCET.cpp">
 			<Option target="abelib"/>
 		</Unit>
@@ -289,6 +295,12 @@
 			<Option target="abelib"/>
 		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/CLASSIC_ABE.h">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/DET.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/DET.h">
 			<Option target="abelib"/>
 		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/DETC.cpp">
