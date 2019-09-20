@@ -14,27 +14,27 @@ vector<signed long int>* DET::testJ() {
     return res;
 }
 
-vector<signed long int>* DET::testX() {
-    vector<signed long int> *res = new vector<signed long int>();
-
-    res->push_back(-10);
-    res->push_back(17);
-    res->push_back(-8);
-    res->push_back(1);
-
-    return res;
-}
-
-vector<signed long int>* DET::testY() {
-    vector<signed long int> *res = new vector<signed long int>();
-
-    res->push_back(-72);
-    res->push_back(54);
-    res->push_back(-13);
-    res->push_back(1);
-
-    return res;
-}
+//vector<signed long int>* DET::testX() {
+//    vector<signed long int> *res = new vector<signed long int>();
+//
+//    res->push_back(-10);
+//    res->push_back(17);
+//    res->push_back(-8);
+//    res->push_back(1);
+//
+//    return res;
+//}
+//
+//vector<signed long int>* DET::testY() {
+//    vector<signed long int> *res = new vector<signed long int>();
+//
+//    res->push_back(-72);
+//    res->push_back(54);
+//    res->push_back(-13);
+//    res->push_back(1);
+//
+//    return res;
+//}
 
 vector<long> * DET::computeA(vector<signed long int> *J) {
     vector<signed long int> *res = new vector<signed long int>();
@@ -49,7 +49,6 @@ vector<long> * DET::computeA(vector<signed long int> *J) {
 element_s* DET::computeT(vector<signed long int> *a) {
     signed long int t = 0;
 
-    // 从0开始加还是从1开始加？？？
     for (signed long int i = 0; i < a->size(); ++i) {
         t += a->at(i);
     }
@@ -147,7 +146,6 @@ element_s* DET::computeV(Ciphertext_DET *CT, Key *SK, string C2_str, string sk_s
     element_t TTsk4j__awj;
     element_init_G1(TTsk4j__awj, pairing);
 
-    // 从0开始加还是从1开始加？？？
     for (signed long int j = 0; j <= CT->getJ()->size(); ++j) {
         element_set_si(awj, awjs->at(j));
 
@@ -435,6 +433,7 @@ Ciphertext_DET* DET::encrypt(Key *public_key, vector<signed long int> *J, vector
     element_random(z1);
     element_random(z2);
     element_random(z);
+//    element_printf("随机选取的z为：%B\n", z);
 
     // compute u1^z1
     element_t u1_z1;
@@ -450,7 +449,7 @@ Ciphertext_DET* DET::encrypt(Key *public_key, vector<signed long int> *J, vector
     element_t u1_z1_v1_z2;
     element_init_GT(u1_z1_v1_z2, pairing);
     element_mul(u1_z1_v1_z2, u1_z1, v1_z2);
-    element_printf("u1^z1*v1^z2: %B\n", u1_z1_v1_z2);
+//    element_printf("u1^z1*v1^z2: %B\n", u1_z1_v1_z2);
 
     // compute H1(u1^z1*v1^z2)
     unsigned char* H_1 = H1(u1_z1_v1_z2);
@@ -485,6 +484,7 @@ Ciphertext_DET* DET::encrypt(Key *public_key, vector<signed long int> *J, vector
     element_t u2_z1_v2_z2;
     element_init_GT(u2_z1_v2_z2, pairing);
     element_mul(u2_z1_v2_z2, u2_z1, v2_z2);
+//    element_printf("u2^z1*v2^z2: %B\n", u2_z1_v2_z2);
 
     // change message to m
     unsigned char hash_bytes[SHA256_DIGEST_LENGTH];
@@ -942,5 +942,117 @@ Key* DET::trapdoor(Key *secret_key, vector<signed long int> *X_, vector<signed l
         res->insertComponent(str + "4" + num + "_", "G1", secret_key->getComponent(sstr + "4" + num + "__"));
     }
 
+    res->insertComponent("tx_", "ZR", secret_key->getComponent("tx_"));
+    res->insertComponent("ty_", "ZR", secret_key->getComponent("ty_"));
+
     return res;
+}
+
+unsigned char* DET::decrypt(Key *public_key, Ciphertext_DET *CT, Key *SK) {
+    element_s *V1 = computeV(CT, SK, "", "", "sk", "_");
+//    element_printf("V1: %B\n", V1);
+    element_s *V2 = computeV(CT, SK, "_", "_", "sk", "__");
+//    element_printf("V2: %B\n", V2);
+
+    unsigned char *H_1 = H1(V1);
+
+    unsigned char *res = (unsigned char*)malloc(8 + 1);
+    res[8] = '\0';
+    unsigned char *z_bytes = (unsigned char*)malloc(zr_length + 1);
+    z_bytes[zr_length] = '\0';
+
+    for (signed long int i = 0; i < 8; ++i) {
+        int mzvalue = (int)CT->Cstar[i] ^ (int)H_1[i];
+        res[i] = (unsigned char)mzvalue;
+    }
+    for (signed long int i = 8; i < 8 + zr_length; ++i) {
+        int mzvalue = (int)CT->Cstar[i] ^ (int)H_1[i];
+        z_bytes[i - 8] = (unsigned char)mzvalue;
+    }
+
+    element_t z;
+    element_init_Zr(z, pairing);
+    element_from_bytes(z, z_bytes);
+//    element_printf("恢复出来的z为：%B\n", z);
+
+    // verify
+    // obtain g
+    element_t g;
+    element_init_same_as(g, public_key->getComponent("g"));
+    element_set(g, public_key->getComponent("g"));
+    // compute g^z
+    element_t g_z;
+    element_init_G1(g_z, pairing);
+    element_pow_zn(g_z, g, z);
+    // obtain C3'
+    element_t C3_;
+    element_init_same_as(C3_, CT->getComponent("C3_"));
+    element_set(C3_, CT->getComponent("C3_"));
+    if (element_cmp(g_z, C3_) != 0) {
+        return NULL;
+    }
+
+    // verify
+    // change res to m
+    unsigned char hash_bytes[SHA256_DIGEST_LENGTH];
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, res, 8);
+    SHA256_Final(hash_bytes, &sha256);
+    element_t m;
+    element_init_G1(m, pairing);
+    element_from_hash(m, hash_bytes, SHA256_DIGEST_LENGTH);
+    // compute m^z
+    element_t m_z;
+    element_init_G1(m_z, pairing);
+    element_pow_zn(m_z, m, z);
+    // compute m^z*H2(V2)
+    element_t m_z_H2;
+    element_init_G1(m_z_H2, pairing);
+    element_mul(m_z_H2, m_z, H2(V2));
+    // obtain C1
+    element_t C1;
+    element_init_same_as(C1, CT->getComponent("C1"));
+    element_set(C1, CT->getComponent("C1"));
+    if (element_cmp(C1, m_z_H2) != 0) {
+        return NULL;
+    }
+
+    return res;
+}
+
+bool* DET::test(Ciphertext_DET *CTA, Key *TDA, Ciphertext_DET *CTB, Key *TDB) {
+    element_s *QA_ = computeV(CTA, TDA, "_", "", "td", "_");
+//    cout << "QA_" << endl;
+    element_s *QB_ = computeV(CTB, TDB, "_", "", "td", "_");
+//    cout << "QB_" << endl;
+
+    element_s *C1A = CTA->getComponent("C1");
+    element_s *C1B = CTB->getComponent("C1");
+
+    element_t QA, QB;
+    element_init_G1(QA, pairing);
+    element_init_G1(QB, pairing);
+    element_div(QA, C1A, H2(QA_));
+    element_div(QB, C1B, H2(QB_));
+
+    element_s *C3_A = CTA->getComponent("C3_");
+    element_s *C3_B = CTB->getComponent("C3_");
+
+    element_t e1, e2;
+    element_init_GT(e1, pairing);
+    element_init_GT(e2, pairing);
+
+    element_pairing(e1, QA, C3_B);
+    element_pairing(e2, QB, C3_A);
+
+    bool *res = new bool();
+
+    if (element_cmp(e1, e2) == 0) {
+        *res = true;
+        return res;
+    } else {
+        *res = false;
+        return res;
+    }
 }

@@ -28,8 +28,8 @@ private:
     signed long int L1, L2, L3;
 public:
     vector<signed long int>* testJ();
-    vector<signed long int>* testX();
-    vector<signed long int>* testY();
+//    vector<signed long int>* testX();
+//    vector<signed long int>* testY();
     vector<signed long int>* computeA(vector<signed long int> *J);
     element_s* computeT(vector<signed long int> *a);
     element_s* computeIWK(signed long int i, vector<signed long int> *J);
@@ -44,6 +44,8 @@ public:
     Ciphertext_DET* encrypt(Key *public_key, vector<signed long int> *J, vector<signed long int> *X, vector<signed long int> *Y, unsigned char *message);
     Key* keyGen(Key *public_key, Key *master_key, vector<signed long int> *X_, vector<signed long int> *Y_);
     Key* trapdoor(Key *secret_key, vector<signed long int> *X_, vector<signed long int> *Y_);
+    unsigned char* decrypt(Key *public_key, Ciphertext_DET *CT, Key *SK);
+    bool* test(Ciphertext_DET *CTA, Key *TDA, Ciphertext_DET *CTB, Key *TDB);
 };
 
 
