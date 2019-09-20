@@ -4,11 +4,30 @@
 
 #include "DET.h"
 
-vector<signed long int>* DET::testJ() {
+//vector<signed long int>* DET::testJ() {
+//    vector<signed long int> *res = new vector<signed long int>();
+//
+//    res->push_back(6);
+//    res->push_back(-5);
+//    res->push_back(1);
+//
+//    return res;
+//}
+
+vector<long> * DET::computeA1(vector<signed long int> *J) {
     vector<signed long int> *res = new vector<signed long int>();
 
-    res->push_back(6);
-    res->push_back(-5);
+    res->push_back(-(J->at(0)));
+    res->push_back(1);
+
+    return res;
+}
+
+vector<long> * DET::computeA2(vector<signed long int> *J) {
+    vector<signed long int> *res = new vector<signed long int>();
+
+    res->push_back(J->at(0) * J->at(1));
+    res->push_back(-(J->at(0) + J->at(1)));
     res->push_back(1);
 
     return res;
@@ -123,7 +142,7 @@ element_s* DET::computeV(Ciphertext_DET *CT, Key *SK, string C2_str, string sk_s
     // compute awjs
 //    vector<signed long int> *awjs = computeA(CT->getJ());
 
-    vector<signed long int> *awjs = testJ();
+    vector<signed long int> *awjs = computeA1(CT->getJ());
 
 
     element_t awj;
@@ -509,7 +528,7 @@ Ciphertext_DET* DET::encrypt(Key *public_key, vector<signed long int> *J, vector
 
     // compute awk
 //    vector<signed long int> *awk = computeA(J);
-    vector<signed long int> *awk = testJ();
+    vector<signed long int> *awk = computeA1(J);
 
     // compute tw
     element_s *tw = computeT(awk);

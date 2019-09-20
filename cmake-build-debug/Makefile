@@ -1095,6 +1095,33 @@ schemes/DETC_test.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC_test.cpp.s
 .PHONY : schemes/DETC_test.cpp.s
 
+schemes/DET_test.o: schemes/DET_test.cpp.o
+
+.PHONY : schemes/DET_test.o
+
+# target to build an object file
+schemes/DET_test.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET_test.cpp.o
+.PHONY : schemes/DET_test.cpp.o
+
+schemes/DET_test.i: schemes/DET_test.cpp.i
+
+.PHONY : schemes/DET_test.i
+
+# target to preprocess a source file
+schemes/DET_test.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET_test.cpp.i
+.PHONY : schemes/DET_test.cpp.i
+
+schemes/DET_test.s: schemes/DET_test.cpp.s
+
+.PHONY : schemes/DET_test.s
+
+# target to generate assembly for a file
+schemes/DET_test.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET_test.cpp.s
+.PHONY : schemes/DET_test.cpp.s
+
 schemes/HABE.o: schemes/HABE.cpp.o
 
 .PHONY : schemes/HABE.o
@@ -1563,6 +1590,9 @@ help:
 	@echo "... schemes/DETC_test.o"
 	@echo "... schemes/DETC_test.i"
 	@echo "... schemes/DETC_test.s"
+	@echo "... schemes/DET_test.o"
+	@echo "... schemes/DET_test.i"
+	@echo "... schemes/DET_test.s"
 	@echo "... schemes/HABE.o"
 	@echo "... schemes/HABE.i"
 	@echo "... schemes/HABE.s"

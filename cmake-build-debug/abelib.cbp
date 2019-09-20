@@ -315,6 +315,12 @@
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/DETC_test.h">
 			<Option target="abelib"/>
 		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/DET_test.cpp">
+			<Option target="abelib"/>
+		</Unit>
+		<Unit filename="/home/alan/graduation_design/abelib/schemes/DET_test.h">
+			<Option target="abelib"/>
+		</Unit>
 		<Unit filename="/home/alan/graduation_design/abelib/schemes/HABE.cpp">
 			<Option target="abelib"/>
 		</Unit>
