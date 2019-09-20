@@ -4,6 +4,38 @@
 
 #include "DET.h"
 
+vector<signed long int>* DET::testJ() {
+    vector<signed long int> *res = new vector<signed long int>();
+
+    res->push_back(6);
+    res->push_back(-5);
+    res->push_back(1);
+
+    return res;
+}
+
+vector<signed long int>* DET::testX() {
+    vector<signed long int> *res = new vector<signed long int>();
+
+    res->push_back(-10);
+    res->push_back(17);
+    res->push_back(-8);
+    res->push_back(1);
+
+    return res;
+}
+
+vector<signed long int>* DET::testY() {
+    vector<signed long int> *res = new vector<signed long int>();
+
+    res->push_back(-72);
+    res->push_back(54);
+    res->push_back(-13);
+    res->push_back(1);
+
+    return res;
+}
+
 vector<long> * DET::computeA(vector<signed long int> *J) {
     vector<signed long int> *res = new vector<signed long int>();
 
@@ -17,6 +49,7 @@ vector<long> * DET::computeA(vector<signed long int> *J) {
 element_s* DET::computeT(vector<signed long int> *a) {
     signed long int t = 0;
 
+    // 从0开始加还是从1开始加？？？
     for (signed long int i = 0; i < a->size(); ++i) {
         t += a->at(i);
     }
@@ -88,8 +121,11 @@ element_s* DET::H2(element_s *e) {
 }
 
 element_s* DET::computeV(Ciphertext_DET *CT, Key *SK, string C2_str, string sk_str, string pre_str, string post_str) {
-    // compute awj
-    vector<signed long int> *awjs = computeA(CT->getJ());
+    // compute awjs
+//    vector<signed long int> *awjs = computeA(CT->getJ());
+
+    vector<signed long int> *awjs = testJ();
+
 
     element_t awj;
     element_init_Zr(awj, pairing);
@@ -111,8 +147,9 @@ element_s* DET::computeV(Ciphertext_DET *CT, Key *SK, string C2_str, string sk_s
     element_t TTsk4j__awj;
     element_init_G1(TTsk4j__awj, pairing);
 
-    for (signed long int j = 1; j <= CT->getJ()->size(); ++j) {
-        element_set_si(awj, j);
+    // 从0开始加还是从1开始加？？？
+    for (signed long int j = 0; j <= CT->getJ()->size(); ++j) {
+        element_set_si(awj, awjs->at(j));
 
         char j_str[21];
         sprintf(j_str, "%ld", j);
@@ -127,7 +164,7 @@ element_s* DET::computeV(Ciphertext_DET *CT, Key *SK, string C2_str, string sk_s
         element_pow_zn(sk3j__awj, sk3j_, awj);
         element_pow_zn(sk4j__awj, sk4j_, awj);
 
-        if (j == 1) {
+        if (j == 0) {
             element_set(TTsk3j_awj, sk3j_awj);
             element_set(TTsk4j_awj, sk4j_awj);
             element_set(TTsk3j__awj, sk3j__awj);
@@ -252,17 +289,17 @@ vector<Key*>* DET::setUp(signed long int N) {
     element_init_G1(Ri, pairing);
     element_init_Zr(ri ,pairing);
 
-    string str = "R";
-    string sstr = "r";
+    string R_str = "R";
+    string r_str = "r";
     char num[21];
     for (signed long int i = 1; i <= N; ++i) {
         sprintf(num, "%ld", i);
         // randomly choose ri
         element_random(ri);
-        master_key->insertComponent(sstr + num, "ZR", ri);
+        master_key->insertComponent(r_str + num, "ZR", ri);
         // compute Ri=g^ri
         element_pow_zn(Ri, g, ri);
-        public_key->insertComponent(str + num, "G1", Ri);
+        public_key->insertComponent(R_str + num, "G1", Ri);
     }
 
     // randomly choose alpha, alpha', gamma1, gamma2, gamma3
@@ -299,7 +336,7 @@ vector<Key*>* DET::setUp(signed long int N) {
     element_pairing(e_gW1, g, W1);
     element_pairing(e_gW2, g, W2);
 
-    // compute alpha^gamma1, alpha^gamma2, alpha'^gamma1, alpha'^gamma3
+    // compute alpha*gamma1, alpha*gamma2, alpha'*gamma1, alpha'*gamma3
     element_t alpha_gamma1, alpha_gamma2, alpha__gamma1, alpha__gamma3;
     element_init_Zr(alpha_gamma1, pairing);
     element_init_Zr(alpha_gamma2, pairing);
@@ -471,7 +508,8 @@ Ciphertext_DET* DET::encrypt(Key *public_key, vector<signed long int> *J, vector
     res->insertComponent("C1", "G1", C1);
 
     // compute awk
-    vector<signed long int> *awk = computeA(J);
+//    vector<signed long int> *awk = computeA(J);
+    vector<signed long int> *awk = testJ();
 
     // compute tw
     element_s *tw = computeT(awk);
@@ -638,12 +676,19 @@ Key* DET::keyGen(Key *public_key, Key *master_key, vector<signed long int> *X_, 
     element_add(s3, gamma3, s);
 
     // compute axi' and ayj'
-    vector<signed long int> *axi_ = computeA(X_);
-    vector<signed long int> *ayj_ = computeA(Y_);
+//    vector<signed long int> *axi_ = computeA(X_);
+//    vector<signed long int> *ayj_ = computeA(Y_);
+//    vector<signed long int> *axi_ = testX();
+//    vector<signed long int> *ayj_ = testY();
 
     // compute tx' and ty'
-    element_s *tx_ = computeT(axi_);
-    element_s *ty_ = computeT(ayj_);
+//    element_s *tx_ = computeT(axi_);
+//    element_s *ty_ = computeT(ayj_);
+    element_t tx_, ty_;
+    element_init_Zr(tx_, pairing);
+    element_init_Zr(ty_, pairing);
+    element_random(tx_);
+    element_random(ty_);
     res->insertComponent("tx_", "ZR", tx_);
     res->insertComponent("ty_", "ZR", ty_);
 
