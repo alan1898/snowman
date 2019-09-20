@@ -17,6 +17,8 @@ public:
     void keygen_test(signed long int N, signed long int X__size, signed long int Y__size, signed long int count, signed long int L1, signed long int L2, signed long int L3);
     void trapdoor_test(signed long int N, signed long int X__size, signed long int Y__size, signed long int count, signed long int L1, signed long int L2, signed long int L3);
     void encrypt_test(signed long int N, signed long int J_size, signed long int X_size, signed long int Y_size, signed long int count, signed long int L1, signed long int L2, signed long int L3);
+    void decrypt_test(signed long int N, signed long int J_size, signed long int X_size, signed long int Y_size, signed long int count, signed long int L1, signed long int L2, signed long int L3);
+    void test_test(signed long int N, signed long int J_size, signed long int X_size, signed long int Y_size, signed long int count, signed long int L1, signed long int L2, signed long int L3);
 };
 
 
