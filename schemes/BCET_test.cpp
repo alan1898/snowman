@@ -314,7 +314,7 @@ void BCET_test::decrypt_test(signed long int num) {
 
     for (signed long int i = 0; i < 20; ++i) {
         start = clock();
-        bcet.decrypt(psk->at(1), ciphertext, user_sk);
+        bcet.decrypt(psk->at(1), ciphertext, user_sk, psk->at(4), psk->at(3));
         end = clock();
         execution_time = (double)(end-start)/CLOCKS_PER_SEC * 1000;
         sum_time_20 += execution_time;

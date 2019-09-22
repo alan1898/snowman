@@ -874,7 +874,72 @@ bool* BCET::test(Key *public_key, Ciphertext_CET *CTA, SecretKey *TdSA, Cipherte
     }
 }
 
-unsigned char* BCET::decrypt(Key *public_key, Ciphertext_CET *ciphertext_cet, SecretKey *secret_key) {
+unsigned char* BCET::decrypt(Key *public_key, Ciphertext_CET *ciphertext_cet, SecretKey *secret_key, Key *sp_ch, Key *pk_ch) {
+    // test step one
+    // obtain public parameters
+    element_t g, u, h, w, v;
+    element_init_same_as(g, public_key->getComponent("g"));
+    element_set(g, public_key->getComponent("g"));
+    element_init_same_as(u, public_key->getComponent("u"));
+    element_set(u, public_key->getComponent("u"));
+    element_init_same_as(h, public_key->getComponent("h"));
+    element_set(h, public_key->getComponent("h"));
+    element_init_same_as(w, public_key->getComponent("w"));
+    element_set(w, public_key->getComponent("w"));
+    element_init_same_as(v, public_key->getComponent("v"));
+    element_set(v, public_key->getComponent("v"));
+
+    // V
+    element_s *V = computeV(ciphertext_cet, sp_ch, pk_ch, ciphertext_cet->getComponent("rch"), ciphertext_cet->getAccessStructure()->getM(), ciphertext_cet->getAccessStructure()->getRho());
+
+    // init params
+    element_t Ci2, Ci3;
+    element_t e_gCi2, Ai, u_Ai, u_Ai_h, e_Ci3uAih, inv_e_Ci3uAih;
+    element_init_G1(Ci2, pairing);
+    element_init_G1(Ci3, pairing);
+    element_init_GT(e_gCi2, pairing);
+    element_init_Zr(Ai, pairing);
+    element_init_G1(u_Ai, pairing);
+    element_init_G1(u_Ai_h, pairing);
+    element_init_GT(e_Ci3uAih, pairing);
+    element_init_GT(inv_e_Ci3uAih, pairing);
+    for (signed long int i = 0; i < ciphertext_cet->getAccessStructure()->getM()->row(); ++i) {
+        map<signed long int, string>::iterator it = ciphertext_cet->getAccessStructure()->getRho()->find(i);
+        string attr = it->second;
+
+        // obtain Ci2 and Ci3
+        element_set(Ci2, ciphertext_cet->getComponent("C" + attr + "2"));
+        element_set(Ci3, ciphertext_cet->getComponent("C" + attr + "3"));
+
+        // compute e_gCi2
+        element_pairing(e_gCi2, g, Ci2);
+
+        // compute Ai
+        unsigned char hash_str_byte[SHA256_DIGEST_LENGTH];
+        SHA256_CTX sha256;
+        SHA256_Init(&sha256);
+        SHA256_Update(&sha256, attr.c_str(), attr.size());
+        SHA256_Final(hash_str_byte, &sha256);
+        element_from_hash(Ai, hash_str_byte, SHA256_DIGEST_LENGTH);
+
+        // compute u_Ai
+        element_pow_zn(u_Ai, u, Ai);
+
+        // compute u_Ai_h
+        element_mul(u_Ai_h, u_Ai, h);
+
+        // compute e(Ci3,u^Ai*h)
+        element_pairing(e_Ci3uAih, Ci3, u_Ai_h);
+
+        // compute e(Ci3,u^Ai*h)^(-1)
+        element_invert(inv_e_Ci3uAih, e_Ci3uAih);
+
+        if (element_cmp(e_gCi2, inv_e_Ci3uAih) != 0) {
+            return NULL;
+        }
+    }
+
+    // decrypt
     element_s *Xdelte = computeXdelte(ciphertext_cet, secret_key, "K", "");
     element_s *Xdelte_ = computeXdelte(ciphertext_cet, secret_key, "K", "_");
 
@@ -900,10 +965,6 @@ unsigned char* BCET::decrypt(Key *public_key, Ciphertext_CET *ciphertext_cet, Se
 //    element_printf("恢复出来的z为：%B\n", z);
 
     // verify
-    // obtain g
-    element_t g;
-    element_init_same_as(g, public_key->getComponent("g"));
-    element_set(g, public_key->getComponent("g"));
     // compute g^z
     element_t g_z;
     element_init_G1(g_z, pairing);
