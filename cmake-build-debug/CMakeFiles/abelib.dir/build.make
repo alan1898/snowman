@@ -707,6 +707,19 @@ CMakeFiles/abelib.dir/schemes/DET_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/DET_test.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/DET_test.cpp -o CMakeFiles/abelib.dir/schemes/DET_test.cpp.s
 
+CMakeFiles/abelib.dir/schemes/ODETC.cpp.o: CMakeFiles/abelib.dir/flags.make
+CMakeFiles/abelib.dir/schemes/ODETC.cpp.o: ../schemes/ODETC.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/abelib.dir/schemes/ODETC.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/ODETC.cpp.o -c /home/alan/graduation_design/abelib/schemes/ODETC.cpp
+
+CMakeFiles/abelib.dir/schemes/ODETC.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/ODETC.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/ODETC.cpp > CMakeFiles/abelib.dir/schemes/ODETC.cpp.i
+
+CMakeFiles/abelib.dir/schemes/ODETC.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/ODETC.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/ODETC.cpp -o CMakeFiles/abelib.dir/schemes/ODETC.cpp.s
+
 # Object files for target abelib
 abelib_OBJECTS = \
 "CMakeFiles/abelib.dir/library.cpp.o" \
@@ -758,7 +771,8 @@ abelib_OBJECTS = \
 "CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.o" \
 "CMakeFiles/abelib.dir/schemes/DET.cpp.o" \
 "CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/DET_test.cpp.o"
+"CMakeFiles/abelib.dir/schemes/DET_test.cpp.o" \
+"CMakeFiles/abelib.dir/schemes/ODETC.cpp.o"
 
 # External object files for target abelib
 abelib_EXTERNAL_OBJECTS =
@@ -813,9 +827,10 @@ libabelib.a: CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/schemes/DET.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/schemes/DET_test.cpp.o
+libabelib.a: CMakeFiles/abelib.dir/schemes/ODETC.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/build.make
 libabelib.a: CMakeFiles/abelib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Linking CXX static library libabelib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Linking CXX static library libabelib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/abelib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/abelib.dir/link.txt --verbose=$(VERBOSE)
 

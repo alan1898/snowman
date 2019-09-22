@@ -1284,6 +1284,33 @@ schemes/OCET_test.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OCET_test.cpp.s
 .PHONY : schemes/OCET_test.cpp.s
 
+schemes/ODETC.o: schemes/ODETC.cpp.o
+
+.PHONY : schemes/ODETC.o
+
+# target to build an object file
+schemes/ODETC.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/ODETC.cpp.o
+.PHONY : schemes/ODETC.cpp.o
+
+schemes/ODETC.i: schemes/ODETC.cpp.i
+
+.PHONY : schemes/ODETC.i
+
+# target to preprocess a source file
+schemes/ODETC.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/ODETC.cpp.i
+.PHONY : schemes/ODETC.cpp.i
+
+schemes/ODETC.s: schemes/ODETC.cpp.s
+
+.PHONY : schemes/ODETC.s
+
+# target to generate assembly for a file
+schemes/ODETC.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/ODETC.cpp.s
+.PHONY : schemes/ODETC.cpp.s
+
 schemes/OHCET.o: schemes/OHCET.cpp.o
 
 .PHONY : schemes/OHCET.o
@@ -1611,6 +1638,9 @@ help:
 	@echo "... schemes/OCET_test.o"
 	@echo "... schemes/OCET_test.i"
 	@echo "... schemes/OCET_test.s"
+	@echo "... schemes/ODETC.o"
+	@echo "... schemes/ODETC.i"
+	@echo "... schemes/ODETC.s"
 	@echo "... schemes/OHCET.o"
 	@echo "... schemes/OHCET.i"
 	@echo "... schemes/OHCET.s"

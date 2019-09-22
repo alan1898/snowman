@@ -49,6 +49,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/abelib.dir/schemes/DET.cpp.o"
   "CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.o"
   "CMakeFiles/abelib.dir/schemes/DET_test.cpp.o"
+  "CMakeFiles/abelib.dir/schemes/ODETC.cpp.o"
   "libabelib.pdb"
   "libabelib.a"
 )
