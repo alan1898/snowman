@@ -32,8 +32,8 @@ public:
     SecretKey* keyGen(Key *public_key, Key *master_key, vector<string> *attributes);
     SecretKey* trapdoor(Key *public_key, Key *master_key, vector<string> *attributes);
     Ciphertext_CET* transform(Ciphertext_CET *Ct, SecretKey *TkS, string *key_type);
-    bool* test(Key *public_key, Ciphertext_CET *CTA, SecretKey *TdSA, Ciphertext_CET *CTB, SecretKey *TdSB);
-    unsigned char* decrypt(Key *public_key, Ciphertext_CET *ciphertext_cet, SecretKey *secret_key);
+    bool* test(Ciphertext_CET *ITA, SecretKey *TdSA, Ciphertext_CET *ITB, SecretKey *TdSB);
+    unsigned char* decrypt(Key *public_key, Ciphertext_CET *IT, SecretKey *secret_key);
 };
 
 

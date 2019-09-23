@@ -4,6 +4,26 @@
 
 #include "ODETC.h"
 
+ODETC::ODETC() {
+    // init pairing
+    pbc_param_t par;
+    curve_param curves;
+    pbc_param_init_set_str(par, curves.a_param.c_str());
+    pairing_init_pbc_param(pairing, par);
+
+    // init sample elements
+    element_init_G1(g1_sample, pairing);
+    element_init_G2(g2_sample, pairing);
+    element_init_GT(gt_sample, pairing);
+    element_init_Zr(zr_sample, pairing);
+
+    // get the length of group elements
+    g1_length = element_length_in_bytes(g1_sample);
+    g2_length = element_length_in_bytes(g2_sample);
+    gt_length = element_length_in_bytes(gt_sample);
+    zr_length = element_length_in_bytes(zr_sample);
+}
+
 element_s* ODETC::H1(element_s *e) {
     element_t *res = new element_t[1];
     element_init_G1(*res, pairing);
@@ -112,6 +132,38 @@ element_s* ODETC::computeXsub(Ciphertext_CET *ciphertext, SecretKey *key_x, stri
     element_div(*res, e_C_K, denominator);
 
     return *res;
+}
+
+unsigned char* ODETC::computeH2Input(element_s *e_gg_alpha__s, Ciphertext_CET *ciphertext) {
+    unsigned char* res = (unsigned char*)malloc(gt_length + (3 * g1_length) + (ciphertext->getAccessStructure()->getM()->row() * g1_length * 2) + 1);
+    signed long int str_index = 0;
+
+    element_to_bytes(res + str_index, e_gg_alpha__s);
+    str_index += gt_length;
+
+    // add C
+    element_to_bytes(res + str_index, ciphertext->getComponent("C"));
+    str_index += g1_length;
+
+    // add C'
+    element_to_bytes(res + str_index, ciphertext->getComponent("C_"));
+    str_index += g1_length;
+
+    // add C''
+    element_to_bytes(res + str_index, ciphertext->getComponent("C__"));
+    str_index += g1_length;
+
+    for (signed long int i = 0; i < ciphertext->getAccessStructure()->getM()->row(); ++i) {
+        map<signed long int, string>::iterator it = ciphertext->getAccessStructure()->getRho()->find(i);
+        string attr = it->second;
+        element_to_bytes(res + str_index, ciphertext->getComponent("C" + attr));
+        str_index += g1_length;
+        element_to_bytes(res + str_index, ciphertext->getComponent("D" + attr));
+        str_index += g1_length;
+    }
+    res[str_index] = '\0';
+
+    return res;
 }
 
 vector<Key*>* ODETC::setUp(vector<string> *attributes) {
@@ -504,13 +556,141 @@ SecretKey* ODETC::trapdoor(Key *public_key, Key *master_key, vector<string> *att
 }
 
 Ciphertext_CET* ODETC::transform(Ciphertext_CET *Ct, SecretKey *TkS, string *key_type) {
-    Ciphertext_CET *res = new Ciphertext_CET();
+    Ciphertext_CET *res = new Ciphertext_CET(Ct->getAccessStructure()->getM(), Ct->getAccessStructure()->getRho());
 
-    if (*key_type == "Td") {
+    if (*key_type == "td") {
         res->insertComponent("Xsub", "GT", computeXsub(Ct, TkS, ""));
+
+        res->insertComponent("C", "G1", Ct->getComponent("C"));
+        res->insertComponent("C__", "G1", Ct->getComponent("C__"));
     } else {
         res->insertComponent("Xsub", "GT", computeXsub(Ct, TkS, ""));
         res->insertComponent("Xsub_", "GT", computeXsub(Ct, TkS, "_"));
+
+        res->insertComponent("C", "G1", Ct->getComponent("C"));
+        res->insertComponent("C_", "G1", Ct->getComponent("C_"));
+        res->insertComponent("C__", "G1", Ct->getComponent("C__"));
+        for (signed long int i = 0; i < Ct->getAccessStructure()->getM()->row(); ++i) {
+            map<signed long int, string>::iterator it = Ct->getAccessStructure()->getRho()->find(i);
+            string attr = it->second;
+            res->insertComponent("C" + attr, "G1", Ct->getComponent("C" + attr));
+            res->insertComponent("D" + attr, "G1", Ct->getComponent("D" + attr));
+        }
+    }
+
+    res->Cstar = (unsigned char*)malloc(SHA256_DIGEST_LENGTH +1);
+    for (signed long int i = 0; i < 8 + zr_length; ++i) {
+        res->Cstar[i] = Ct->Cstar[i];
+    }
+    res->Cstar[SHA256_DIGEST_LENGTH] = '\0';
+
+    return res;
+}
+
+bool* ODETC::test(Ciphertext_CET *ITA, SecretKey *TdSA, Ciphertext_CET *ITB, SecretKey *TdSB) {
+    bool *res = new bool();
+    if (ITA == NULL || ITB == NULL) {
+        *res = false;
+        return res;
+    }
+
+    // compute XsubA^zA
+    element_t XsubA_zA;
+    element_init_GT(XsubA_zA, pairing);
+    element_pow_zn(XsubA_zA, ITA->getComponent("Xsub"), TdSA->getComponent("z"));
+
+    // compute XsubB^zB
+    element_t XsubB_zB;
+    element_init_GT(XsubB_zB, pairing);
+    element_pow_zn(XsubB_zB, ITB->getComponent("Xsub"), TdSB->getComponent("z"));
+
+    // compute XA
+    element_t XA;
+    element_init_G1(XA, pairing);
+    element_div(XA, ITA->getComponent("C"), H1(XsubA_zA));
+
+    // compute XB
+    element_t XB;
+    element_init_G1(XB, pairing);
+    element_div(XB, ITB->getComponent("C"), H1(XsubB_zB));
+
+    // compute e(CA__,XB), e(CB__,XA)
+    element_t e_CA__XB, e_CB__XA;
+    element_init_GT(e_CA__XB, pairing);
+    element_init_GT(e_CB__XA, pairing);
+    element_pairing(e_CA__XB, ITA->getComponent("C__"), XB);
+    element_pairing(e_CB__XA, ITB->getComponent("C__"), XA);
+
+    if (element_cmp(e_CA__XB, e_CB__XA) == 0) {
+        *res = true;
+        return res;
+    } else {
+        *res = false;
+        return res;
+    }
+}
+
+unsigned char* ODETC::decrypt(Key *public_key, Ciphertext_CET *IT, SecretKey *secret_key) {
+    if (IT == NULL) {
+        return NULL;
+    }
+
+    // compute Xsub'^z'
+    element_t Xsub__z_;
+    element_init_GT(Xsub__z_, pairing);
+    element_pow_zn(Xsub__z_, IT->getComponent("Xsub_"), secret_key->getComponent("z_"));
+
+    // compute Xsub^z
+    element_t Xsub_z;
+    element_init_GT(Xsub_z, pairing);
+    element_pow_zn(Xsub_z, IT->getComponent("Xsub"), secret_key->getComponent("z"));
+
+    unsigned char *str = computeH2Input(Xsub__z_, IT);
+    unsigned char *H_2 = H2(str, gt_length + (3 * g1_length) + (IT->getAccessStructure()->getM()->row() * g1_length * 2) + 1);
+
+    unsigned char *res = (unsigned char*)malloc(8 + 1);
+    res[8] = '\0';
+    unsigned char *u_bytes = (unsigned char*)malloc(zr_length + 1);
+    u_bytes[zr_length] = '\0';
+
+    for (signed long int i = 0; i < 8; ++i) {
+        int mzvalue = (int)IT->Cstar[i] ^ (int)H_2[i];
+        res[i] = (unsigned char)mzvalue;
+    }
+    for (signed long int i = 8; i < 8 + zr_length; ++i) {
+        int mzvalue = (int)IT->Cstar[i] ^ (int)H_2[i];
+        u_bytes[i - 8] = (unsigned char)mzvalue;
+    }
+
+    element_t u;
+    element_init_Zr(u, pairing);
+    element_from_bytes(u, u_bytes);
+//    element_printf("恢复出来的u为：%B\n", u);
+
+    // verify
+    // change res to m
+    unsigned char hash_bytes[SHA256_DIGEST_LENGTH];
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, res, 8);
+    SHA256_Final(hash_bytes, &sha256);
+    element_t m;
+    element_init_G1(m, pairing);
+    element_from_hash(m, hash_bytes, SHA256_DIGEST_LENGTH);
+    // compute m^u
+    element_t m_u;
+    element_init_G1(m_u, pairing);
+    element_pow_zn(m_u, m, u);
+    // compute m^u*H1(Xsub)
+    element_t m_u_H1;
+    element_init_G1(m_u_H1, pairing);
+    element_mul(m_u_H1, m_u, H1(Xsub_z));
+    // obtain C
+    element_t C;
+    element_init_same_as(C, IT->getComponent("C"));
+    element_set(C, IT->getComponent("C"));
+    if (element_cmp(C, m_u_H1) != 0) {
+        return NULL;
     }
 
     return res;
