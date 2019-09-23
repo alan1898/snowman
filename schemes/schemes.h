@@ -35,5 +35,6 @@
 #include "DET_test.h"
 
 #include "ODETC.h"
+#include "ODETC_test.h"
 
 #endif //ABELIB_SCHEMES_H
