@@ -317,48 +317,9 @@ CMakeFiles/abelib.dir/schemes/BSW07.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/BSW07.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/BSW07.cpp -o CMakeFiles/abelib.dir/schemes/BSW07.cpp.s
 
-CMakeFiles/abelib.dir/schemes/SAR.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/SAR.cpp.o: ../schemes/SAR.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/abelib.dir/schemes/SAR.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/SAR.cpp.o -c /home/alan/graduation_design/abelib/schemes/SAR.cpp
-
-CMakeFiles/abelib.dir/schemes/SAR.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/SAR.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/SAR.cpp > CMakeFiles/abelib.dir/schemes/SAR.cpp.i
-
-CMakeFiles/abelib.dir/schemes/SAR.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/SAR.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/SAR.cpp -o CMakeFiles/abelib.dir/schemes/SAR.cpp.s
-
-CMakeFiles/abelib.dir/schemes/SR01.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/SR01.cpp.o: ../schemes/SR01.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/abelib.dir/schemes/SR01.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/SR01.cpp.o -c /home/alan/graduation_design/abelib/schemes/SR01.cpp
-
-CMakeFiles/abelib.dir/schemes/SR01.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/SR01.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/SR01.cpp > CMakeFiles/abelib.dir/schemes/SR01.cpp.i
-
-CMakeFiles/abelib.dir/schemes/SR01.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/SR01.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/SR01.cpp -o CMakeFiles/abelib.dir/schemes/SR01.cpp.s
-
-CMakeFiles/abelib.dir/schemes/SR02.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/SR02.cpp.o: ../schemes/SR02.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/abelib.dir/schemes/SR02.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/SR02.cpp.o -c /home/alan/graduation_design/abelib/schemes/SR02.cpp
-
-CMakeFiles/abelib.dir/schemes/SR02.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/SR02.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/SR02.cpp > CMakeFiles/abelib.dir/schemes/SR02.cpp.i
-
-CMakeFiles/abelib.dir/schemes/SR02.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/SR02.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/SR02.cpp -o CMakeFiles/abelib.dir/schemes/SR02.cpp.s
-
 CMakeFiles/abelib.dir/message_serialization/element_bytes.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/message_serialization/element_bytes.cpp.o: ../message_serialization/element_bytes.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/abelib.dir/message_serialization/element_bytes.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/abelib.dir/message_serialization/element_bytes.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/message_serialization/element_bytes.cpp.o -c /home/alan/graduation_design/abelib/message_serialization/element_bytes.cpp
 
 CMakeFiles/abelib.dir/message_serialization/element_bytes.cpp.i: cmake_force
@@ -371,7 +332,7 @@ CMakeFiles/abelib.dir/message_serialization/element_bytes.cpp.s: cmake_force
 
 CMakeFiles/abelib.dir/message_serialization/format_string_bytes.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/message_serialization/format_string_bytes.cpp.o: ../message_serialization/format_string_bytes.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/abelib.dir/message_serialization/format_string_bytes.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/abelib.dir/message_serialization/format_string_bytes.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/message_serialization/format_string_bytes.cpp.o -c /home/alan/graduation_design/abelib/message_serialization/format_string_bytes.cpp
 
 CMakeFiles/abelib.dir/message_serialization/format_string_bytes.cpp.i: cmake_force
@@ -384,7 +345,7 @@ CMakeFiles/abelib.dir/message_serialization/format_string_bytes.cpp.s: cmake_for
 
 CMakeFiles/abelib.dir/message_serialization/message_serialization.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/message_serialization/message_serialization.cpp.o: ../message_serialization/message_serialization.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/abelib.dir/message_serialization/message_serialization.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/abelib.dir/message_serialization/message_serialization.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/message_serialization/message_serialization.cpp.o -c /home/alan/graduation_design/abelib/message_serialization/message_serialization.cpp
 
 CMakeFiles/abelib.dir/message_serialization/message_serialization.cpp.i: cmake_force
@@ -397,7 +358,7 @@ CMakeFiles/abelib.dir/message_serialization/message_serialization.cpp.s: cmake_f
 
 CMakeFiles/abelib.dir/engineering_application_interface/encryptor.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/engineering_application_interface/encryptor.cpp.o: ../engineering_application_interface/encryptor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/abelib.dir/engineering_application_interface/encryptor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/abelib.dir/engineering_application_interface/encryptor.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/engineering_application_interface/encryptor.cpp.o -c /home/alan/graduation_design/abelib/engineering_application_interface/encryptor.cpp
 
 CMakeFiles/abelib.dir/engineering_application_interface/encryptor.cpp.i: cmake_force
@@ -410,7 +371,7 @@ CMakeFiles/abelib.dir/engineering_application_interface/encryptor.cpp.s: cmake_f
 
 CMakeFiles/abelib.dir/engineering_application_interface/decryptor.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/engineering_application_interface/decryptor.cpp.o: ../engineering_application_interface/decryptor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/abelib.dir/engineering_application_interface/decryptor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/abelib.dir/engineering_application_interface/decryptor.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/engineering_application_interface/decryptor.cpp.o -c /home/alan/graduation_design/abelib/engineering_application_interface/decryptor.cpp
 
 CMakeFiles/abelib.dir/engineering_application_interface/decryptor.cpp.i: cmake_force
@@ -423,7 +384,7 @@ CMakeFiles/abelib.dir/engineering_application_interface/decryptor.cpp.s: cmake_f
 
 CMakeFiles/abelib.dir/engineering_application_interface/kgc.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/engineering_application_interface/kgc.cpp.o: ../engineering_application_interface/kgc.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/abelib.dir/engineering_application_interface/kgc.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/abelib.dir/engineering_application_interface/kgc.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/engineering_application_interface/kgc.cpp.o -c /home/alan/graduation_design/abelib/engineering_application_interface/kgc.cpp
 
 CMakeFiles/abelib.dir/engineering_application_interface/kgc.cpp.i: cmake_force
@@ -436,7 +397,7 @@ CMakeFiles/abelib.dir/engineering_application_interface/kgc.cpp.s: cmake_force
 
 CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.o: ../chameleon_hash/chamhash.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.o -c /home/alan/graduation_design/abelib/chameleon_hash/chamhash.cpp
 
 CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.i: cmake_force
@@ -449,7 +410,7 @@ CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.s: cmake_force
 
 CMakeFiles/abelib.dir/scheme_structure/Text.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/scheme_structure/Text.cpp.o: ../scheme_structure/Text.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/abelib.dir/scheme_structure/Text.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/abelib.dir/scheme_structure/Text.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/scheme_structure/Text.cpp.o -c /home/alan/graduation_design/abelib/scheme_structure/Text.cpp
 
 CMakeFiles/abelib.dir/scheme_structure/Text.cpp.i: cmake_force
@@ -460,22 +421,9 @@ CMakeFiles/abelib.dir/scheme_structure/Text.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/scheme_structure/Text.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/scheme_structure/Text.cpp -o CMakeFiles/abelib.dir/scheme_structure/Text.cpp.s
 
-CMakeFiles/abelib.dir/schemes/BCET.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/BCET.cpp.o: ../schemes/BCET.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/abelib.dir/schemes/BCET.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/BCET.cpp.o -c /home/alan/graduation_design/abelib/schemes/BCET.cpp
-
-CMakeFiles/abelib.dir/schemes/BCET.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/BCET.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/BCET.cpp > CMakeFiles/abelib.dir/schemes/BCET.cpp.i
-
-CMakeFiles/abelib.dir/schemes/BCET.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/BCET.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/BCET.cpp -o CMakeFiles/abelib.dir/schemes/BCET.cpp.s
-
 CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.o: ../scheme_structure/Ciphertext_CET.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.o -c /home/alan/graduation_design/abelib/scheme_structure/Ciphertext_CET.cpp
 
 CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.i: cmake_force
@@ -486,22 +434,9 @@ CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/scheme_structure/Ciphertext_CET.cpp -o CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.s
 
-CMakeFiles/abelib.dir/schemes/HCET.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/HCET.cpp.o: ../schemes/HCET.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/abelib.dir/schemes/HCET.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/HCET.cpp.o -c /home/alan/graduation_design/abelib/schemes/HCET.cpp
-
-CMakeFiles/abelib.dir/schemes/HCET.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/HCET.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/HCET.cpp > CMakeFiles/abelib.dir/schemes/HCET.cpp.i
-
-CMakeFiles/abelib.dir/schemes/HCET.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/HCET.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/HCET.cpp -o CMakeFiles/abelib.dir/schemes/HCET.cpp.s
-
 CMakeFiles/abelib.dir/data_structure/access_structure.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/data_structure/access_structure.cpp.o: ../data_structure/access_structure.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/abelib.dir/data_structure/access_structure.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/abelib.dir/data_structure/access_structure.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/data_structure/access_structure.cpp.o -c /home/alan/graduation_design/abelib/data_structure/access_structure.cpp
 
 CMakeFiles/abelib.dir/data_structure/access_structure.cpp.i: cmake_force
@@ -514,7 +449,7 @@ CMakeFiles/abelib.dir/data_structure/access_structure.cpp.s: cmake_force
 
 CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.o: ../scheme_structure/SecretKey.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.o -c /home/alan/graduation_design/abelib/scheme_structure/SecretKey.cpp
 
 CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.i: cmake_force
@@ -527,7 +462,7 @@ CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.s: cmake_force
 
 CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.o: ../scheme_structure/Ciphertext_HCET.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.o -c /home/alan/graduation_design/abelib/scheme_structure/Ciphertext_HCET.cpp
 
 CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.i: cmake_force
@@ -538,152 +473,9 @@ CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/scheme_structure/Ciphertext_HCET.cpp -o CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.s
 
-CMakeFiles/abelib.dir/schemes/OCET.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/OCET.cpp.o: ../schemes/OCET.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/abelib.dir/schemes/OCET.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/OCET.cpp.o -c /home/alan/graduation_design/abelib/schemes/OCET.cpp
-
-CMakeFiles/abelib.dir/schemes/OCET.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/OCET.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/OCET.cpp > CMakeFiles/abelib.dir/schemes/OCET.cpp.i
-
-CMakeFiles/abelib.dir/schemes/OCET.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/OCET.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/OCET.cpp -o CMakeFiles/abelib.dir/schemes/OCET.cpp.s
-
-CMakeFiles/abelib.dir/schemes/OHCET.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/OHCET.cpp.o: ../schemes/OHCET.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/abelib.dir/schemes/OHCET.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/OHCET.cpp.o -c /home/alan/graduation_design/abelib/schemes/OHCET.cpp
-
-CMakeFiles/abelib.dir/schemes/OHCET.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/OHCET.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/OHCET.cpp > CMakeFiles/abelib.dir/schemes/OHCET.cpp.i
-
-CMakeFiles/abelib.dir/schemes/OHCET.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/OHCET.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/OHCET.cpp -o CMakeFiles/abelib.dir/schemes/OHCET.cpp.s
-
-CMakeFiles/abelib.dir/schemes/HABE.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/HABE.cpp.o: ../schemes/HABE.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/abelib.dir/schemes/HABE.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/HABE.cpp.o -c /home/alan/graduation_design/abelib/schemes/HABE.cpp
-
-CMakeFiles/abelib.dir/schemes/HABE.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/HABE.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/HABE.cpp > CMakeFiles/abelib.dir/schemes/HABE.cpp.i
-
-CMakeFiles/abelib.dir/schemes/HABE.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/HABE.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/HABE.cpp -o CMakeFiles/abelib.dir/schemes/HABE.cpp.s
-
-CMakeFiles/abelib.dir/schemes/DETC.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/DETC.cpp.o: ../schemes/DETC.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/abelib.dir/schemes/DETC.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/DETC.cpp.o -c /home/alan/graduation_design/abelib/schemes/DETC.cpp
-
-CMakeFiles/abelib.dir/schemes/DETC.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/DETC.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/DETC.cpp > CMakeFiles/abelib.dir/schemes/DETC.cpp.i
-
-CMakeFiles/abelib.dir/schemes/DETC.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/DETC.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/DETC.cpp -o CMakeFiles/abelib.dir/schemes/DETC.cpp.s
-
-CMakeFiles/abelib.dir/schemes/BCET_test.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/BCET_test.cpp.o: ../schemes/BCET_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/abelib.dir/schemes/BCET_test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/BCET_test.cpp.o -c /home/alan/graduation_design/abelib/schemes/BCET_test.cpp
-
-CMakeFiles/abelib.dir/schemes/BCET_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/BCET_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/BCET_test.cpp > CMakeFiles/abelib.dir/schemes/BCET_test.cpp.i
-
-CMakeFiles/abelib.dir/schemes/BCET_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/BCET_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/BCET_test.cpp -o CMakeFiles/abelib.dir/schemes/BCET_test.cpp.s
-
-CMakeFiles/abelib.dir/schemes/DETC_test.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/DETC_test.cpp.o: ../schemes/DETC_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/abelib.dir/schemes/DETC_test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/DETC_test.cpp.o -c /home/alan/graduation_design/abelib/schemes/DETC_test.cpp
-
-CMakeFiles/abelib.dir/schemes/DETC_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/DETC_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/DETC_test.cpp > CMakeFiles/abelib.dir/schemes/DETC_test.cpp.i
-
-CMakeFiles/abelib.dir/schemes/DETC_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/DETC_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/DETC_test.cpp -o CMakeFiles/abelib.dir/schemes/DETC_test.cpp.s
-
-CMakeFiles/abelib.dir/schemes/OCET_test.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/OCET_test.cpp.o: ../schemes/OCET_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/abelib.dir/schemes/OCET_test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/OCET_test.cpp.o -c /home/alan/graduation_design/abelib/schemes/OCET_test.cpp
-
-CMakeFiles/abelib.dir/schemes/OCET_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/OCET_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/OCET_test.cpp > CMakeFiles/abelib.dir/schemes/OCET_test.cpp.i
-
-CMakeFiles/abelib.dir/schemes/OCET_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/OCET_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/OCET_test.cpp -o CMakeFiles/abelib.dir/schemes/OCET_test.cpp.s
-
-CMakeFiles/abelib.dir/schemes/HABE_test.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/HABE_test.cpp.o: ../schemes/HABE_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/abelib.dir/schemes/HABE_test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/HABE_test.cpp.o -c /home/alan/graduation_design/abelib/schemes/HABE_test.cpp
-
-CMakeFiles/abelib.dir/schemes/HABE_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/HABE_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/HABE_test.cpp > CMakeFiles/abelib.dir/schemes/HABE_test.cpp.i
-
-CMakeFiles/abelib.dir/schemes/HABE_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/HABE_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/HABE_test.cpp -o CMakeFiles/abelib.dir/schemes/HABE_test.cpp.s
-
-CMakeFiles/abelib.dir/schemes/HCET_test.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/HCET_test.cpp.o: ../schemes/HCET_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/abelib.dir/schemes/HCET_test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/HCET_test.cpp.o -c /home/alan/graduation_design/abelib/schemes/HCET_test.cpp
-
-CMakeFiles/abelib.dir/schemes/HCET_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/HCET_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/HCET_test.cpp > CMakeFiles/abelib.dir/schemes/HCET_test.cpp.i
-
-CMakeFiles/abelib.dir/schemes/HCET_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/HCET_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/HCET_test.cpp -o CMakeFiles/abelib.dir/schemes/HCET_test.cpp.s
-
-CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.o: ../schemes/OHCET_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.o -c /home/alan/graduation_design/abelib/schemes/OHCET_test.cpp
-
-CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/OHCET_test.cpp > CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.i
-
-CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/OHCET_test.cpp -o CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.s
-
-CMakeFiles/abelib.dir/schemes/DET.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/DET.cpp.o: ../schemes/DET.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/abelib.dir/schemes/DET.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/DET.cpp.o -c /home/alan/graduation_design/abelib/schemes/DET.cpp
-
-CMakeFiles/abelib.dir/schemes/DET.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/DET.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/DET.cpp > CMakeFiles/abelib.dir/schemes/DET.cpp.i
-
-CMakeFiles/abelib.dir/schemes/DET.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/DET.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/DET.cpp -o CMakeFiles/abelib.dir/schemes/DET.cpp.s
-
 CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.o: CMakeFiles/abelib.dir/flags.make
 CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.o: ../scheme_structure/Ciphertext_DET.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.o -c /home/alan/graduation_design/abelib/scheme_structure/Ciphertext_DET.cpp
 
 CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.i: cmake_force
@@ -694,44 +486,57 @@ CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/scheme_structure/Ciphertext_DET.cpp -o CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.s
 
-CMakeFiles/abelib.dir/schemes/DET_test.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/DET_test.cpp.o: ../schemes/DET_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/abelib.dir/schemes/DET_test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/DET_test.cpp.o -c /home/alan/graduation_design/abelib/schemes/DET_test.cpp
+CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.o: CMakeFiles/abelib.dir/flags.make
+CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.o: ../schemes/LU_CP_ABEEaVT.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.o -c /home/alan/graduation_design/abelib/schemes/LU_CP_ABEEaVT.cpp
 
-CMakeFiles/abelib.dir/schemes/DET_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/DET_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/DET_test.cpp > CMakeFiles/abelib.dir/schemes/DET_test.cpp.i
+CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/LU_CP_ABEEaVT.cpp > CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.i
 
-CMakeFiles/abelib.dir/schemes/DET_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/DET_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/DET_test.cpp -o CMakeFiles/abelib.dir/schemes/DET_test.cpp.s
+CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/LU_CP_ABEEaVT.cpp -o CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.s
 
-CMakeFiles/abelib.dir/schemes/ODETC.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/ODETC.cpp.o: ../schemes/ODETC.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/abelib.dir/schemes/ODETC.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/ODETC.cpp.o -c /home/alan/graduation_design/abelib/schemes/ODETC.cpp
+CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.o: CMakeFiles/abelib.dir/flags.make
+CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.o: ../schemes/OLU_CP_ABEEaVT.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.o -c /home/alan/graduation_design/abelib/schemes/OLU_CP_ABEEaVT.cpp
 
-CMakeFiles/abelib.dir/schemes/ODETC.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/ODETC.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/ODETC.cpp > CMakeFiles/abelib.dir/schemes/ODETC.cpp.i
+CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/OLU_CP_ABEEaVT.cpp > CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.i
 
-CMakeFiles/abelib.dir/schemes/ODETC.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/ODETC.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/ODETC.cpp -o CMakeFiles/abelib.dir/schemes/ODETC.cpp.s
+CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/OLU_CP_ABEEaVT.cpp -o CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.s
 
-CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.o: CMakeFiles/abelib.dir/flags.make
-CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.o: ../schemes/ODETC_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.o -c /home/alan/graduation_design/abelib/schemes/ODETC_test.cpp
+CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.o: CMakeFiles/abelib.dir/flags.make
+CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.o: ../schemes/CP_ABEETaC.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.o -c /home/alan/graduation_design/abelib/schemes/CP_ABEETaC.cpp
 
-CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/ODETC_test.cpp > CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.i
+CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/CP_ABEETaC.cpp > CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.i
 
-CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/ODETC_test.cpp -o CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.s
+CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/CP_ABEETaC.cpp -o CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.s
+
+CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.o: CMakeFiles/abelib.dir/flags.make
+CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.o: ../schemes/OCP_ABEET.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.o -c /home/alan/graduation_design/abelib/schemes/OCP_ABEET.cpp
+
+CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alan/graduation_design/abelib/schemes/OCP_ABEET.cpp > CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.i
+
+CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alan/graduation_design/abelib/schemes/OCP_ABEET.cpp -o CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.s
 
 # Object files for target abelib
 abelib_OBJECTS = \
@@ -755,9 +560,6 @@ abelib_OBJECTS = \
 "CMakeFiles/abelib.dir/schemes/RW13.cpp.o" \
 "CMakeFiles/abelib.dir/schemes/CLASSIC_ABE.cpp.o" \
 "CMakeFiles/abelib.dir/schemes/BSW07.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/SAR.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/SR01.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/SR02.cpp.o" \
 "CMakeFiles/abelib.dir/message_serialization/element_bytes.cpp.o" \
 "CMakeFiles/abelib.dir/message_serialization/format_string_bytes.cpp.o" \
 "CMakeFiles/abelib.dir/message_serialization/message_serialization.cpp.o" \
@@ -766,27 +568,15 @@ abelib_OBJECTS = \
 "CMakeFiles/abelib.dir/engineering_application_interface/kgc.cpp.o" \
 "CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.o" \
 "CMakeFiles/abelib.dir/scheme_structure/Text.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/BCET.cpp.o" \
 "CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/HCET.cpp.o" \
 "CMakeFiles/abelib.dir/data_structure/access_structure.cpp.o" \
 "CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.o" \
 "CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/OCET.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/OHCET.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/HABE.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/DETC.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/BCET_test.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/DETC_test.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/OCET_test.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/HABE_test.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/HCET_test.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/DET.cpp.o" \
 "CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/DET_test.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/ODETC.cpp.o" \
-"CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.o"
+"CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.o" \
+"CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.o" \
+"CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.o" \
+"CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.o"
 
 # External object files for target abelib
 abelib_EXTERNAL_OBJECTS =
@@ -811,9 +601,6 @@ libabelib.a: CMakeFiles/abelib.dir/scheme_structure/sar_kgc.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/schemes/RW13.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/schemes/CLASSIC_ABE.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/schemes/BSW07.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/SAR.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/SR01.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/SR02.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/message_serialization/element_bytes.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/message_serialization/format_string_bytes.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/message_serialization/message_serialization.cpp.o
@@ -822,30 +609,18 @@ libabelib.a: CMakeFiles/abelib.dir/engineering_application_interface/decryptor.c
 libabelib.a: CMakeFiles/abelib.dir/engineering_application_interface/kgc.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/chameleon_hash/chamhash.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/scheme_structure/Text.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/BCET.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/scheme_structure/Ciphertext_CET.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/HCET.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/data_structure/access_structure.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/scheme_structure/SecretKey.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/scheme_structure/Ciphertext_HCET.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/OCET.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/OHCET.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/HABE.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/DETC.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/BCET_test.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/DETC_test.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/OCET_test.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/HABE_test.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/HCET_test.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/DET.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/scheme_structure/Ciphertext_DET.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/DET_test.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/ODETC.cpp.o
-libabelib.a: CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.o
+libabelib.a: CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.o
+libabelib.a: CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.o
+libabelib.a: CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.o
+libabelib.a: CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.o
 libabelib.a: CMakeFiles/abelib.dir/build.make
 libabelib.a: CMakeFiles/abelib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Linking CXX static library libabelib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alan/graduation_design/abelib/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Linking CXX static library libabelib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/abelib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/abelib.dir/link.txt --verbose=$(VERBOSE)
 

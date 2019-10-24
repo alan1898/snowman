@@ -906,60 +906,6 @@ scheme_structure/sar_tree.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/scheme_structure/sar_tree.cpp.s
 .PHONY : scheme_structure/sar_tree.cpp.s
 
-schemes/BCET.o: schemes/BCET.cpp.o
-
-.PHONY : schemes/BCET.o
-
-# target to build an object file
-schemes/BCET.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET.cpp.o
-.PHONY : schemes/BCET.cpp.o
-
-schemes/BCET.i: schemes/BCET.cpp.i
-
-.PHONY : schemes/BCET.i
-
-# target to preprocess a source file
-schemes/BCET.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET.cpp.i
-.PHONY : schemes/BCET.cpp.i
-
-schemes/BCET.s: schemes/BCET.cpp.s
-
-.PHONY : schemes/BCET.s
-
-# target to generate assembly for a file
-schemes/BCET.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET.cpp.s
-.PHONY : schemes/BCET.cpp.s
-
-schemes/BCET_test.o: schemes/BCET_test.cpp.o
-
-.PHONY : schemes/BCET_test.o
-
-# target to build an object file
-schemes/BCET_test.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET_test.cpp.o
-.PHONY : schemes/BCET_test.cpp.o
-
-schemes/BCET_test.i: schemes/BCET_test.cpp.i
-
-.PHONY : schemes/BCET_test.i
-
-# target to preprocess a source file
-schemes/BCET_test.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET_test.cpp.i
-.PHONY : schemes/BCET_test.cpp.i
-
-schemes/BCET_test.s: schemes/BCET_test.cpp.s
-
-.PHONY : schemes/BCET_test.s
-
-# target to generate assembly for a file
-schemes/BCET_test.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/BCET_test.cpp.s
-.PHONY : schemes/BCET_test.cpp.s
-
 schemes/BSW07.o: schemes/BSW07.cpp.o
 
 .PHONY : schemes/BSW07.o
@@ -1014,383 +960,113 @@ schemes/CLASSIC_ABE.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/CLASSIC_ABE.cpp.s
 .PHONY : schemes/CLASSIC_ABE.cpp.s
 
-schemes/DET.o: schemes/DET.cpp.o
+schemes/CP_ABEETaC.o: schemes/CP_ABEETaC.cpp.o
 
-.PHONY : schemes/DET.o
-
-# target to build an object file
-schemes/DET.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET.cpp.o
-.PHONY : schemes/DET.cpp.o
-
-schemes/DET.i: schemes/DET.cpp.i
-
-.PHONY : schemes/DET.i
-
-# target to preprocess a source file
-schemes/DET.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET.cpp.i
-.PHONY : schemes/DET.cpp.i
-
-schemes/DET.s: schemes/DET.cpp.s
-
-.PHONY : schemes/DET.s
-
-# target to generate assembly for a file
-schemes/DET.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET.cpp.s
-.PHONY : schemes/DET.cpp.s
-
-schemes/DETC.o: schemes/DETC.cpp.o
-
-.PHONY : schemes/DETC.o
+.PHONY : schemes/CP_ABEETaC.o
 
 # target to build an object file
-schemes/DETC.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC.cpp.o
-.PHONY : schemes/DETC.cpp.o
+schemes/CP_ABEETaC.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.o
+.PHONY : schemes/CP_ABEETaC.cpp.o
 
-schemes/DETC.i: schemes/DETC.cpp.i
+schemes/CP_ABEETaC.i: schemes/CP_ABEETaC.cpp.i
 
-.PHONY : schemes/DETC.i
+.PHONY : schemes/CP_ABEETaC.i
 
 # target to preprocess a source file
-schemes/DETC.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC.cpp.i
-.PHONY : schemes/DETC.cpp.i
+schemes/CP_ABEETaC.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.i
+.PHONY : schemes/CP_ABEETaC.cpp.i
 
-schemes/DETC.s: schemes/DETC.cpp.s
+schemes/CP_ABEETaC.s: schemes/CP_ABEETaC.cpp.s
 
-.PHONY : schemes/DETC.s
+.PHONY : schemes/CP_ABEETaC.s
 
 # target to generate assembly for a file
-schemes/DETC.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC.cpp.s
-.PHONY : schemes/DETC.cpp.s
+schemes/CP_ABEETaC.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/CP_ABEETaC.cpp.s
+.PHONY : schemes/CP_ABEETaC.cpp.s
 
-schemes/DETC_test.o: schemes/DETC_test.cpp.o
+schemes/LU_CP_ABEEaVT.o: schemes/LU_CP_ABEEaVT.cpp.o
 
-.PHONY : schemes/DETC_test.o
+.PHONY : schemes/LU_CP_ABEEaVT.o
 
 # target to build an object file
-schemes/DETC_test.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC_test.cpp.o
-.PHONY : schemes/DETC_test.cpp.o
+schemes/LU_CP_ABEEaVT.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.o
+.PHONY : schemes/LU_CP_ABEEaVT.cpp.o
 
-schemes/DETC_test.i: schemes/DETC_test.cpp.i
+schemes/LU_CP_ABEEaVT.i: schemes/LU_CP_ABEEaVT.cpp.i
 
-.PHONY : schemes/DETC_test.i
+.PHONY : schemes/LU_CP_ABEEaVT.i
 
 # target to preprocess a source file
-schemes/DETC_test.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC_test.cpp.i
-.PHONY : schemes/DETC_test.cpp.i
+schemes/LU_CP_ABEEaVT.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.i
+.PHONY : schemes/LU_CP_ABEEaVT.cpp.i
 
-schemes/DETC_test.s: schemes/DETC_test.cpp.s
+schemes/LU_CP_ABEEaVT.s: schemes/LU_CP_ABEEaVT.cpp.s
 
-.PHONY : schemes/DETC_test.s
+.PHONY : schemes/LU_CP_ABEEaVT.s
 
 # target to generate assembly for a file
-schemes/DETC_test.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DETC_test.cpp.s
-.PHONY : schemes/DETC_test.cpp.s
+schemes/LU_CP_ABEEaVT.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/LU_CP_ABEEaVT.cpp.s
+.PHONY : schemes/LU_CP_ABEEaVT.cpp.s
 
-schemes/DET_test.o: schemes/DET_test.cpp.o
+schemes/OCP_ABEET.o: schemes/OCP_ABEET.cpp.o
 
-.PHONY : schemes/DET_test.o
+.PHONY : schemes/OCP_ABEET.o
 
 # target to build an object file
-schemes/DET_test.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET_test.cpp.o
-.PHONY : schemes/DET_test.cpp.o
+schemes/OCP_ABEET.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.o
+.PHONY : schemes/OCP_ABEET.cpp.o
 
-schemes/DET_test.i: schemes/DET_test.cpp.i
+schemes/OCP_ABEET.i: schemes/OCP_ABEET.cpp.i
 
-.PHONY : schemes/DET_test.i
+.PHONY : schemes/OCP_ABEET.i
 
 # target to preprocess a source file
-schemes/DET_test.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET_test.cpp.i
-.PHONY : schemes/DET_test.cpp.i
+schemes/OCP_ABEET.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.i
+.PHONY : schemes/OCP_ABEET.cpp.i
 
-schemes/DET_test.s: schemes/DET_test.cpp.s
+schemes/OCP_ABEET.s: schemes/OCP_ABEET.cpp.s
 
-.PHONY : schemes/DET_test.s
+.PHONY : schemes/OCP_ABEET.s
 
 # target to generate assembly for a file
-schemes/DET_test.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/DET_test.cpp.s
-.PHONY : schemes/DET_test.cpp.s
+schemes/OCP_ABEET.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OCP_ABEET.cpp.s
+.PHONY : schemes/OCP_ABEET.cpp.s
 
-schemes/HABE.o: schemes/HABE.cpp.o
+schemes/OLU_CP_ABEEaVT.o: schemes/OLU_CP_ABEEaVT.cpp.o
 
-.PHONY : schemes/HABE.o
+.PHONY : schemes/OLU_CP_ABEEaVT.o
 
 # target to build an object file
-schemes/HABE.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE.cpp.o
-.PHONY : schemes/HABE.cpp.o
+schemes/OLU_CP_ABEEaVT.cpp.o:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.o
+.PHONY : schemes/OLU_CP_ABEEaVT.cpp.o
 
-schemes/HABE.i: schemes/HABE.cpp.i
+schemes/OLU_CP_ABEEaVT.i: schemes/OLU_CP_ABEEaVT.cpp.i
 
-.PHONY : schemes/HABE.i
-
-# target to preprocess a source file
-schemes/HABE.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE.cpp.i
-.PHONY : schemes/HABE.cpp.i
-
-schemes/HABE.s: schemes/HABE.cpp.s
-
-.PHONY : schemes/HABE.s
-
-# target to generate assembly for a file
-schemes/HABE.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE.cpp.s
-.PHONY : schemes/HABE.cpp.s
-
-schemes/HABE_test.o: schemes/HABE_test.cpp.o
-
-.PHONY : schemes/HABE_test.o
-
-# target to build an object file
-schemes/HABE_test.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE_test.cpp.o
-.PHONY : schemes/HABE_test.cpp.o
-
-schemes/HABE_test.i: schemes/HABE_test.cpp.i
-
-.PHONY : schemes/HABE_test.i
+.PHONY : schemes/OLU_CP_ABEEaVT.i
 
 # target to preprocess a source file
-schemes/HABE_test.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE_test.cpp.i
-.PHONY : schemes/HABE_test.cpp.i
+schemes/OLU_CP_ABEEaVT.cpp.i:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.i
+.PHONY : schemes/OLU_CP_ABEEaVT.cpp.i
 
-schemes/HABE_test.s: schemes/HABE_test.cpp.s
+schemes/OLU_CP_ABEEaVT.s: schemes/OLU_CP_ABEEaVT.cpp.s
 
-.PHONY : schemes/HABE_test.s
-
-# target to generate assembly for a file
-schemes/HABE_test.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HABE_test.cpp.s
-.PHONY : schemes/HABE_test.cpp.s
-
-schemes/HCET.o: schemes/HCET.cpp.o
-
-.PHONY : schemes/HCET.o
-
-# target to build an object file
-schemes/HCET.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET.cpp.o
-.PHONY : schemes/HCET.cpp.o
-
-schemes/HCET.i: schemes/HCET.cpp.i
-
-.PHONY : schemes/HCET.i
-
-# target to preprocess a source file
-schemes/HCET.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET.cpp.i
-.PHONY : schemes/HCET.cpp.i
-
-schemes/HCET.s: schemes/HCET.cpp.s
-
-.PHONY : schemes/HCET.s
+.PHONY : schemes/OLU_CP_ABEEaVT.s
 
 # target to generate assembly for a file
-schemes/HCET.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET.cpp.s
-.PHONY : schemes/HCET.cpp.s
-
-schemes/HCET_test.o: schemes/HCET_test.cpp.o
-
-.PHONY : schemes/HCET_test.o
-
-# target to build an object file
-schemes/HCET_test.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET_test.cpp.o
-.PHONY : schemes/HCET_test.cpp.o
-
-schemes/HCET_test.i: schemes/HCET_test.cpp.i
-
-.PHONY : schemes/HCET_test.i
-
-# target to preprocess a source file
-schemes/HCET_test.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET_test.cpp.i
-.PHONY : schemes/HCET_test.cpp.i
-
-schemes/HCET_test.s: schemes/HCET_test.cpp.s
-
-.PHONY : schemes/HCET_test.s
-
-# target to generate assembly for a file
-schemes/HCET_test.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/HCET_test.cpp.s
-.PHONY : schemes/HCET_test.cpp.s
-
-schemes/OCET.o: schemes/OCET.cpp.o
-
-.PHONY : schemes/OCET.o
-
-# target to build an object file
-schemes/OCET.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OCET.cpp.o
-.PHONY : schemes/OCET.cpp.o
-
-schemes/OCET.i: schemes/OCET.cpp.i
-
-.PHONY : schemes/OCET.i
-
-# target to preprocess a source file
-schemes/OCET.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OCET.cpp.i
-.PHONY : schemes/OCET.cpp.i
-
-schemes/OCET.s: schemes/OCET.cpp.s
-
-.PHONY : schemes/OCET.s
-
-# target to generate assembly for a file
-schemes/OCET.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OCET.cpp.s
-.PHONY : schemes/OCET.cpp.s
-
-schemes/OCET_test.o: schemes/OCET_test.cpp.o
-
-.PHONY : schemes/OCET_test.o
-
-# target to build an object file
-schemes/OCET_test.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OCET_test.cpp.o
-.PHONY : schemes/OCET_test.cpp.o
-
-schemes/OCET_test.i: schemes/OCET_test.cpp.i
-
-.PHONY : schemes/OCET_test.i
-
-# target to preprocess a source file
-schemes/OCET_test.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OCET_test.cpp.i
-.PHONY : schemes/OCET_test.cpp.i
-
-schemes/OCET_test.s: schemes/OCET_test.cpp.s
-
-.PHONY : schemes/OCET_test.s
-
-# target to generate assembly for a file
-schemes/OCET_test.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OCET_test.cpp.s
-.PHONY : schemes/OCET_test.cpp.s
-
-schemes/ODETC.o: schemes/ODETC.cpp.o
-
-.PHONY : schemes/ODETC.o
-
-# target to build an object file
-schemes/ODETC.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/ODETC.cpp.o
-.PHONY : schemes/ODETC.cpp.o
-
-schemes/ODETC.i: schemes/ODETC.cpp.i
-
-.PHONY : schemes/ODETC.i
-
-# target to preprocess a source file
-schemes/ODETC.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/ODETC.cpp.i
-.PHONY : schemes/ODETC.cpp.i
-
-schemes/ODETC.s: schemes/ODETC.cpp.s
-
-.PHONY : schemes/ODETC.s
-
-# target to generate assembly for a file
-schemes/ODETC.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/ODETC.cpp.s
-.PHONY : schemes/ODETC.cpp.s
-
-schemes/ODETC_test.o: schemes/ODETC_test.cpp.o
-
-.PHONY : schemes/ODETC_test.o
-
-# target to build an object file
-schemes/ODETC_test.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.o
-.PHONY : schemes/ODETC_test.cpp.o
-
-schemes/ODETC_test.i: schemes/ODETC_test.cpp.i
-
-.PHONY : schemes/ODETC_test.i
-
-# target to preprocess a source file
-schemes/ODETC_test.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.i
-.PHONY : schemes/ODETC_test.cpp.i
-
-schemes/ODETC_test.s: schemes/ODETC_test.cpp.s
-
-.PHONY : schemes/ODETC_test.s
-
-# target to generate assembly for a file
-schemes/ODETC_test.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/ODETC_test.cpp.s
-.PHONY : schemes/ODETC_test.cpp.s
-
-schemes/OHCET.o: schemes/OHCET.cpp.o
-
-.PHONY : schemes/OHCET.o
-
-# target to build an object file
-schemes/OHCET.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET.cpp.o
-.PHONY : schemes/OHCET.cpp.o
-
-schemes/OHCET.i: schemes/OHCET.cpp.i
-
-.PHONY : schemes/OHCET.i
-
-# target to preprocess a source file
-schemes/OHCET.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET.cpp.i
-.PHONY : schemes/OHCET.cpp.i
-
-schemes/OHCET.s: schemes/OHCET.cpp.s
-
-.PHONY : schemes/OHCET.s
-
-# target to generate assembly for a file
-schemes/OHCET.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET.cpp.s
-.PHONY : schemes/OHCET.cpp.s
-
-schemes/OHCET_test.o: schemes/OHCET_test.cpp.o
-
-.PHONY : schemes/OHCET_test.o
-
-# target to build an object file
-schemes/OHCET_test.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.o
-.PHONY : schemes/OHCET_test.cpp.o
-
-schemes/OHCET_test.i: schemes/OHCET_test.cpp.i
-
-.PHONY : schemes/OHCET_test.i
-
-# target to preprocess a source file
-schemes/OHCET_test.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.i
-.PHONY : schemes/OHCET_test.cpp.i
-
-schemes/OHCET_test.s: schemes/OHCET_test.cpp.s
-
-.PHONY : schemes/OHCET_test.s
-
-# target to generate assembly for a file
-schemes/OHCET_test.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OHCET_test.cpp.s
-.PHONY : schemes/OHCET_test.cpp.s
+schemes/OLU_CP_ABEEaVT.cpp.s:
+	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/OLU_CP_ABEEaVT.cpp.s
+.PHONY : schemes/OLU_CP_ABEEaVT.cpp.s
 
 schemes/RW13.o: schemes/RW13.cpp.o
 
@@ -1418,87 +1094,6 @@ schemes/RW13.s: schemes/RW13.cpp.s
 schemes/RW13.cpp.s:
 	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/RW13.cpp.s
 .PHONY : schemes/RW13.cpp.s
-
-schemes/SAR.o: schemes/SAR.cpp.o
-
-.PHONY : schemes/SAR.o
-
-# target to build an object file
-schemes/SAR.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/SAR.cpp.o
-.PHONY : schemes/SAR.cpp.o
-
-schemes/SAR.i: schemes/SAR.cpp.i
-
-.PHONY : schemes/SAR.i
-
-# target to preprocess a source file
-schemes/SAR.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/SAR.cpp.i
-.PHONY : schemes/SAR.cpp.i
-
-schemes/SAR.s: schemes/SAR.cpp.s
-
-.PHONY : schemes/SAR.s
-
-# target to generate assembly for a file
-schemes/SAR.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/SAR.cpp.s
-.PHONY : schemes/SAR.cpp.s
-
-schemes/SR01.o: schemes/SR01.cpp.o
-
-.PHONY : schemes/SR01.o
-
-# target to build an object file
-schemes/SR01.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/SR01.cpp.o
-.PHONY : schemes/SR01.cpp.o
-
-schemes/SR01.i: schemes/SR01.cpp.i
-
-.PHONY : schemes/SR01.i
-
-# target to preprocess a source file
-schemes/SR01.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/SR01.cpp.i
-.PHONY : schemes/SR01.cpp.i
-
-schemes/SR01.s: schemes/SR01.cpp.s
-
-.PHONY : schemes/SR01.s
-
-# target to generate assembly for a file
-schemes/SR01.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/SR01.cpp.s
-.PHONY : schemes/SR01.cpp.s
-
-schemes/SR02.o: schemes/SR02.cpp.o
-
-.PHONY : schemes/SR02.o
-
-# target to build an object file
-schemes/SR02.cpp.o:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/SR02.cpp.o
-.PHONY : schemes/SR02.cpp.o
-
-schemes/SR02.i: schemes/SR02.cpp.i
-
-.PHONY : schemes/SR02.i
-
-# target to preprocess a source file
-schemes/SR02.cpp.i:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/SR02.cpp.i
-.PHONY : schemes/SR02.cpp.i
-
-schemes/SR02.s: schemes/SR02.cpp.s
-
-.PHONY : schemes/SR02.s
-
-# target to generate assembly for a file
-schemes/SR02.cpp.s:
-	$(MAKE) -f CMakeFiles/abelib.dir/build.make CMakeFiles/abelib.dir/schemes/SR02.cpp.s
-.PHONY : schemes/SR02.cpp.s
 
 utils/utils.o: utils/utils.cpp.o
 
@@ -1623,72 +1218,27 @@ help:
 	@echo "... scheme_structure/sar_tree.o"
 	@echo "... scheme_structure/sar_tree.i"
 	@echo "... scheme_structure/sar_tree.s"
-	@echo "... schemes/BCET.o"
-	@echo "... schemes/BCET.i"
-	@echo "... schemes/BCET.s"
-	@echo "... schemes/BCET_test.o"
-	@echo "... schemes/BCET_test.i"
-	@echo "... schemes/BCET_test.s"
 	@echo "... schemes/BSW07.o"
 	@echo "... schemes/BSW07.i"
 	@echo "... schemes/BSW07.s"
 	@echo "... schemes/CLASSIC_ABE.o"
 	@echo "... schemes/CLASSIC_ABE.i"
 	@echo "... schemes/CLASSIC_ABE.s"
-	@echo "... schemes/DET.o"
-	@echo "... schemes/DET.i"
-	@echo "... schemes/DET.s"
-	@echo "... schemes/DETC.o"
-	@echo "... schemes/DETC.i"
-	@echo "... schemes/DETC.s"
-	@echo "... schemes/DETC_test.o"
-	@echo "... schemes/DETC_test.i"
-	@echo "... schemes/DETC_test.s"
-	@echo "... schemes/DET_test.o"
-	@echo "... schemes/DET_test.i"
-	@echo "... schemes/DET_test.s"
-	@echo "... schemes/HABE.o"
-	@echo "... schemes/HABE.i"
-	@echo "... schemes/HABE.s"
-	@echo "... schemes/HABE_test.o"
-	@echo "... schemes/HABE_test.i"
-	@echo "... schemes/HABE_test.s"
-	@echo "... schemes/HCET.o"
-	@echo "... schemes/HCET.i"
-	@echo "... schemes/HCET.s"
-	@echo "... schemes/HCET_test.o"
-	@echo "... schemes/HCET_test.i"
-	@echo "... schemes/HCET_test.s"
-	@echo "... schemes/OCET.o"
-	@echo "... schemes/OCET.i"
-	@echo "... schemes/OCET.s"
-	@echo "... schemes/OCET_test.o"
-	@echo "... schemes/OCET_test.i"
-	@echo "... schemes/OCET_test.s"
-	@echo "... schemes/ODETC.o"
-	@echo "... schemes/ODETC.i"
-	@echo "... schemes/ODETC.s"
-	@echo "... schemes/ODETC_test.o"
-	@echo "... schemes/ODETC_test.i"
-	@echo "... schemes/ODETC_test.s"
-	@echo "... schemes/OHCET.o"
-	@echo "... schemes/OHCET.i"
-	@echo "... schemes/OHCET.s"
-	@echo "... schemes/OHCET_test.o"
-	@echo "... schemes/OHCET_test.i"
-	@echo "... schemes/OHCET_test.s"
+	@echo "... schemes/CP_ABEETaC.o"
+	@echo "... schemes/CP_ABEETaC.i"
+	@echo "... schemes/CP_ABEETaC.s"
+	@echo "... schemes/LU_CP_ABEEaVT.o"
+	@echo "... schemes/LU_CP_ABEEaVT.i"
+	@echo "... schemes/LU_CP_ABEEaVT.s"
+	@echo "... schemes/OCP_ABEET.o"
+	@echo "... schemes/OCP_ABEET.i"
+	@echo "... schemes/OCP_ABEET.s"
+	@echo "... schemes/OLU_CP_ABEEaVT.o"
+	@echo "... schemes/OLU_CP_ABEEaVT.i"
+	@echo "... schemes/OLU_CP_ABEEaVT.s"
 	@echo "... schemes/RW13.o"
 	@echo "... schemes/RW13.i"
 	@echo "... schemes/RW13.s"
-	@echo "... schemes/SAR.o"
-	@echo "... schemes/SAR.i"
-	@echo "... schemes/SAR.s"
-	@echo "... schemes/SR01.o"
-	@echo "... schemes/SR01.i"
-	@echo "... schemes/SR01.s"
-	@echo "... schemes/SR02.o"
-	@echo "... schemes/SR02.i"
-	@echo "... schemes/SR02.s"
 	@echo "... utils/utils.o"
 	@echo "... utils/utils.i"
 	@echo "... utils/utils.s"

@@ -9,4 +9,9 @@
 #include "RW13.h"
 #include "BSW07.h"
 
+#include "LU_CP_ABEEaVT.h"
+#include "OLU_CP_ABEEaVT.h"
+#include "CP_ABEETaC.h"
+#include "OCP_ABEET.h"
+
 #endif //ABELIB_SCHEMES_H
